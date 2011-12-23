@@ -125,6 +125,13 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
                                     [NSNumber numberWithInt:UIReturnKeyDone], @"Done",
                                     [NSNumber numberWithInt:UIReturnKeyEmergencyCall], @"EmergencyCall",
                                     nil], @"returnKeyType",
+                                             
+                     [[NSDictionary alloc] initWithObjectsAndKeys:
+                                  [NSNumber numberWithInt:UIDatePickerModeDate], @"Date",
+                                  [NSNumber numberWithInt:UIDatePickerModeTime], @"Time",
+                                  [NSNumber numberWithInt:UIDatePickerModeDateAndTime], @"DateAndTime",
+                                  [NSNumber numberWithInt:UIDatePickerModeCountDownTimer], @"CountDownTimer",
+                                  nil], @"mode",
 
                     nil];
 }

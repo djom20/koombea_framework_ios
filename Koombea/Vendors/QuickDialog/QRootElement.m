@@ -169,8 +169,6 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
                                               [NSNumber numberWithInt:UITextAutocorrectionTypeYes], @"Yes",
                                               nil], @"autocorrectionType",
                                              
-                                             
-                                             
                                              [[NSDictionary alloc] initWithObjectsAndKeys:
                                               [NSNumber numberWithInt:UIKeyboardTypeDefault], @"Default",
                                               [NSNumber numberWithInt:UIKeyboardTypeASCIICapable], @"ASCIICapable",
@@ -204,6 +202,13 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
                                               [NSNumber numberWithInt:UIReturnKeyDone], @"Done",
                                               [NSNumber numberWithInt:UIReturnKeyEmergencyCall], @"EmergencyCall",
                                               nil], @"returnKeyType",
+                                             
+                                             [[NSDictionary alloc] initWithObjectsAndKeys:
+                                              [NSNumber numberWithInt:UIDatePickerModeDate], @"Date",
+                                              [NSNumber numberWithInt:UIDatePickerModeTime], @"Time",
+                                              [NSNumber numberWithInt:UIDatePickerModeDateAndTime], @"DateAndTime",
+                                              [NSNumber numberWithInt:UIDatePickerModeCountDownTimer], @"CountDownTimer",
+                                              nil], @"mode",
                                              
                                              nil];
 }
