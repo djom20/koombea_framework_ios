@@ -1,0 +1,1021 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F71CF1614A236BD00F20805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F71CF1514A236BD00F20805 /* Foundation.framework */; };
+		3F71CF1C14A236BD00F20805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F71CF1A14A236BD00F20805 /* InfoPlist.strings */; };
+		3F71CFC214A2373800F20805 /* KBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF2414A2373800F20805 /* KBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFC314A2373800F20805 /* KBCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF2514A2373800F20805 /* KBCore.m */; };
+		3F71CFC414A2373800F20805 /* KBObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF2614A2373800F20805 /* KBObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFC514A2373800F20805 /* KBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF2714A2373800F20805 /* KBObject.m */; };
+		3F71CFC614A2373800F20805 /* KBOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF2814A2373800F20805 /* KBOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFC714A2373800F20805 /* KBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF2914A2373800F20805 /* KBOperation.m */; };
+		3F71CFC814A2373800F20805 /* NSString+String.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF2B14A2373800F20805 /* NSString+String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFC914A2373800F20805 /* NSString+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF2C14A2373800F20805 /* NSString+String.m */; };
+		3F71CFCA14A2373800F20805 /* default_models.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F71CF2E14A2373800F20805 /* default_models.plist */; };
+		3F71CFCB14A2373800F20805 /* KBCoreConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF2F14A2373800F20805 /* KBCoreConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFCC14A2373800F20805 /* KBErrorMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF3014A2373800F20805 /* KBErrorMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFCD14A2373800F20805 /* KBDatabaseProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF3514A2373800F20805 /* KBDatabaseProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFCE14A2373800F20805 /* KBDatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF3614A2373800F20805 /* KBDatabaseProvider.m */; };
+		3F71CFCF14A2373800F20805 /* KBFacebookProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF3814A2373800F20805 /* KBFacebookProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFD014A2373800F20805 /* KBFacebookProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF3914A2373800F20805 /* KBFacebookProvider.m */; };
+		3F71CFD114A2373800F20805 /* KBFacebookModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF3B14A2373800F20805 /* KBFacebookModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFD214A2373800F20805 /* KBFacebookUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF3D14A2373800F20805 /* KBFacebookUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFD314A2373800F20805 /* KBFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF3E14A2373800F20805 /* KBFacebookUser.m */; };
+		3F71CFD414A2373800F20805 /* KBDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF3F14A2373800F20805 /* KBDataProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFD514A2373800F20805 /* KBDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF4014A2373800F20805 /* KBDataProvider.m */; };
+		3F71CFD614A2373800F20805 /* KBModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF4114A2373800F20805 /* KBModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFD714A2373800F20805 /* KBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF4214A2373800F20805 /* KBModel.m */; };
+		3F71CFD814A2373800F20805 /* ActiveSupportInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF4514A2373800F20805 /* ActiveSupportInflector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFD914A2373800F20805 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF4614A2373800F20805 /* ActiveSupportInflector.m */; };
+		3F71CFDA14A2373800F20805 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F71CF4714A2373800F20805 /* ActiveSupportInflector.plist */; };
+		3F71CFDB14A2373800F20805 /* NSString+ActiveSupportInflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF4814A2373800F20805 /* NSString+ActiveSupportInflector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFDC14A2373800F20805 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF4914A2373800F20805 /* NSString+ActiveSupportInflector.m */; };
+		3F71CFDD14A2373800F20805 /* Facebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF4B14A2373800F20805 /* Facebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFDE14A2373800F20805 /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF4C14A2373800F20805 /* Facebook.m */; };
+		3F71CFDF14A2373800F20805 /* FBConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F71CF4D14A2373800F20805 /* FBConnect.bundle */; };
+		3F71CFE014A2373800F20805 /* FBConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF4E14A2373800F20805 /* FBConnect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFE114A2373800F20805 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F71CF4F14A2373800F20805 /* FBDialog.bundle */; };
+		3F71CFE214A2373800F20805 /* FBDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5014A2373800F20805 /* FBDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFE314A2373800F20805 /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5114A2373800F20805 /* FBDialog.m */; };
+		3F71CFE414A2373800F20805 /* FBLoginDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5214A2373800F20805 /* FBLoginDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFE514A2373800F20805 /* FBLoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5314A2373800F20805 /* FBLoginDialog.m */; };
+		3F71CFE614A2373800F20805 /* FBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5414A2373800F20805 /* FBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFE714A2373800F20805 /* FBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5514A2373800F20805 /* FBRequest.m */; };
+		3F71CFE814A2373800F20805 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5714A2373800F20805 /* JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFE914A2373800F20805 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5814A2373800F20805 /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFEA14A2373800F20805 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5914A2373800F20805 /* NSObject+SBJSON.m */; };
+		3F71CFEB14A2373800F20805 /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5A14A2373800F20805 /* NSString+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFEC14A2373800F20805 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5B14A2373800F20805 /* NSString+SBJSON.m */; };
+		3F71CFED14A2373800F20805 /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5C14A2373800F20805 /* SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFEE14A2373800F20805 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5D14A2373800F20805 /* SBJSON.m */; };
+		3F71CFEF14A2373800F20805 /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF5E14A2373800F20805 /* SBJsonBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFF014A2373800F20805 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF5F14A2373800F20805 /* SBJsonBase.m */; };
+		3F71CFF114A2373800F20805 /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6014A2373800F20805 /* SBJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFF214A2373800F20805 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6114A2373800F20805 /* SBJsonParser.m */; };
+		3F71CFF314A2373800F20805 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6214A2373800F20805 /* SBJsonWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFF414A2373800F20805 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6314A2373800F20805 /* SBJsonWriter.m */; };
+		3F71CFF514A2373800F20805 /* MARTNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6514A2373800F20805 /* MARTNSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFF614A2373800F20805 /* MARTNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6614A2373800F20805 /* MARTNSObject.m */; };
+		3F71CFF714A2373800F20805 /* RTIvar.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6714A2373800F20805 /* RTIvar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFF814A2373800F20805 /* RTIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6814A2373800F20805 /* RTIvar.m */; };
+		3F71CFF914A2373800F20805 /* RTMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6914A2373800F20805 /* RTMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFFA14A2373800F20805 /* RTMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6A14A2373800F20805 /* RTMethod.m */; };
+		3F71CFFB14A2373800F20805 /* RTProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6B14A2373800F20805 /* RTProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFFC14A2373800F20805 /* RTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6C14A2373800F20805 /* RTProperty.m */; };
+		3F71CFFD14A2373800F20805 /* RTProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6D14A2373800F20805 /* RTProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71CFFE14A2373800F20805 /* RTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF6E14A2373800F20805 /* RTProtocol.m */; };
+		3F71CFFF14A2373800F20805 /* RTUnregisteredClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF6F14A2373800F20805 /* RTUnregisteredClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00014A2373800F20805 /* RTUnregisteredClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7014A2373800F20805 /* RTUnregisteredClass.m */; };
+		3F71D00114A2373800F20805 /* QBadgeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7214A2373800F20805 /* QBadgeElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00214A2373800F20805 /* QBadgeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7314A2373800F20805 /* QBadgeElement.m */; };
+		3F71D00314A2373800F20805 /* QBadgeTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7414A2373800F20805 /* QBadgeTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00414A2373800F20805 /* QBadgeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7514A2373800F20805 /* QBadgeTableCell.m */; };
+		3F71D00514A2373800F20805 /* QBooleanElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7614A2373800F20805 /* QBooleanElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00614A2373800F20805 /* QBooleanElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7714A2373800F20805 /* QBooleanElement.m */; };
+		3F71D00714A2373800F20805 /* QButtonElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7814A2373800F20805 /* QButtonElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00814A2373800F20805 /* QButtonElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7914A2373800F20805 /* QButtonElement.m */; };
+		3F71D00914A2373800F20805 /* QDateEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7A14A2373800F20805 /* QDateEntryTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00A14A2373800F20805 /* QDateEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7B14A2373800F20805 /* QDateEntryTableViewCell.m */; };
+		3F71D00B14A2373800F20805 /* QDateTimeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7C14A2373800F20805 /* QDateTimeElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00C14A2373800F20805 /* QDateTimeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7D14A2373800F20805 /* QDateTimeElement.m */; };
+		3F71D00D14A2373800F20805 /* QDateTimeInlineElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF7E14A2373800F20805 /* QDateTimeInlineElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D00E14A2373800F20805 /* QDateTimeInlineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF7F14A2373800F20805 /* QDateTimeInlineElement.m */; };
+		3F71D00F14A2373800F20805 /* QDecimalElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8014A2373800F20805 /* QDecimalElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01014A2373800F20805 /* QDecimalElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8114A2373800F20805 /* QDecimalElement.m */; };
+		3F71D01114A2373800F20805 /* QDecimalTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8214A2373800F20805 /* QDecimalTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01214A2373800F20805 /* QDecimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8314A2373800F20805 /* QDecimalTableViewCell.m */; };
+		3F71D01314A2373800F20805 /* QElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8414A2373800F20805 /* QElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01414A2373800F20805 /* QElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8514A2373800F20805 /* QElement.m */; };
+		3F71D01514A2373800F20805 /* QEmptyListElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8614A2373800F20805 /* QEmptyListElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01614A2373800F20805 /* QEmptyListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8714A2373800F20805 /* QEmptyListElement.m */; };
+		3F71D01714A2373800F20805 /* QEntryElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8814A2373800F20805 /* QEntryElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01814A2373800F20805 /* QEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8914A2373800F20805 /* QEntryElement.m */; };
+		3F71D01914A2373800F20805 /* QEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8A14A2373800F20805 /* QEntryTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01A14A2373800F20805 /* QEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8B14A2373800F20805 /* QEntryTableViewCell.m */; };
+		3F71D01B14A2373800F20805 /* QFloatElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8C14A2373800F20805 /* QFloatElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01C14A2373800F20805 /* QFloatElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8D14A2373800F20805 /* QFloatElement.m */; };
+		3F71D01D14A2373800F20805 /* QLabelElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF8E14A2373800F20805 /* QLabelElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D01E14A2373800F20805 /* QLabelElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF8F14A2373800F20805 /* QLabelElement.m */; };
+		3F71D01F14A2373800F20805 /* QMapAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9014A2373800F20805 /* QMapAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02014A2373800F20805 /* QMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9114A2373800F20805 /* QMapAnnotation.m */; };
+		3F71D02114A2373800F20805 /* QMapElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9214A2373800F20805 /* QMapElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02214A2373800F20805 /* QMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9314A2373800F20805 /* QMapElement.m */; };
+		3F71D02314A2373800F20805 /* QMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9414A2373800F20805 /* QMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02414A2373800F20805 /* QMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9514A2373800F20805 /* QMapViewController.m */; };
+		3F71D02514A2373800F20805 /* QRadioElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9614A2373800F20805 /* QRadioElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02614A2373800F20805 /* QRadioElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9714A2373800F20805 /* QRadioElement.m */; };
+		3F71D02714A2373800F20805 /* QRadioItemElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9814A2373800F20805 /* QRadioItemElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02814A2373800F20805 /* QRadioItemElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9914A2373800F20805 /* QRadioItemElement.m */; };
+		3F71D02914A2373800F20805 /* QRadioSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9A14A2373800F20805 /* QRadioSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02A14A2373800F20805 /* QRadioSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9B14A2373800F20805 /* QRadioSection.m */; };
+		3F71D02B14A2373800F20805 /* QRootElement+JSONBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9C14A2373800F20805 /* QRootElement+JSONBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02C14A2373800F20805 /* QRootElement+JSONBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9D14A2373800F20805 /* QRootElement+JSONBuilder.m */; };
+		3F71D02D14A2373800F20805 /* QRootElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF9E14A2373800F20805 /* QRootElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D02E14A2373800F20805 /* QRootElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CF9F14A2373800F20805 /* QRootElement.m */; };
+		3F71D02F14A2373800F20805 /* QSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFA014A2373800F20805 /* QSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03014A2373800F20805 /* QSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFA114A2373800F20805 /* QSection.m */; };
+		3F71D03114A2373800F20805 /* QSortingSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFA214A2373800F20805 /* QSortingSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03214A2373800F20805 /* QSortingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFA314A2373800F20805 /* QSortingSection.m */; };
+		3F71D03314A2373800F20805 /* QTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFA414A2373800F20805 /* QTextElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03414A2373800F20805 /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFA514A2373800F20805 /* QTextElement.m */; };
+		3F71D03514A2373800F20805 /* QuickDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFA614A2373800F20805 /* QuickDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03614A2373800F20805 /* QuickDialogController+Loading.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFA714A2373800F20805 /* QuickDialogController+Loading.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03714A2373800F20805 /* QuickDialogController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFA814A2373800F20805 /* QuickDialogController+Loading.m */; };
+		3F71D03814A2373800F20805 /* QuickDialogController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFA914A2373800F20805 /* QuickDialogController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03914A2373800F20805 /* QuickDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFAA14A2373800F20805 /* QuickDialogController.m */; };
+		3F71D03A14A2373800F20805 /* QuickDialogDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFAB14A2373800F20805 /* QuickDialogDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03B14A2373800F20805 /* QuickDialogDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFAC14A2373800F20805 /* QuickDialogDataSource.m */; };
+		3F71D03C14A2373800F20805 /* QuickDialogStyleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFAD14A2373800F20805 /* QuickDialogStyleProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03D14A2373800F20805 /* QuickDialogTableDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFAE14A2373800F20805 /* QuickDialogTableDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D03E14A2373800F20805 /* QuickDialogTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFAF14A2373800F20805 /* QuickDialogTableDelegate.m */; };
+		3F71D03F14A2373800F20805 /* QuickDialogTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFB014A2373800F20805 /* QuickDialogTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04014A2373800F20805 /* QuickDialogTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFB114A2373800F20805 /* QuickDialogTableView.m */; };
+		3F71D04114A2373800F20805 /* quickform-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFB214A2373800F20805 /* quickform-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04214A2373800F20805 /* QWebElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFB314A2373800F20805 /* QWebElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04314A2373800F20805 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFB414A2373800F20805 /* QWebElement.m */; };
+		3F71D04414A2373800F20805 /* QWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFB514A2373800F20805 /* QWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04514A2373800F20805 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFB614A2373800F20805 /* QWebViewController.m */; };
+		3F71D04614A2373800F20805 /* KBAutoForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFB814A2373800F20805 /* KBAutoForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04714A2373800F20805 /* KBAutoForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFB914A2373800F20805 /* KBAutoForm.m */; };
+		3F71D04814A2373800F20805 /* KBTabBarCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFBA14A2373800F20805 /* KBTabBarCtrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04914A2373800F20805 /* KBTabBarCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFBB14A2373800F20805 /* KBTabBarCtrl.m */; };
+		3F71D04A14A2373800F20805 /* KBTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFBC14A2373800F20805 /* KBTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04B14A2373800F20805 /* KBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFBD14A2373800F20805 /* KBTableView.m */; };
+		3F71D04C14A2373800F20805 /* KBTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFBE14A2373800F20805 /* KBTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04D14A2373800F20805 /* KBTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFBF14A2373800F20805 /* KBTemplate.m */; };
+		3F71D04E14A2373800F20805 /* KBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFC014A2373800F20805 /* KBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D04F14A2373800F20805 /* KBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFC114A2373800F20805 /* KBView.m */; };
+		3F71D05114A2395900F20805 /* AppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71D05014A2395900F20805 /* AppConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F71D05314A239F900F20805 /* AppStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71D05214A239F900F20805 /* AppStyles.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FAA03B114A26A8C00917C34 /* RTCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAA03AF14A26A8C00917C34 /* RTCustom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FAA03B214A26A8C00917C34 /* RTCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA03B014A26A8C00917C34 /* RTCustom.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F71CF1214A236BD00F20805 /* Koombea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = Koombea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F71CF1514A236BD00F20805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F71CF1914A236BD00F20805 /* Koombea-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Koombea-Info.plist"; sourceTree = "<group>"; };
+		3F71CF1B14A236BD00F20805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F71CF1D14A236BD00F20805 /* Koombea-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Koombea-Prefix.pch"; sourceTree = "<group>"; };
+		3F71CF2414A2373800F20805 /* KBCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBCore.h; sourceTree = "<group>"; };
+		3F71CF2514A2373800F20805 /* KBCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBCore.m; sourceTree = "<group>"; };
+		3F71CF2614A2373800F20805 /* KBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBObject.h; sourceTree = "<group>"; };
+		3F71CF2714A2373800F20805 /* KBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBObject.m; sourceTree = "<group>"; };
+		3F71CF2814A2373800F20805 /* KBOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOperation.h; sourceTree = "<group>"; };
+		3F71CF2914A2373800F20805 /* KBOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOperation.m; sourceTree = "<group>"; };
+		3F71CF2B14A2373800F20805 /* NSString+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+String.h"; sourceTree = "<group>"; };
+		3F71CF2C14A2373800F20805 /* NSString+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+String.m"; sourceTree = "<group>"; };
+		3F71CF2E14A2373800F20805 /* default_models.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default_models.plist; sourceTree = "<group>"; };
+		3F71CF2F14A2373800F20805 /* KBCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBCoreConstants.h; sourceTree = "<group>"; };
+		3F71CF3014A2373800F20805 /* KBErrorMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBErrorMessages.h; sourceTree = "<group>"; };
+		3F71CF3514A2373800F20805 /* KBDatabaseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBDatabaseProvider.h; sourceTree = "<group>"; };
+		3F71CF3614A2373800F20805 /* KBDatabaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBDatabaseProvider.m; sourceTree = "<group>"; };
+		3F71CF3814A2373800F20805 /* KBFacebookProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFacebookProvider.h; sourceTree = "<group>"; };
+		3F71CF3914A2373800F20805 /* KBFacebookProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBFacebookProvider.m; sourceTree = "<group>"; };
+		3F71CF3B14A2373800F20805 /* KBFacebookModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFacebookModels.h; sourceTree = "<group>"; };
+		3F71CF3D14A2373800F20805 /* KBFacebookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFacebookUser.h; sourceTree = "<group>"; };
+		3F71CF3E14A2373800F20805 /* KBFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBFacebookUser.m; sourceTree = "<group>"; };
+		3F71CF3F14A2373800F20805 /* KBDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBDataProvider.h; sourceTree = "<group>"; };
+		3F71CF4014A2373800F20805 /* KBDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBDataProvider.m; sourceTree = "<group>"; };
+		3F71CF4114A2373800F20805 /* KBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBModel.h; sourceTree = "<group>"; };
+		3F71CF4214A2373800F20805 /* KBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBModel.m; sourceTree = "<group>"; };
+		3F71CF4514A2373800F20805 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
+		3F71CF4614A2373800F20805 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflector.m; sourceTree = "<group>"; };
+		3F71CF4714A2373800F20805 /* ActiveSupportInflector.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflector.plist; sourceTree = "<group>"; };
+		3F71CF4814A2373800F20805 /* NSString+ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ActiveSupportInflector.h"; sourceTree = "<group>"; };
+		3F71CF4914A2373800F20805 /* NSString+ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ActiveSupportInflector.m"; sourceTree = "<group>"; };
+		3F71CF4B14A2373800F20805 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
+		3F71CF4C14A2373800F20805 /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facebook.m; sourceTree = "<group>"; };
+		3F71CF4D14A2373800F20805 /* FBConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBConnect.bundle; sourceTree = "<group>"; };
+		3F71CF4E14A2373800F20805 /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
+		3F71CF4F14A2373800F20805 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBDialog.bundle; sourceTree = "<group>"; };
+		3F71CF5014A2373800F20805 /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDialog.h; sourceTree = "<group>"; };
+		3F71CF5114A2373800F20805 /* FBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDialog.m; sourceTree = "<group>"; };
+		3F71CF5214A2373800F20805 /* FBLoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginDialog.h; sourceTree = "<group>"; };
+		3F71CF5314A2373800F20805 /* FBLoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginDialog.m; sourceTree = "<group>"; };
+		3F71CF5414A2373800F20805 /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBRequest.h; sourceTree = "<group>"; };
+		3F71CF5514A2373800F20805 /* FBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBRequest.m; sourceTree = "<group>"; };
+		3F71CF5714A2373800F20805 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		3F71CF5814A2373800F20805 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		3F71CF5914A2373800F20805 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		3F71CF5A14A2373800F20805 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		3F71CF5B14A2373800F20805 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		3F71CF5C14A2373800F20805 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		3F71CF5D14A2373800F20805 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		3F71CF5E14A2373800F20805 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		3F71CF5F14A2373800F20805 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		3F71CF6014A2373800F20805 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		3F71CF6114A2373800F20805 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		3F71CF6214A2373800F20805 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		3F71CF6314A2373800F20805 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		3F71CF6514A2373800F20805 /* MARTNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARTNSObject.h; sourceTree = "<group>"; };
+		3F71CF6614A2373800F20805 /* MARTNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARTNSObject.m; sourceTree = "<group>"; };
+		3F71CF6714A2373800F20805 /* RTIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTIvar.h; sourceTree = "<group>"; };
+		3F71CF6814A2373800F20805 /* RTIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTIvar.m; sourceTree = "<group>"; };
+		3F71CF6914A2373800F20805 /* RTMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethod.h; sourceTree = "<group>"; };
+		3F71CF6A14A2373800F20805 /* RTMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMethod.m; sourceTree = "<group>"; };
+		3F71CF6B14A2373800F20805 /* RTProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProperty.h; sourceTree = "<group>"; };
+		3F71CF6C14A2373800F20805 /* RTProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProperty.m; sourceTree = "<group>"; };
+		3F71CF6D14A2373800F20805 /* RTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProtocol.h; sourceTree = "<group>"; };
+		3F71CF6E14A2373800F20805 /* RTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProtocol.m; sourceTree = "<group>"; };
+		3F71CF6F14A2373800F20805 /* RTUnregisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUnregisteredClass.h; sourceTree = "<group>"; };
+		3F71CF7014A2373800F20805 /* RTUnregisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUnregisteredClass.m; sourceTree = "<group>"; };
+		3F71CF7214A2373800F20805 /* QBadgeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBadgeElement.h; sourceTree = "<group>"; };
+		3F71CF7314A2373800F20805 /* QBadgeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBadgeElement.m; sourceTree = "<group>"; };
+		3F71CF7414A2373800F20805 /* QBadgeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBadgeTableCell.h; sourceTree = "<group>"; };
+		3F71CF7514A2373800F20805 /* QBadgeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBadgeTableCell.m; sourceTree = "<group>"; };
+		3F71CF7614A2373800F20805 /* QBooleanElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBooleanElement.h; sourceTree = "<group>"; };
+		3F71CF7714A2373800F20805 /* QBooleanElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBooleanElement.m; sourceTree = "<group>"; };
+		3F71CF7814A2373800F20805 /* QButtonElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QButtonElement.h; sourceTree = "<group>"; };
+		3F71CF7914A2373800F20805 /* QButtonElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QButtonElement.m; sourceTree = "<group>"; };
+		3F71CF7A14A2373800F20805 /* QDateEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDateEntryTableViewCell.h; sourceTree = "<group>"; };
+		3F71CF7B14A2373800F20805 /* QDateEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDateEntryTableViewCell.m; sourceTree = "<group>"; };
+		3F71CF7C14A2373800F20805 /* QDateTimeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDateTimeElement.h; sourceTree = "<group>"; };
+		3F71CF7D14A2373800F20805 /* QDateTimeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDateTimeElement.m; sourceTree = "<group>"; };
+		3F71CF7E14A2373800F20805 /* QDateTimeInlineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDateTimeInlineElement.h; sourceTree = "<group>"; };
+		3F71CF7F14A2373800F20805 /* QDateTimeInlineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDateTimeInlineElement.m; sourceTree = "<group>"; };
+		3F71CF8014A2373800F20805 /* QDecimalElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDecimalElement.h; sourceTree = "<group>"; };
+		3F71CF8114A2373800F20805 /* QDecimalElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDecimalElement.m; sourceTree = "<group>"; };
+		3F71CF8214A2373800F20805 /* QDecimalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDecimalTableViewCell.h; sourceTree = "<group>"; };
+		3F71CF8314A2373800F20805 /* QDecimalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDecimalTableViewCell.m; sourceTree = "<group>"; };
+		3F71CF8414A2373800F20805 /* QElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QElement.h; sourceTree = "<group>"; };
+		3F71CF8514A2373800F20805 /* QElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QElement.m; sourceTree = "<group>"; };
+		3F71CF8614A2373800F20805 /* QEmptyListElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QEmptyListElement.h; sourceTree = "<group>"; };
+		3F71CF8714A2373800F20805 /* QEmptyListElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QEmptyListElement.m; sourceTree = "<group>"; };
+		3F71CF8814A2373800F20805 /* QEntryElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QEntryElement.h; sourceTree = "<group>"; };
+		3F71CF8914A2373800F20805 /* QEntryElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QEntryElement.m; sourceTree = "<group>"; };
+		3F71CF8A14A2373800F20805 /* QEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QEntryTableViewCell.h; sourceTree = "<group>"; };
+		3F71CF8B14A2373800F20805 /* QEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QEntryTableViewCell.m; sourceTree = "<group>"; };
+		3F71CF8C14A2373800F20805 /* QFloatElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFloatElement.h; sourceTree = "<group>"; };
+		3F71CF8D14A2373800F20805 /* QFloatElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFloatElement.m; sourceTree = "<group>"; };
+		3F71CF8E14A2373800F20805 /* QLabelElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLabelElement.h; sourceTree = "<group>"; };
+		3F71CF8F14A2373800F20805 /* QLabelElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLabelElement.m; sourceTree = "<group>"; };
+		3F71CF9014A2373800F20805 /* QMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMapAnnotation.h; sourceTree = "<group>"; };
+		3F71CF9114A2373800F20805 /* QMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapAnnotation.m; sourceTree = "<group>"; };
+		3F71CF9214A2373800F20805 /* QMapElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMapElement.h; sourceTree = "<group>"; };
+		3F71CF9314A2373800F20805 /* QMapElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapElement.m; sourceTree = "<group>"; };
+		3F71CF9414A2373800F20805 /* QMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMapViewController.h; sourceTree = "<group>"; };
+		3F71CF9514A2373800F20805 /* QMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapViewController.m; sourceTree = "<group>"; };
+		3F71CF9614A2373800F20805 /* QRadioElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioElement.h; sourceTree = "<group>"; };
+		3F71CF9714A2373800F20805 /* QRadioElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioElement.m; sourceTree = "<group>"; };
+		3F71CF9814A2373800F20805 /* QRadioItemElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioItemElement.h; sourceTree = "<group>"; };
+		3F71CF9914A2373800F20805 /* QRadioItemElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioItemElement.m; sourceTree = "<group>"; };
+		3F71CF9A14A2373800F20805 /* QRadioSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioSection.h; sourceTree = "<group>"; };
+		3F71CF9B14A2373800F20805 /* QRadioSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioSection.m; sourceTree = "<group>"; };
+		3F71CF9C14A2373800F20805 /* QRootElement+JSONBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QRootElement+JSONBuilder.h"; sourceTree = "<group>"; };
+		3F71CF9D14A2373800F20805 /* QRootElement+JSONBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QRootElement+JSONBuilder.m"; sourceTree = "<group>"; };
+		3F71CF9E14A2373800F20805 /* QRootElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRootElement.h; sourceTree = "<group>"; };
+		3F71CF9F14A2373800F20805 /* QRootElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRootElement.m; sourceTree = "<group>"; };
+		3F71CFA014A2373800F20805 /* QSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSection.h; sourceTree = "<group>"; };
+		3F71CFA114A2373800F20805 /* QSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSection.m; sourceTree = "<group>"; };
+		3F71CFA214A2373800F20805 /* QSortingSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSortingSection.h; sourceTree = "<group>"; };
+		3F71CFA314A2373800F20805 /* QSortingSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSortingSection.m; sourceTree = "<group>"; };
+		3F71CFA414A2373800F20805 /* QTextElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTextElement.h; sourceTree = "<group>"; };
+		3F71CFA514A2373800F20805 /* QTextElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTextElement.m; sourceTree = "<group>"; };
+		3F71CFA614A2373800F20805 /* QuickDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialog.h; sourceTree = "<group>"; };
+		3F71CFA714A2373800F20805 /* QuickDialogController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuickDialogController+Loading.h"; sourceTree = "<group>"; };
+		3F71CFA814A2373800F20805 /* QuickDialogController+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QuickDialogController+Loading.m"; sourceTree = "<group>"; };
+		3F71CFA914A2373800F20805 /* QuickDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialogController.h; sourceTree = "<group>"; };
+		3F71CFAA14A2373800F20805 /* QuickDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickDialogController.m; sourceTree = "<group>"; };
+		3F71CFAB14A2373800F20805 /* QuickDialogDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialogDataSource.h; sourceTree = "<group>"; };
+		3F71CFAC14A2373800F20805 /* QuickDialogDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickDialogDataSource.m; sourceTree = "<group>"; };
+		3F71CFAD14A2373800F20805 /* QuickDialogStyleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialogStyleProvider.h; sourceTree = "<group>"; };
+		3F71CFAE14A2373800F20805 /* QuickDialogTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialogTableDelegate.h; sourceTree = "<group>"; };
+		3F71CFAF14A2373800F20805 /* QuickDialogTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickDialogTableDelegate.m; sourceTree = "<group>"; };
+		3F71CFB014A2373800F20805 /* QuickDialogTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialogTableView.h; sourceTree = "<group>"; };
+		3F71CFB114A2373800F20805 /* QuickDialogTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickDialogTableView.m; sourceTree = "<group>"; };
+		3F71CFB214A2373800F20805 /* quickform-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "quickform-Prefix.pch"; sourceTree = "<group>"; };
+		3F71CFB314A2373800F20805 /* QWebElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWebElement.h; sourceTree = "<group>"; };
+		3F71CFB414A2373800F20805 /* QWebElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWebElement.m; sourceTree = "<group>"; };
+		3F71CFB514A2373800F20805 /* QWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWebViewController.h; sourceTree = "<group>"; };
+		3F71CFB614A2373800F20805 /* QWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWebViewController.m; sourceTree = "<group>"; };
+		3F71CFB814A2373800F20805 /* KBAutoForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBAutoForm.h; sourceTree = "<group>"; };
+		3F71CFB914A2373800F20805 /* KBAutoForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBAutoForm.m; sourceTree = "<group>"; };
+		3F71CFBA14A2373800F20805 /* KBTabBarCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTabBarCtrl.h; sourceTree = "<group>"; };
+		3F71CFBB14A2373800F20805 /* KBTabBarCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTabBarCtrl.m; sourceTree = "<group>"; };
+		3F71CFBC14A2373800F20805 /* KBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTableView.h; sourceTree = "<group>"; };
+		3F71CFBD14A2373800F20805 /* KBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTableView.m; sourceTree = "<group>"; };
+		3F71CFBE14A2373800F20805 /* KBTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTemplate.h; sourceTree = "<group>"; };
+		3F71CFBF14A2373800F20805 /* KBTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTemplate.m; sourceTree = "<group>"; };
+		3F71CFC014A2373800F20805 /* KBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBView.h; sourceTree = "<group>"; };
+		3F71CFC114A2373800F20805 /* KBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBView.m; sourceTree = "<group>"; };
+		3F71D05014A2395900F20805 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		3F71D05214A239F900F20805 /* AppStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStyles.h; sourceTree = "<group>"; };
+		3FAA03AF14A26A8C00917C34 /* RTCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCustom.h; sourceTree = "<group>"; };
+		3FAA03B014A26A8C00917C34 /* RTCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCustom.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F71CF0D14A236BD00F20805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F71CF1614A236BD00F20805 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F71CF0414A236BC00F20805 = {
+			isa = PBXGroup;
+			children = (
+				3F71CF1714A236BD00F20805 /* Koombea */,
+				3F71CF4314A2373800F20805 /* Vendors */,
+				3F71CF1414A236BD00F20805 /* Frameworks */,
+				3F71CF1314A236BD00F20805 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F71CF1314A236BD00F20805 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF1214A236BD00F20805 /* Koombea.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F71CF1414A236BD00F20805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF1514A236BD00F20805 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F71CF1714A236BD00F20805 /* Koombea */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF2314A2373800F20805 /* Base */,
+				3F71CF2A14A2373800F20805 /* Categories */,
+				3F71CF2D14A2373800F20805 /* Config */,
+				3F71CF3114A2373800F20805 /* Controller */,
+				3F71CF3214A2373800F20805 /* Model */,
+				3F71CFB714A2373800F20805 /* View */,
+				3F71CF1814A236BD00F20805 /* Supporting Files */,
+			);
+			path = Koombea;
+			sourceTree = "<group>";
+		};
+		3F71CF1814A236BD00F20805 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF1914A236BD00F20805 /* Koombea-Info.plist */,
+				3F71CF1A14A236BD00F20805 /* InfoPlist.strings */,
+				3F71CF1D14A236BD00F20805 /* Koombea-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F71CF2314A2373800F20805 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF2414A2373800F20805 /* KBCore.h */,
+				3F71CF2514A2373800F20805 /* KBCore.m */,
+				3F71CF2614A2373800F20805 /* KBObject.h */,
+				3F71CF2714A2373800F20805 /* KBObject.m */,
+				3F71CF2814A2373800F20805 /* KBOperation.h */,
+				3F71CF2914A2373800F20805 /* KBOperation.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3F71CF2A14A2373800F20805 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF2B14A2373800F20805 /* NSString+String.h */,
+				3F71CF2C14A2373800F20805 /* NSString+String.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		3F71CF2D14A2373800F20805 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3F71D05014A2395900F20805 /* AppConfig.h */,
+				3F71D05214A239F900F20805 /* AppStyles.h */,
+				3F71CF2E14A2373800F20805 /* default_models.plist */,
+				3F71CF2F14A2373800F20805 /* KBCoreConstants.h */,
+				3F71CF3014A2373800F20805 /* KBErrorMessages.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		3F71CF3114A2373800F20805 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F71CF3214A2373800F20805 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF3314A2373800F20805 /* DataProvider */,
+				3F71CF4114A2373800F20805 /* KBModel.h */,
+				3F71CF4214A2373800F20805 /* KBModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F71CF3314A2373800F20805 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF3414A2373800F20805 /* Database */,
+				3F71CF3714A2373800F20805 /* Facebook */,
+				3F71CF3F14A2373800F20805 /* KBDataProvider.h */,
+				3F71CF4014A2373800F20805 /* KBDataProvider.m */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		3F71CF3414A2373800F20805 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF3514A2373800F20805 /* KBDatabaseProvider.h */,
+				3F71CF3614A2373800F20805 /* KBDatabaseProvider.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		3F71CF3714A2373800F20805 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF3814A2373800F20805 /* KBFacebookProvider.h */,
+				3F71CF3914A2373800F20805 /* KBFacebookProvider.m */,
+				3F71CF3A14A2373800F20805 /* Models */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
+		3F71CF3A14A2373800F20805 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF3B14A2373800F20805 /* KBFacebookModels.h */,
+				3F71CF3C14A2373800F20805 /* User */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F71CF3C14A2373800F20805 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF3D14A2373800F20805 /* KBFacebookUser.h */,
+				3F71CF3E14A2373800F20805 /* KBFacebookUser.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		3F71CF4314A2373800F20805 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF4414A2373800F20805 /* ActiveSupportInflector */,
+				3F71CF4A14A2373800F20805 /* FBConnect */,
+				3F71CF5614A2373800F20805 /* JSON */,
+				3F71CF6414A2373800F20805 /* MAObjCRuntime */,
+				3F71CF7114A2373800F20805 /* QuickDialog */,
+			);
+			name = Vendors;
+			path = Koombea/Vendors;
+			sourceTree = "<group>";
+		};
+		3F71CF4414A2373800F20805 /* ActiveSupportInflector */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF4514A2373800F20805 /* ActiveSupportInflector.h */,
+				3F71CF4614A2373800F20805 /* ActiveSupportInflector.m */,
+				3F71CF4714A2373800F20805 /* ActiveSupportInflector.plist */,
+				3F71CF4814A2373800F20805 /* NSString+ActiveSupportInflector.h */,
+				3F71CF4914A2373800F20805 /* NSString+ActiveSupportInflector.m */,
+			);
+			path = ActiveSupportInflector;
+			sourceTree = "<group>";
+		};
+		3F71CF4A14A2373800F20805 /* FBConnect */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF4B14A2373800F20805 /* Facebook.h */,
+				3F71CF4C14A2373800F20805 /* Facebook.m */,
+				3F71CF4D14A2373800F20805 /* FBConnect.bundle */,
+				3F71CF4E14A2373800F20805 /* FBConnect.h */,
+				3F71CF4F14A2373800F20805 /* FBDialog.bundle */,
+				3F71CF5014A2373800F20805 /* FBDialog.h */,
+				3F71CF5114A2373800F20805 /* FBDialog.m */,
+				3F71CF5214A2373800F20805 /* FBLoginDialog.h */,
+				3F71CF5314A2373800F20805 /* FBLoginDialog.m */,
+				3F71CF5414A2373800F20805 /* FBRequest.h */,
+				3F71CF5514A2373800F20805 /* FBRequest.m */,
+			);
+			path = FBConnect;
+			sourceTree = "<group>";
+		};
+		3F71CF5614A2373800F20805 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF5714A2373800F20805 /* JSON.h */,
+				3F71CF5814A2373800F20805 /* NSObject+SBJSON.h */,
+				3F71CF5914A2373800F20805 /* NSObject+SBJSON.m */,
+				3F71CF5A14A2373800F20805 /* NSString+SBJSON.h */,
+				3F71CF5B14A2373800F20805 /* NSString+SBJSON.m */,
+				3F71CF5C14A2373800F20805 /* SBJSON.h */,
+				3F71CF5D14A2373800F20805 /* SBJSON.m */,
+				3F71CF5E14A2373800F20805 /* SBJsonBase.h */,
+				3F71CF5F14A2373800F20805 /* SBJsonBase.m */,
+				3F71CF6014A2373800F20805 /* SBJsonParser.h */,
+				3F71CF6114A2373800F20805 /* SBJsonParser.m */,
+				3F71CF6214A2373800F20805 /* SBJsonWriter.h */,
+				3F71CF6314A2373800F20805 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		3F71CF6414A2373800F20805 /* MAObjCRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF6514A2373800F20805 /* MARTNSObject.h */,
+				3F71CF6614A2373800F20805 /* MARTNSObject.m */,
+				3F71CF6714A2373800F20805 /* RTIvar.h */,
+				3F71CF6814A2373800F20805 /* RTIvar.m */,
+				3F71CF6914A2373800F20805 /* RTMethod.h */,
+				3F71CF6A14A2373800F20805 /* RTMethod.m */,
+				3F71CF6B14A2373800F20805 /* RTProperty.h */,
+				3F71CF6C14A2373800F20805 /* RTProperty.m */,
+				3F71CF6D14A2373800F20805 /* RTProtocol.h */,
+				3F71CF6E14A2373800F20805 /* RTProtocol.m */,
+				3F71CF6F14A2373800F20805 /* RTUnregisteredClass.h */,
+				3F71CF7014A2373800F20805 /* RTUnregisteredClass.m */,
+				3FAA03AF14A26A8C00917C34 /* RTCustom.h */,
+				3FAA03B014A26A8C00917C34 /* RTCustom.m */,
+			);
+			path = MAObjCRuntime;
+			sourceTree = "<group>";
+		};
+		3F71CF7114A2373800F20805 /* QuickDialog */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CF7214A2373800F20805 /* QBadgeElement.h */,
+				3F71CF7314A2373800F20805 /* QBadgeElement.m */,
+				3F71CF7414A2373800F20805 /* QBadgeTableCell.h */,
+				3F71CF7514A2373800F20805 /* QBadgeTableCell.m */,
+				3F71CF7614A2373800F20805 /* QBooleanElement.h */,
+				3F71CF7714A2373800F20805 /* QBooleanElement.m */,
+				3F71CF7814A2373800F20805 /* QButtonElement.h */,
+				3F71CF7914A2373800F20805 /* QButtonElement.m */,
+				3F71CF7A14A2373800F20805 /* QDateEntryTableViewCell.h */,
+				3F71CF7B14A2373800F20805 /* QDateEntryTableViewCell.m */,
+				3F71CF7C14A2373800F20805 /* QDateTimeElement.h */,
+				3F71CF7D14A2373800F20805 /* QDateTimeElement.m */,
+				3F71CF7E14A2373800F20805 /* QDateTimeInlineElement.h */,
+				3F71CF7F14A2373800F20805 /* QDateTimeInlineElement.m */,
+				3F71CF8014A2373800F20805 /* QDecimalElement.h */,
+				3F71CF8114A2373800F20805 /* QDecimalElement.m */,
+				3F71CF8214A2373800F20805 /* QDecimalTableViewCell.h */,
+				3F71CF8314A2373800F20805 /* QDecimalTableViewCell.m */,
+				3F71CF8414A2373800F20805 /* QElement.h */,
+				3F71CF8514A2373800F20805 /* QElement.m */,
+				3F71CF8614A2373800F20805 /* QEmptyListElement.h */,
+				3F71CF8714A2373800F20805 /* QEmptyListElement.m */,
+				3F71CF8814A2373800F20805 /* QEntryElement.h */,
+				3F71CF8914A2373800F20805 /* QEntryElement.m */,
+				3F71CF8A14A2373800F20805 /* QEntryTableViewCell.h */,
+				3F71CF8B14A2373800F20805 /* QEntryTableViewCell.m */,
+				3F71CF8C14A2373800F20805 /* QFloatElement.h */,
+				3F71CF8D14A2373800F20805 /* QFloatElement.m */,
+				3F71CF8E14A2373800F20805 /* QLabelElement.h */,
+				3F71CF8F14A2373800F20805 /* QLabelElement.m */,
+				3F71CF9014A2373800F20805 /* QMapAnnotation.h */,
+				3F71CF9114A2373800F20805 /* QMapAnnotation.m */,
+				3F71CF9214A2373800F20805 /* QMapElement.h */,
+				3F71CF9314A2373800F20805 /* QMapElement.m */,
+				3F71CF9414A2373800F20805 /* QMapViewController.h */,
+				3F71CF9514A2373800F20805 /* QMapViewController.m */,
+				3F71CF9614A2373800F20805 /* QRadioElement.h */,
+				3F71CF9714A2373800F20805 /* QRadioElement.m */,
+				3F71CF9814A2373800F20805 /* QRadioItemElement.h */,
+				3F71CF9914A2373800F20805 /* QRadioItemElement.m */,
+				3F71CF9A14A2373800F20805 /* QRadioSection.h */,
+				3F71CF9B14A2373800F20805 /* QRadioSection.m */,
+				3F71CF9C14A2373800F20805 /* QRootElement+JSONBuilder.h */,
+				3F71CF9D14A2373800F20805 /* QRootElement+JSONBuilder.m */,
+				3F71CF9E14A2373800F20805 /* QRootElement.h */,
+				3F71CF9F14A2373800F20805 /* QRootElement.m */,
+				3F71CFA014A2373800F20805 /* QSection.h */,
+				3F71CFA114A2373800F20805 /* QSection.m */,
+				3F71CFA214A2373800F20805 /* QSortingSection.h */,
+				3F71CFA314A2373800F20805 /* QSortingSection.m */,
+				3F71CFA414A2373800F20805 /* QTextElement.h */,
+				3F71CFA514A2373800F20805 /* QTextElement.m */,
+				3F71CFA614A2373800F20805 /* QuickDialog.h */,
+				3F71CFA714A2373800F20805 /* QuickDialogController+Loading.h */,
+				3F71CFA814A2373800F20805 /* QuickDialogController+Loading.m */,
+				3F71CFA914A2373800F20805 /* QuickDialogController.h */,
+				3F71CFAA14A2373800F20805 /* QuickDialogController.m */,
+				3F71CFAB14A2373800F20805 /* QuickDialogDataSource.h */,
+				3F71CFAC14A2373800F20805 /* QuickDialogDataSource.m */,
+				3F71CFAD14A2373800F20805 /* QuickDialogStyleProvider.h */,
+				3F71CFAE14A2373800F20805 /* QuickDialogTableDelegate.h */,
+				3F71CFAF14A2373800F20805 /* QuickDialogTableDelegate.m */,
+				3F71CFB014A2373800F20805 /* QuickDialogTableView.h */,
+				3F71CFB114A2373800F20805 /* QuickDialogTableView.m */,
+				3F71CFB214A2373800F20805 /* quickform-Prefix.pch */,
+				3F71CFB314A2373800F20805 /* QWebElement.h */,
+				3F71CFB414A2373800F20805 /* QWebElement.m */,
+				3F71CFB514A2373800F20805 /* QWebViewController.h */,
+				3F71CFB614A2373800F20805 /* QWebViewController.m */,
+			);
+			path = QuickDialog;
+			sourceTree = "<group>";
+		};
+		3F71CFB714A2373800F20805 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F71CFB814A2373800F20805 /* KBAutoForm.h */,
+				3F71CFB914A2373800F20805 /* KBAutoForm.m */,
+				3F71CFBA14A2373800F20805 /* KBTabBarCtrl.h */,
+				3F71CFBB14A2373800F20805 /* KBTabBarCtrl.m */,
+				3F71CFBC14A2373800F20805 /* KBTableView.h */,
+				3F71CFBD14A2373800F20805 /* KBTableView.m */,
+				3F71CFBE14A2373800F20805 /* KBTemplate.h */,
+				3F71CFBF14A2373800F20805 /* KBTemplate.m */,
+				3F71CFC014A2373800F20805 /* KBView.h */,
+				3F71CFC114A2373800F20805 /* KBView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3F71CF0E14A236BD00F20805 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F71D05114A2395900F20805 /* AppConfig.h in Headers */,
+				3F71D05314A239F900F20805 /* AppStyles.h in Headers */,
+				3F71D04614A2373800F20805 /* KBAutoForm.h in Headers */,
+				3F71CFC214A2373800F20805 /* KBCore.h in Headers */,
+				3F71CFCB14A2373800F20805 /* KBCoreConstants.h in Headers */,
+				3F71CFCC14A2373800F20805 /* KBErrorMessages.h in Headers */,
+				3F71CFC414A2373800F20805 /* KBObject.h in Headers */,
+				3F71CFC614A2373800F20805 /* KBOperation.h in Headers */,
+				3F71CFC814A2373800F20805 /* NSString+String.h in Headers */,
+				3F71CFDB14A2373800F20805 /* NSString+ActiveSupportInflector.h in Headers */,
+				3F71CFD614A2373800F20805 /* KBModel.h in Headers */,
+				3F71D04E14A2373800F20805 /* KBView.h in Headers */,
+				3F71D04814A2373800F20805 /* KBTabBarCtrl.h in Headers */,
+				3F71D04A14A2373800F20805 /* KBTableView.h in Headers */,
+				3F71D03514A2373800F20805 /* QuickDialog.h in Headers */,
+				3F71CFCD14A2373800F20805 /* KBDatabaseProvider.h in Headers */,
+				3F71CFCF14A2373800F20805 /* KBFacebookProvider.h in Headers */,
+				3F71CFD114A2373800F20805 /* KBFacebookModels.h in Headers */,
+				3F71CFD214A2373800F20805 /* KBFacebookUser.h in Headers */,
+				3F71CFD414A2373800F20805 /* KBDataProvider.h in Headers */,
+				3F71CFD814A2373800F20805 /* ActiveSupportInflector.h in Headers */,
+				3F71CFDD14A2373800F20805 /* Facebook.h in Headers */,
+				3F71CFE014A2373800F20805 /* FBConnect.h in Headers */,
+				3F71CFE214A2373800F20805 /* FBDialog.h in Headers */,
+				3F71CFE414A2373800F20805 /* FBLoginDialog.h in Headers */,
+				3F71CFE614A2373800F20805 /* FBRequest.h in Headers */,
+				3F71CFE814A2373800F20805 /* JSON.h in Headers */,
+				3F71CFE914A2373800F20805 /* NSObject+SBJSON.h in Headers */,
+				3F71CFEB14A2373800F20805 /* NSString+SBJSON.h in Headers */,
+				3F71CFED14A2373800F20805 /* SBJSON.h in Headers */,
+				3F71CFEF14A2373800F20805 /* SBJsonBase.h in Headers */,
+				3F71CFF114A2373800F20805 /* SBJsonParser.h in Headers */,
+				3F71CFF314A2373800F20805 /* SBJsonWriter.h in Headers */,
+				3F71CFF514A2373800F20805 /* MARTNSObject.h in Headers */,
+				3F71CFF714A2373800F20805 /* RTIvar.h in Headers */,
+				3F71CFF914A2373800F20805 /* RTMethod.h in Headers */,
+				3F71CFFB14A2373800F20805 /* RTProperty.h in Headers */,
+				3F71CFFD14A2373800F20805 /* RTProtocol.h in Headers */,
+				3F71CFFF14A2373800F20805 /* RTUnregisteredClass.h in Headers */,
+				3FAA03B114A26A8C00917C34 /* RTCustom.h in Headers */,
+				3F71D02D14A2373800F20805 /* QRootElement.h in Headers */,
+				3F71D02B14A2373800F20805 /* QRootElement+JSONBuilder.h in Headers */,
+				3F71D02F14A2373800F20805 /* QSection.h in Headers */,
+				3F71D01714A2373800F20805 /* QEntryElement.h in Headers */,
+				3F71D00114A2373800F20805 /* QBadgeElement.h in Headers */,
+				3F71D00314A2373800F20805 /* QBadgeTableCell.h in Headers */,
+				3F71D00514A2373800F20805 /* QBooleanElement.h in Headers */,
+				3F71D00714A2373800F20805 /* QButtonElement.h in Headers */,
+				3F71D00914A2373800F20805 /* QDateEntryTableViewCell.h in Headers */,
+				3F71D00B14A2373800F20805 /* QDateTimeElement.h in Headers */,
+				3F71D00D14A2373800F20805 /* QDateTimeInlineElement.h in Headers */,
+				3F71D00F14A2373800F20805 /* QDecimalElement.h in Headers */,
+				3F71D01114A2373800F20805 /* QDecimalTableViewCell.h in Headers */,
+				3F71D01314A2373800F20805 /* QElement.h in Headers */,
+				3F71D01514A2373800F20805 /* QEmptyListElement.h in Headers */,
+				3F71D01914A2373800F20805 /* QEntryTableViewCell.h in Headers */,
+				3F71D01B14A2373800F20805 /* QFloatElement.h in Headers */,
+				3F71D01D14A2373800F20805 /* QLabelElement.h in Headers */,
+				3F71D01F14A2373800F20805 /* QMapAnnotation.h in Headers */,
+				3F71D02114A2373800F20805 /* QMapElement.h in Headers */,
+				3F71D02314A2373800F20805 /* QMapViewController.h in Headers */,
+				3F71D02514A2373800F20805 /* QRadioElement.h in Headers */,
+				3F71D02714A2373800F20805 /* QRadioItemElement.h in Headers */,
+				3F71D02914A2373800F20805 /* QRadioSection.h in Headers */,
+				3F71D03114A2373800F20805 /* QSortingSection.h in Headers */,
+				3F71D03314A2373800F20805 /* QTextElement.h in Headers */,
+				3F71D03614A2373800F20805 /* QuickDialogController+Loading.h in Headers */,
+				3F71D03814A2373800F20805 /* QuickDialogController.h in Headers */,
+				3F71D03A14A2373800F20805 /* QuickDialogDataSource.h in Headers */,
+				3F71D03C14A2373800F20805 /* QuickDialogStyleProvider.h in Headers */,
+				3F71D03D14A2373800F20805 /* QuickDialogTableDelegate.h in Headers */,
+				3F71D03F14A2373800F20805 /* QuickDialogTableView.h in Headers */,
+				3F71D04114A2373800F20805 /* quickform-Prefix.pch in Headers */,
+				3F71D04214A2373800F20805 /* QWebElement.h in Headers */,
+				3F71D04414A2373800F20805 /* QWebViewController.h in Headers */,
+				3F71D04C14A2373800F20805 /* KBTemplate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3F71CF1114A236BD00F20805 /* Koombea */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F71CF2014A236BD00F20805 /* Build configuration list for PBXNativeTarget "Koombea" */;
+			buildPhases = (
+				3F71CF0B14A236BD00F20805 /* ShellScript */,
+				3F71CF0C14A236BD00F20805 /* Sources */,
+				3F71CF0D14A236BD00F20805 /* Frameworks */,
+				3F71CF0E14A236BD00F20805 /* Headers */,
+				3F71CF0F14A236BD00F20805 /* Resources */,
+				3F71CF1014A236BD00F20805 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Koombea;
+			productName = Koombea;
+			productReference = 3F71CF1214A236BD00F20805 /* Koombea.framework */;
+			productType = "com.apple.product-type.framework.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F71CF0614A236BC00F20805 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Koombea S.A.S";
+			};
+			buildConfigurationList = 3F71CF0914A236BC00F20805 /* Build configuration list for PBXProject "Koombea" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F71CF0414A236BC00F20805;
+			productRefGroup = 3F71CF1314A236BD00F20805 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F71CF1114A236BD00F20805 /* Koombea */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F71CF0F14A236BD00F20805 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F71CF1C14A236BD00F20805 /* InfoPlist.strings in Resources */,
+				3F71CFCA14A2373800F20805 /* default_models.plist in Resources */,
+				3F71CFDA14A2373800F20805 /* ActiveSupportInflector.plist in Resources */,
+				3F71CFDF14A2373800F20805 /* FBConnect.bundle in Resources */,
+				3F71CFE114A2373800F20805 /* FBDialog.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F71CF0B14A236BD00F20805 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n\tUFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version  from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n  ([[ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]] || \\\n    ([[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n     [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n     [[ ! \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\n    )\n  )\nthen\n    exit 0\nfi\n\n\n# Clean other platform if needed\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n\techo \"Platform \\\"$UFW_SDK_PLATFORM\\\" was cleaned recently. Cleaning \\\"$UFW_OTHER_PLATFORM\\\" as well\"\n\techo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\n\txcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\nfi\n\n\n# Make sure we are building from fresh binaries\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\n\nif [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nfi\n";
+		};
+		3F71CF1014A236BD00F20805 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\nexport UFW_MASTER_SCRIPT_RUNNING=1\n\n\n# Functions\n\n## List files in the specified directory, storing to the specified array.\n#\n# @param $1 The path to list\n# @param $2 The name of the array to fill\n#\n##\nlist_files ()\n{\n    filelist=$(ls \"$1\")\n    while read line\n    do\n        eval \"$2[\\${#$2[*]}]=\\\"\\$line\\\"\"\n    done <<< \"$filelist\"\n}\n\n\n# Sanity check\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n    echo \"Framework target \\\"${TARGET_NAME}\\\" had no source files to build from. Make sure your source files have the correct target membership\"\n    exit 1\nfi\n\n\n# Gather information\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n    UFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date.\n# We already checked the other platform in the prerun script.\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]\nthen\n    echo \"ONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM}: Skipping other platform build\"\nelse\n    # Make sure the other platform gets built\n    \n    echo \"Build other platform\"\n    \n    echo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    \n    \n    # Build the fat static library binary\n    \n    echo \"Create universal static library\"\n    \n    echo \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \n    echo mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nfi\n\n# Build embedded framework structure\n\necho \"Build Embedded Framework\"\n\necho rm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\necho mkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\necho cp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\n\ndeclare -a UFW_FILE_LIST\nlist_files \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\" UFW_FILE_LIST\nfor filename in \"${UFW_FILE_LIST[@]}\"\ndo\n    if [[ \"${filename}\" != \"Info.plist\" ]] && [[ ! \"${filename}\" =~ .*\\.lproj$ ]]\n    then\n        echo ln -sf \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n        ln -sf \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n    fi\ndone\n\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]\nthen\n    # Replace other platform's framework with a copy of this one (so that both have the same universal binary)\n    \n    echo \"Copy from $UFW_SDK_PLATFORM to $UFW_OTHER_PLATFORM\"\n    \n    echo rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    echo cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F71CF0C14A236BD00F20805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F71CFC314A2373800F20805 /* KBCore.m in Sources */,
+				3F71CFC514A2373800F20805 /* KBObject.m in Sources */,
+				3F71CFC714A2373800F20805 /* KBOperation.m in Sources */,
+				3F71CFC914A2373800F20805 /* NSString+String.m in Sources */,
+				3F71CFCE14A2373800F20805 /* KBDatabaseProvider.m in Sources */,
+				3F71CFD014A2373800F20805 /* KBFacebookProvider.m in Sources */,
+				3F71CFD314A2373800F20805 /* KBFacebookUser.m in Sources */,
+				3F71CFD514A2373800F20805 /* KBDataProvider.m in Sources */,
+				3F71CFD714A2373800F20805 /* KBModel.m in Sources */,
+				3F71CFD914A2373800F20805 /* ActiveSupportInflector.m in Sources */,
+				3F71CFDC14A2373800F20805 /* NSString+ActiveSupportInflector.m in Sources */,
+				3F71CFDE14A2373800F20805 /* Facebook.m in Sources */,
+				3F71CFE314A2373800F20805 /* FBDialog.m in Sources */,
+				3F71CFE514A2373800F20805 /* FBLoginDialog.m in Sources */,
+				3F71CFE714A2373800F20805 /* FBRequest.m in Sources */,
+				3F71CFEA14A2373800F20805 /* NSObject+SBJSON.m in Sources */,
+				3F71CFEC14A2373800F20805 /* NSString+SBJSON.m in Sources */,
+				3F71CFEE14A2373800F20805 /* SBJSON.m in Sources */,
+				3F71CFF014A2373800F20805 /* SBJsonBase.m in Sources */,
+				3F71CFF214A2373800F20805 /* SBJsonParser.m in Sources */,
+				3F71CFF414A2373800F20805 /* SBJsonWriter.m in Sources */,
+				3F71CFF614A2373800F20805 /* MARTNSObject.m in Sources */,
+				3F71CFF814A2373800F20805 /* RTIvar.m in Sources */,
+				3F71CFFA14A2373800F20805 /* RTMethod.m in Sources */,
+				3F71CFFC14A2373800F20805 /* RTProperty.m in Sources */,
+				3F71CFFE14A2373800F20805 /* RTProtocol.m in Sources */,
+				3F71D00014A2373800F20805 /* RTUnregisteredClass.m in Sources */,
+				3F71D00214A2373800F20805 /* QBadgeElement.m in Sources */,
+				3F71D00414A2373800F20805 /* QBadgeTableCell.m in Sources */,
+				3F71D00614A2373800F20805 /* QBooleanElement.m in Sources */,
+				3F71D00814A2373800F20805 /* QButtonElement.m in Sources */,
+				3F71D00A14A2373800F20805 /* QDateEntryTableViewCell.m in Sources */,
+				3F71D00C14A2373800F20805 /* QDateTimeElement.m in Sources */,
+				3F71D00E14A2373800F20805 /* QDateTimeInlineElement.m in Sources */,
+				3F71D01014A2373800F20805 /* QDecimalElement.m in Sources */,
+				3F71D01214A2373800F20805 /* QDecimalTableViewCell.m in Sources */,
+				3F71D01414A2373800F20805 /* QElement.m in Sources */,
+				3F71D01614A2373800F20805 /* QEmptyListElement.m in Sources */,
+				3F71D01814A2373800F20805 /* QEntryElement.m in Sources */,
+				3F71D01A14A2373800F20805 /* QEntryTableViewCell.m in Sources */,
+				3F71D01C14A2373800F20805 /* QFloatElement.m in Sources */,
+				3F71D01E14A2373800F20805 /* QLabelElement.m in Sources */,
+				3F71D02014A2373800F20805 /* QMapAnnotation.m in Sources */,
+				3F71D02214A2373800F20805 /* QMapElement.m in Sources */,
+				3F71D02414A2373800F20805 /* QMapViewController.m in Sources */,
+				3F71D02614A2373800F20805 /* QRadioElement.m in Sources */,
+				3F71D02814A2373800F20805 /* QRadioItemElement.m in Sources */,
+				3F71D02A14A2373800F20805 /* QRadioSection.m in Sources */,
+				3F71D02C14A2373800F20805 /* QRootElement+JSONBuilder.m in Sources */,
+				3F71D02E14A2373800F20805 /* QRootElement.m in Sources */,
+				3F71D03014A2373800F20805 /* QSection.m in Sources */,
+				3F71D03214A2373800F20805 /* QSortingSection.m in Sources */,
+				3F71D03414A2373800F20805 /* QTextElement.m in Sources */,
+				3F71D03714A2373800F20805 /* QuickDialogController+Loading.m in Sources */,
+				3F71D03914A2373800F20805 /* QuickDialogController.m in Sources */,
+				3F71D03B14A2373800F20805 /* QuickDialogDataSource.m in Sources */,
+				3F71D03E14A2373800F20805 /* QuickDialogTableDelegate.m in Sources */,
+				3F71D04014A2373800F20805 /* QuickDialogTableView.m in Sources */,
+				3F71D04314A2373800F20805 /* QWebElement.m in Sources */,
+				3F71D04514A2373800F20805 /* QWebViewController.m in Sources */,
+				3F71D04714A2373800F20805 /* KBAutoForm.m in Sources */,
+				3F71D04914A2373800F20805 /* KBTabBarCtrl.m in Sources */,
+				3F71D04B14A2373800F20805 /* KBTableView.m in Sources */,
+				3F71D04D14A2373800F20805 /* KBTemplate.m in Sources */,
+				3F71D04F14A2373800F20805 /* KBView.m in Sources */,
+				3FAA03B214A26A8C00917C34 /* RTCustom.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3F71CF1A14A236BD00F20805 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F71CF1B14A236BD00F20805 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F71CF1E14A236BD00F20805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3F71CF1F14A236BD00F20805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F71CF2114A236BD00F20805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Koombea/Koombea-Prefix.pch";
+				INFOPLIST_FILE = "Koombea/Koombea-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = /Users/oscardemoya/Documents/dev/iOS/Koombea/build;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		3F71CF2214A236BD00F20805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Koombea/Koombea-Prefix.pch";
+				INFOPLIST_FILE = "Koombea/Koombea-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = /Users/oscardemoya/Documents/dev/iOS/Koombea/build;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F71CF0914A236BC00F20805 /* Build configuration list for PBXProject "Koombea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F71CF1E14A236BD00F20805 /* Debug */,
+				3F71CF1F14A236BD00F20805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F71CF2014A236BD00F20805 /* Build configuration list for PBXNativeTarget "Koombea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F71CF2114A236BD00F20805 /* Debug */,
+				3F71CF2214A236BD00F20805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F71CF0614A236BC00F20805 /* Project object */;
+}
