@@ -33,11 +33,15 @@
 
 @interface KBModel : KBObject<KBModel, KBDataProviderDelegate> {
     NSNumber *id;
+    NSDate *created_at;
+    NSDate *updated_at;
     NSDictionary *_settings;
     __weak id<KBModelDelegate> _delegate;
 }
 
 @property (nonatomic, strong) NSNumber *id;
+@property (nonatomic, strong) NSDate *created_at;
+@property (nonatomic, strong) NSDate *updated_at;
 @property (nonatomic, strong) NSDictionary *_settings;
 @property (nonatomic, weak) id<KBModelDelegate> delegate;
 

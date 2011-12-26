@@ -30,7 +30,8 @@
 {
     id ModelClass = NSClassFromString(className);
     KBModel *model = [ModelClass modelWithDictionary:nil];
-    NSArray *properties = [RTCustom rt_properties:ModelClass];
+    NSMutableArray *properties = [NSMutableArray arrayWithArray:[RTCustom rt_properties:[model class]]];
+    [properties addObjectsFromArray:[RTCustom rt_properties:[model superclass]]];
     for (RTProperty *prop in properties) {
         NSUInteger end = [prop.typeEncoding length]-3;
         NSString *className = [prop.typeEncoding substringWithRange:NSMakeRange(2, end)];
@@ -38,9 +39,14 @@
             // TODO ?
         } else if ([className isEqualToString:[[NSDictionary class] description]]) {
             // TODO ?
-        } else {
-            id value = [object valueForKey:prop.name];
-            [model setValue:value forKey:prop.name];
+        } else if (![prop.name isEqualToString:@"delegate"] && ![prop.name isEqualToString:@"id"]) {
+            @try {
+                id value = [object valueForKey:prop.name];
+                [model setValue:value forKey:prop.name];
+            }
+            @catch (NSException *exception) {
+                NSLog(EXCEPTION_MESSAGE, exception);
+            }
         }
     }
     model.id = [KBDatabaseProvider primaryKey:object];
@@ -55,7 +61,8 @@
 
 + (NSMutableArray *)fillManagedObject:(NSManagedObject *)object withModel:(KBModel *)model
 {
-    NSArray *properties = [RTCustom rt_properties:[model class]];
+    NSMutableArray *properties = [NSMutableArray arrayWithArray:[RTCustom rt_properties:[model class]]];
+    [properties addObjectsFromArray:[RTCustom rt_properties:[model superclass]]];
     NSMutableArray *subModels = [[NSMutableArray alloc] init];
     for (RTProperty *prop in properties) {
         id value;
@@ -67,7 +74,12 @@
             } else if ([value isKindOfClass:[NSDictionary class]]) {
                 // TODO ?
             } else {
-                [object setValue:value forKey:prop.name];
+                @try {
+                    [object setValue:value forKey:prop.name];
+                }
+                @catch (NSException *exception) {
+                    NSLog(EXCEPTION_MESSAGE, exception);
+                }
             }
         }
     }
@@ -124,7 +136,7 @@
                         [subModelsFiltered addObject:subModel];
                     }
                 }
-                [model setValue:subModelsFiltered forKey:[[subClassName pluralizeString] lowercaseString]];
+                [model setValue:subModelsFiltered forKey:[subClassName propertyCase]];
             }
         }
     }
@@ -146,15 +158,25 @@
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSArray *objects;
     
-    if ([model isNew]) { // Insert a new object
+    if ([model isNew]) {
+        // Insert a new object
         modelName = [[model class] description];
+        model.created_at = [NSDate date];
         NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:modelName inManagedObjectContext:moc];
         objects = [NSArray arrayWithObject:object];
-    } else { // Update existing objects
-        objects = [self fetchObjects:KBFindAll model:[[model class] description] withParams:params];
+        
+    } else {
+        // Update existing objects
+        if ([params isKindOfClass:[NSString class]]) {
+            NSString *modelId = [NSString stringWithFormat:@"%@", model.id];
+            objects = [self fetchObjects:KBFindFirst model:[[model class] description] withParams:modelId];
+        } else {
+            objects = [self fetchObjects:KBFindAll model:[[model class] description] withParams:params];
+        }
     }
     
     for (NSManagedObject *object in objects) {
+        model.updated_at = [NSDate date];
         /* NSArray *subModels = */[KBDatabaseProvider fillManagedObject:object withModel:model];
         if (![moc save:&error]) {
             NSLog(ERROR_DATABASE_PROVIDER_CREATE, error, [error userInfo]);

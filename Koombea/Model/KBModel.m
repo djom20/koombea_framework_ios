@@ -16,6 +16,8 @@
 @implementation KBModel
 
 @synthesize id;
+@synthesize created_at;
+@synthesize updated_at;
 @synthesize _settings;
 @synthesize delegate = _delegate;
 

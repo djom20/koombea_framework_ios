@@ -23,6 +23,7 @@
 
 - (QDateTimeInlineElement *)init {
     self = [super init];
+    self.dateValue = [NSDate date];
     return self;
 }
 

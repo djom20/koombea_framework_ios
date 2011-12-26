@@ -7,5 +7,6 @@
 
 - (NSString *)pluralizeString;
 - (NSString *)singularizeString;
+- (NSString *)propertyCase;
 
 @end
