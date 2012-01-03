@@ -149,8 +149,6 @@
 		3F71D04D14A2373800F20805 /* KBTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFBF14A2373800F20805 /* KBTemplate.m */; };
 		3F71D04E14A2373800F20805 /* KBView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CFC014A2373800F20805 /* KBView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F71D04F14A2373800F20805 /* KBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFC114A2373800F20805 /* KBView.m */; };
-		3F938BAE14AE1EC1005140BC /* AppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F938BAD14AE1EC1005140BC /* AppConfig.h */; };
-		3F938BB014AE1EF5005140BC /* AppStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F938BAF14AE1EF5005140BC /* AppStyles.h */; };
 		3FAA03B114A26A8C00917C34 /* RTCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAA03AF14A26A8C00917C34 /* RTCustom.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FAA03B214A26A8C00917C34 /* RTCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA03B014A26A8C00917C34 /* RTCustom.m */; };
 /* End PBXBuildFile section */
@@ -301,8 +299,6 @@
 		3F71CFBF14A2373800F20805 /* KBTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTemplate.m; sourceTree = "<group>"; };
 		3F71CFC014A2373800F20805 /* KBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBView.h; sourceTree = "<group>"; };
 		3F71CFC114A2373800F20805 /* KBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBView.m; sourceTree = "<group>"; };
-		3F938BAD14AE1EC1005140BC /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
-		3F938BAF14AE1EF5005140BC /* AppStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStyles.h; sourceTree = "<group>"; };
 		3FAA03AF14A26A8C00917C34 /* RTCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCustom.h; sourceTree = "<group>"; };
 		3FAA03B014A26A8C00917C34 /* RTCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCustom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -394,8 +390,6 @@
 		3F71CF2D14A2373800F20805 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				3F938BAD14AE1EC1005140BC /* AppConfig.h */,
-				3F938BAF14AE1EF5005140BC /* AppStyles.h */,
 				3F71CF2F14A2373800F20805 /* KBCoreConstants.h */,
 				3F71CF3014A2373800F20805 /* KBErrorMessages.h */,
 			);
@@ -650,7 +644,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F71D04614A2373800F20805 /* KBAutoForm.h in Headers */,
 				3F71CFC214A2373800F20805 /* KBCore.h in Headers */,
 				3F71CFCB14A2373800F20805 /* KBCoreConstants.h in Headers */,
 				3F71CFCC14A2373800F20805 /* KBErrorMessages.h in Headers */,
@@ -662,6 +655,7 @@
 				3F71D04E14A2373800F20805 /* KBView.h in Headers */,
 				3F71D04814A2373800F20805 /* KBTabBarCtrl.h in Headers */,
 				3F71D04A14A2373800F20805 /* KBTableView.h in Headers */,
+				3F71D04614A2373800F20805 /* KBAutoForm.h in Headers */,
 				3F71D03514A2373800F20805 /* QuickDialog.h in Headers */,
 				3F71CFCD14A2373800F20805 /* KBDatabaseProvider.h in Headers */,
 				3F71CFCF14A2373800F20805 /* KBFacebookProvider.h in Headers */,
@@ -724,8 +718,6 @@
 				3F71D04214A2373800F20805 /* QWebElement.h in Headers */,
 				3F71D04414A2373800F20805 /* QWebViewController.h in Headers */,
 				3F71D04C14A2373800F20805 /* KBTemplate.h in Headers */,
-				3F938BAE14AE1EC1005140BC /* AppConfig.h in Headers */,
-				3F938BB014AE1EF5005140BC /* AppStyles.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

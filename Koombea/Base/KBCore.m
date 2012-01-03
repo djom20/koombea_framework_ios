@@ -9,7 +9,48 @@
 
 @implementation KBCore
 
-+ (UIColor *)rgbColor:(NSString *)rgb {
++ (id)settingForKey:(NSString *)key
+{
+    static id settings = nil;
+    if (settings == nil) {
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:APP_SETTINGS ofType:@"plist"];
+        settings = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    }
+    return [settings objectForKey:key];
+}
+
++ (id)styleForKey:(NSString *)key
+{
+    static id settings = nil;
+    if (settings == nil) {
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:APP_STYLES ofType:@"plist"];
+        settings = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    }
+    return [settings objectForKey:key];
+}
+
++ (id)styleForKeyPath:(NSString *)keyPath
+{
+    NSArray *keys = [keyPath componentsSeparatedByString:@"."];
+    if ([keys count] > 0) {
+        id value = [self styleForKey:[keys objectAtIndex:0]];
+        for (int i=1; i<[keys count]; i++) {
+            value = [value objectForKey:[keys objectAtIndex:i]];
+        }
+        return value;
+    }
+    return nil;
+}
+
++ (UIColor *)colorFromPalette:(NSString *)colorName
+{
+    NSDictionary *palette = [KBCore styleForKey:COLOR_PALETTE];
+    NSString *rgb = [palette objectForKey:colorName];
+    return [KBCore rgbColor:rgb];
+}
+
++ (UIColor *)rgbColor:(NSString *)rgb
+{
     NSString *cleanString = [rgb stringByReplacingOccurrencesOfString:@"#" withString:@""];
     if([cleanString length] == 3) {
         cleanString = [NSString stringWithFormat:@"%@%@%@%@%@%@", 
@@ -32,7 +73,8 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-+ (NSString *)base64forData:(NSData*)theData {
++ (NSString *)base64forData:(NSData*)theData
+{
     const uint8_t* input = (const uint8_t*)[theData bytes];
     NSInteger length = [theData length];
     

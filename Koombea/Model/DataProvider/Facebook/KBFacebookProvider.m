@@ -9,8 +9,6 @@
 #import "KBFacebookProvider.h"
 #import "KBFacebookModels.h"
 
-static NSString* kAppId = FB_APP_ID;
-
 @implementation KBFacebookProvider
 
 @synthesize facebook;
@@ -27,6 +25,7 @@ static NSString* kAppId = FB_APP_ID;
 
 - (KBFacebookProvider *)init
 {
+    NSString* kAppId = [[KBCore settingForKey:FB_CREDENTIALS] objectForKey:FB_APP_ID];
     facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:self];
     permissions = [NSArray arrayWithObjects:@"read_stream", @"publish_stream", @"email", @"offline_access", nil];
     

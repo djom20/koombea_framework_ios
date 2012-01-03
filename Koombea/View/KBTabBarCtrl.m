@@ -54,11 +54,11 @@
 {
     [super viewDidLoad];
     
-    UIImage* bgTabBar = [UIImage imageNamed:IMG_BG_TABBAR];
+    UIImage* bgTabBar = [UIImage imageNamed:[KBCore styleForKeyPath:TABBAR_BG]];
     [[UITabBar appearance] setBackgroundImage:bgTabBar];
     
     CGRect frame = self.tabBar.frame;
-    frame.size.height = SIZE_TABBAR_HEIGHT;
+    frame.size.height = [[KBCore styleForKeyPath:TABBAR_HEIGHT] floatValue];
     [[UITabBar appearance] setFrame:frame];
 }
 

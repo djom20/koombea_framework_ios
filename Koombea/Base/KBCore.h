@@ -6,14 +6,12 @@
 //  Copyright (c) 2011 Koombea S.A.S. All rights reserved.
 //
 
-#import "AppConfig.h"
-#import "AppStyles.h"
+#import "KBCoreConstants.h"
+#import "KBErrorMessages.h"
 #import "NSString+String.h"
 #import "NSString+ActiveSupportInflector.h"
 #import "QuickDialog.h"
 #import "KBAutoForm.h"
-#import "KBCoreConstants.h"
-#import "KBErrorMessages.h"
 #import "KBObject.h"
 #import "KBModel.h"
 #import "KBOperation.h"
@@ -23,6 +21,10 @@
 
 @interface KBCore : KBObject
 
++ (id)settingForKey:(NSString *)key;
++ (id)styleForKey:(NSString *)key;
++ (id)styleForKeyPath:(NSString *)keyPath;
++ (UIColor *)colorFromPalette:(NSString *)colorName;
 + (UIColor *)rgbColor:(NSString *)rgb;
 + (NSString*)base64forData:(NSData*)data;
 

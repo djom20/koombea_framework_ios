@@ -22,7 +22,7 @@
     self.tableView.bounces = YES;
     ((QuickDialogTableView *) self.tableView).styleProvider = self;
     
-    backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:IMG_BG_DEFAULT]];
+    backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[KBCore styleForKeyPath:DEFAULT_BG]]];
     backgroundView.contentMode = UIViewContentModeTop;
     self.tableView.backgroundView = backgroundView;
 }

@@ -8,8 +8,41 @@
 
 #import <Foundation/Foundation.h>
 
-/* Model Relationships */
+/* Config File Names */
+#define APP_SETTINGS @"app_settings"
+#define APP_STYLES @"app_styles"
+#define MODEL_SETTINGS @"models"
 #define DEFAULT_MODEL_SETTINGS @"default_models"
+
+/* Settings Plist Keys */
+#define TW_CREDENTIALS @"TwitterCredentials"
+#define TW_OAUTH_KEY @"OAuthKey"
+#define TW_OAUTH_SECRET @"OAuthSecret"
+#define FB_CREDENTIALS @"FacebookCredentials"
+#define FB_APP_ID @"AppID"
+#define FB_APP_SECRET @"AppSecret"
+#define UA_CREDENTIALS @"UrbanAirshipCredentials"
+#define UA_APP_KEY @"AppKey"
+#define UA_APP_SECRET @"AppSecret"
+#define S3_SETTINGS @"AmazonS3Settings"
+#define S3_ACCESS_KEY @"AccessKey"
+#define S3_SECRET_ACCESS_KEY @"SecretAccessKey"
+#define S3_BUCKET @"Bucket"
+#define S3_FILE_PREFIX @"FilePrefix"
+
+/* Styles Plist Keys */
+#define BG @"Background"
+#define HEIGHT @"Height"
+#define TINT @"Tint"
+
+#define COLOR_PALETTE @"ColorPalette"
+#define DEFAULT_BG @"Default.background"
+#define NAVBAR_BG @"NavigationBar.background"
+#define NAVBAR_TINT @"NavigationBar.tint"
+#define TABBAR_BG @"TabBar.background"
+#define TABBAR_HEIGHT @"TabBar.height"
+
+/* Model Relationships */
 #define MODEL_HAS_ONE @"hasOne"
 #define MODEL_HAS_MANY @"hasMany"
 #define MODEL_BELONGS_TO @"belongsTo"
@@ -75,6 +108,10 @@ typedef enum {
     KBDataProviderParse         = 13
 } KBDataProviderType;
 
-/* Facebook Graph Paths */
+/* Facebook */
+#define FACEBOOK @"facebook"
 #define FB_GRAPH_PATH_ME @"me"
+
+/* Twitter */
+#define TWITTER @"twitter"
 
