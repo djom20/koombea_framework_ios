@@ -229,19 +229,18 @@
     } else if ([params isKindOfClass:[NSDictionary class]]) {
         id conditions = [params objectForKey:MODEL_CONDITIONS];
         if(conditions) {
+            NSMutableArray *predicates = [NSMutableArray array];
             for (NSString *condKey in [conditions allKeys]) {
                 id condValue = [conditions objectForKey:condKey];
                 if ([condValue isKindOfClass:[NSArray class]]) {
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K IN %@)", condKey, condValue];
-                    [request setPredicate:predicate];
-                    
+                    [predicates addObject:[NSPredicate predicateWithFormat:@"(%K IN %@)", condKey, condValue]];
                 } else if ([condValue isKindOfClass:[NSDictionary class]]) {
                     
                 } else if ([condValue isKindOfClass:[NSString class]]) {
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K == %d)", condKey, [condValue intValue]];
-                    [request setPredicate:predicate];
+                    [predicates addObject:[NSPredicate predicateWithFormat:@"(%K == %@)", condKey, condValue]];
                 }
             }
+            [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:predicates]];
         }
         NSArray *order = [params objectForKey:MODEL_ORDER];
         if(order) {

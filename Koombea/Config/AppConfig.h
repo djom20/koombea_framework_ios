@@ -11,10 +11,6 @@
 #define MODEL_SETTINGS @"models"
 #define DEFAULT_DATA_PROVIDER KBDataProviderNone
 
-// Strings
-#define FACEBOOK @"facebook"
-#define TWITTER @"twitter"
-
 // Credentials
 // Facebook
 #define FB_APP_ID @"234965273243248"
@@ -25,12 +21,15 @@
 #define TW_OAUTH_SECRET @"JDoiliOrWIZacTx8j1EipIyA2RzEElGJ9tdniHYd0"
 
 // Urban Airship
-#define UA_APP_KEY @"BaTas7jsTfOG9371bTiTXQ"
-#define UA_APP_SECRET @"mVYlFtuWTWmzzejZuSJ7iQ"
+#define UA_APP_KEY @""
+#define UA_APP_SECRET @""
 
 // Amazon S3
-#define S3_ACCESS_KEY @"AKIAIIN7MHMZOJKFTRHA"
-#define S3_SECRET_ACCESS_KEY @"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"
-#define S3_BUCKET @"mobile_sensed_data"
-#define S3_FILE_PREFIX @"rfspot_iphone_scan_"
+#define S3_ACCESS_KEY @""
+#define S3_SECRET_ACCESS_KEY @""
+#define S3_BUCKET @""
+#define S3_FILE_PREFIX @""
 
+// Constants
+#define FACEBOOK @"facebook"
+#define TWITTER @"twitter"

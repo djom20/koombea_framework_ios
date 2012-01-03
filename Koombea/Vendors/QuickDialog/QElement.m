@@ -20,6 +20,7 @@
 }
 @synthesize parentSection = _parentSection;
 @synthesize key = _key;
+@synthesize validate = _validate;
 
 @synthesize onSelected = _onSelected;
 @synthesize controllerAction = _controllerAction;

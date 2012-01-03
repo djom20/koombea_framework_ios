@@ -53,6 +53,7 @@
 + (NSDictionary *)modelSettings;
 + (KBDataProviderType)dataProvider;
 - (KBDataProviderType)dataProviderType;
+- (NSArray *)validate;
 - (BOOL)isNew;
 + (BOOL)hasProperty:(NSString *)key;
 

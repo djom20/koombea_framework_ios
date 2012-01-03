@@ -138,6 +138,41 @@
     return results;
 }
 
+- (NSArray *)validate
+{
+    NSMutableArray *errors = [NSMutableArray array];
+    NSDictionary *settings = [[self class] modelSettings];
+    NSDictionary *validate = [settings objectForKey:MODEL_VALIDATE];
+    for (NSString *field in [validate allKeys]) {
+        NSDictionary *rules = [validate objectForKey:field];
+        id value = [self valueForKey:field];
+        for (NSString *type in rules) {
+            BOOL invalid = NO;
+            if ([type isEqualToString:MODEL_VALIDATE_EMPTY]) {
+                BOOL empty = [[rules objectForKey:type] intValue];
+                if ((value == nil || [[NSString stringWithFormat:@"%@", value] isEqualToString:@""]) != empty) {
+                    invalid = YES;
+                }
+            } else if ([type isEqualToString:MODEL_VALIDATE_LENGTH]) {
+                int length = [[rules objectForKey:type] intValue];
+                if (value == nil || [[NSString stringWithFormat:@"%@", value] isEqualToString:@""] ||
+                    [[NSString stringWithFormat:@"%@", value] length] != length) {
+                    invalid = YES;
+                }
+            }
+            if (invalid) {
+                NSMutableDictionary *err = [NSMutableDictionary dictionary];
+                [err setObject:field forKey:@"key"];
+                [err setObject:type forKey:@"validate"];
+                [err setObject:[rules objectForKey:type] forKey:@"condition"];
+                if(value) [err setObject:value forKey:@"value"];
+                [errors addObject:err];
+            }
+        }
+    }
+    return errors;
+}
+
 - (BOOL)isNew
 {
     return (self.id == 0);

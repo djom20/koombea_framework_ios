@@ -27,6 +27,56 @@
     self.tableView.backgroundView = backgroundView;
 }
 
+#pragma mark - Validations
+
+- (NSArray *)validateForm
+{
+    NSMutableArray *errors = [[NSMutableArray alloc] init];
+    for (QSection *section in root.sections) {
+        for (QElement *element in section.elements) {
+            NSDictionary *err = [self validateField:element];
+            if (err) [errors addObject:err];
+        }
+    }
+    return errors;
+}
+
+- (NSDictionary *)validateField:(QElement *)element
+{
+    NSMutableDictionary *error = nil;
+    if (element.validate) {
+        if ([element.validate isEqualToString:@"NotEmpty"]) {
+            if ([element isKindOfClass:[QEntryElement class]]) {
+                QEntryElement *elem = (QEntryElement *) element;
+                if (elem.textValue == nil || [elem.textValue isEqualToString:@""]) {
+                    error = [NSMutableDictionary dictionary];
+                    [error setObject:elem.key forKey:@"key"];
+                    [error setObject:elem.validate forKey:@"validate"];
+                    if(elem.title) [error setObject:elem.title forKey:@"title"];
+                    if(elem.textValue) [error setObject:elem.textValue forKey:@"value"];
+                    
+                }
+            }
+        }
+    }
+    return error;
+}
+
+- (void)setValue:(id)value forElementWithKey:(NSString *)key {
+    for (QSection *section in root.sections) {
+        for (QElement *element in section.elements) { 
+            if ([element.key isEqualToString:key]) {
+                if ([element isKindOfClass:[QEntryElement class]]) {
+                    ((QEntryElement *) element).textValue = value;
+                    [self.tableView reloadData];
+                }
+            } 
+        }
+    }
+}
+
+#pragma mark -
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

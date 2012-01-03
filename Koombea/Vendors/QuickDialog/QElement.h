@@ -21,6 +21,7 @@
 @protected
     __weak QSection *_parentSection;
     NSString *_key;
+    NSString *_validate;
 
     void (^_onSelected)(void);
     NSString * _controllerAction;
@@ -35,6 +36,7 @@
 
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) NSObject *object;
+@property(nonatomic, retain) NSString *validate;
 
 - (QElement *)initWithKey:(NSString *)key;
 

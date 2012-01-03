@@ -33,8 +33,13 @@ typedef enum {
 #define MODEL_ASCENDING @"ascending"
 #define MODEL_ATTRIBUTE @"attribute"
 #define MODEL_CONDITIONS @"conditions"
+#define MODEL_VALIDATE @"validate"
 #define MODEL_ORDER @"order"
 #define MODEL_RECURSIVE @"recursive"
+
+/* Validations */
+#define MODEL_VALIDATE_EMPTY @"Empty"
+#define MODEL_VALIDATE_LENGTH @"Length"
 
 /* Data Providers */
 #define DATA_PROVIDER @"dataProvider"
