@@ -16,7 +16,9 @@
 
 @property (nonatomic, strong) QRootElement *root;
 
-- (void)loadForm:(NSString *)jsonFile;
+- (void)createWithJSONFile:(NSString *)jsonFile;
+- (void)createWithJSONString:(NSString *)jsonString;
+- (void)createWithRoot:(QRootElement *)root;
 - (NSArray *)validateForm;
 - (NSDictionary *)validateField:(QElement *)element;
 - (void)setValue:(id)value forElementWithKey:(NSString *)key;

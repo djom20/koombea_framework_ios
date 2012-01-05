@@ -172,8 +172,6 @@
 	QEntryElement *element; 
 	if (control.selectedSegmentIndex == 1){
 		element = [self findNextElementToFocusOn];
-      
-		
 	} else {
 		element = [self findPreviousElementToFocusOn];
 	}
@@ -186,7 +184,6 @@
 		}
 	}
 }
-
 
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];

@@ -13,10 +13,21 @@
 
 @synthesize root;
 
-- (void)loadForm:(NSString *)jsonFile
+- (void)createWithJSONFile:(NSString *)jsonFile
 {
     root = [[QRootElement alloc] initWithJSONFile:jsonFile];
-    [self setRoot:root];
+    [self createWithRoot:root];
+}
+
+- (void)createWithJSONString:(NSString *)jsonString
+{
+    root = [[QRootElement alloc] initWithJSONString:jsonString];
+    [self createWithRoot:root];
+}
+
+- (void)createWithRoot:(QRootElement *)rootElement
+{
+    [self setRoot:rootElement];
     QuickDialogTableView *quickformTableView = [[QuickDialogTableView alloc] initWithController:self];
     self.tableView = quickformTableView;
     self.tableView.bounces = YES;

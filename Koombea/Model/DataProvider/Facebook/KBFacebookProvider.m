@@ -25,7 +25,7 @@
 
 - (KBFacebookProvider *)init
 {
-    NSString* kAppId = [[KBCore settingForKey:FB_CREDENTIALS] objectForKey:FB_APP_ID];
+    NSString* kAppId = [[KBCore settingForKey:FB_SETTINGS] objectForKey:FB_APP_ID];
     facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:self];
     permissions = [NSArray arrayWithObjects:@"read_stream", @"publish_stream", @"email", @"offline_access", nil];
     

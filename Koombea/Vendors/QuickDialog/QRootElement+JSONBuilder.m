@@ -74,6 +74,24 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 }
 
 
+- (id)initWithJSONString:(NSString *)jsonString {
+    self = [super init];
+    
+    Class JSONSerialization = objc_getClass("NSJSONSerialization");
+    
+    NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
+    
+    if (self!=nil) {
+        if (QRootElementJSONBuilderConversionDict==nil)
+            [self initializeMappings];
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *jsonRoot = [JSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&jsonParsingError];
+        [self buildRootWithJSON:jsonRoot];
+    }
+    return self;
+}
+
 - (void)initializeMappings {
     QRootElementJSONBuilderConversionDict = [[NSDictionary alloc] initWithObjectsAndKeys:
 

@@ -9,32 +9,28 @@
 #import <Foundation/Foundation.h>
 
 /* Config File Names */
-#define APP_SETTINGS @"app_settings"
-#define APP_STYLES @"app_styles"
+#define APP_SETTINGS @"settings"
+#define APP_STYLES @"styles"
 #define MODEL_SETTINGS @"models"
 #define DEFAULT_MODEL_SETTINGS @"default_models"
 
 /* Settings Plist Keys */
-#define TW_CREDENTIALS @"TwitterCredentials"
+#define TW_SETTINGS @"Twitter"
 #define TW_OAUTH_KEY @"OAuthKey"
 #define TW_OAUTH_SECRET @"OAuthSecret"
-#define FB_CREDENTIALS @"FacebookCredentials"
+#define FB_SETTINGS @"Facebook"
 #define FB_APP_ID @"AppID"
 #define FB_APP_SECRET @"AppSecret"
-#define UA_CREDENTIALS @"UrbanAirshipCredentials"
+#define UA_SETTINGS @"UrbanAirship"
 #define UA_APP_KEY @"AppKey"
 #define UA_APP_SECRET @"AppSecret"
-#define S3_SETTINGS @"AmazonS3Settings"
+#define S3_SETTINGS @"AmazonS3"
 #define S3_ACCESS_KEY @"AccessKey"
 #define S3_SECRET_ACCESS_KEY @"SecretAccessKey"
 #define S3_BUCKET @"Bucket"
 #define S3_FILE_PREFIX @"FilePrefix"
 
 /* Styles Plist Keys */
-#define BG @"Background"
-#define HEIGHT @"Height"
-#define TINT @"Tint"
-
 #define COLOR_PALETTE @"ColorPalette"
 #define DEFAULT_BG @"Default.background"
 #define NAVBAR_BG @"NavigationBar.background"
