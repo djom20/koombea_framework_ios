@@ -38,6 +38,8 @@
                          [NSNumber numberWithInteger:KBDataProviderVideoLocal], DATA_PROVIDER_VIDEO_LOCAL,
                          [NSNumber numberWithInteger:KBDataProviderVideoStream], DATA_PROVIDER_VIDEO_STREAM,
                          [NSNumber numberWithInteger:KBDataProviderParse], DATA_PROVIDER_PARSE,
+                         [NSNumber numberWithInteger:KBDataProviderJSON], DATA_PROVIDER_JSON,
+                         [NSNumber numberWithInteger:KBDataProviderPlist], DATA_PROVIDER_PLIST,
                          nil
                          ];
     }

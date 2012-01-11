@@ -8,7 +8,7 @@
 
 #import "KBDataProvider.h"
 
-@interface KBDatabaseProvider : KBDataProvider<KBDataProvider, NSFetchedResultsControllerDelegate> {
+@interface KBDatabaseProvider : KBDataProvider<NSFetchedResultsControllerDelegate> {
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;

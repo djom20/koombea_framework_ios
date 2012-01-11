@@ -40,6 +40,7 @@
 - (NSInteger)numberOfSections;
 
 - (id)initWithJSONFile:(NSString *)jsonPath;
+- (id)initWithJSONString:(NSString *)jsonString;
 - (void)updateObject:(id)obj withPropertiesFrom:(NSDictionary *)dict;
 
 @end

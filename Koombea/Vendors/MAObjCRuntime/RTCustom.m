@@ -31,4 +31,11 @@
     return array;
 }
 
++ (RTProperty *)rt_propertyForName:(NSString *)name fromClass:(Class)aClass
+{
+    objc_property_t property = class_getProperty(aClass, [name UTF8String]);
+    if(!property) return nil;
+    return [RTProperty propertyWithObjCProperty: property];
+}
+
 @end

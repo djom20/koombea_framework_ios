@@ -17,5 +17,6 @@
 @interface RTCustom : NSObject
 
 + (NSArray *)rt_properties:(Class)aClass;
++ (RTProperty *)rt_propertyForName:(NSString *)name fromClass:(Class)aClass;
 
 @end

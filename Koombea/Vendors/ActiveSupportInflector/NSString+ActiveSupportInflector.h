@@ -7,6 +7,8 @@
 
 - (NSString *)pluralizeString;
 - (NSString *)singularizeString;
-- (NSString *)propertyCase;
+- (NSString *)propertyString;
+- (NSString *)propertyPluralizedString;
+- (NSString *)foreignKeyString;
 
 @end

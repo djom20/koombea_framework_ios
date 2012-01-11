@@ -9,7 +9,7 @@
 #import "KBDataProvider.h"
 #import "FBConnect.h"
 
-@interface KBFacebookProvider : KBDataProvider<KBDataProvider, FBRequestDelegate, FBDialogDelegate, FBSessionDelegate> {
+@interface KBFacebookProvider : KBDataProvider<FBRequestDelegate, FBDialogDelegate, FBSessionDelegate> {
     Facebook *facebook;
     NSArray *permissions;
 }

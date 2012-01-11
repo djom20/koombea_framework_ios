@@ -10,6 +10,8 @@
 #import "KBCore.h"
 #import "KBDatabaseProvider.h"
 #import "KBFacebookProvider.h"
+#import "KBJSONProvider.h"
+#import "KBPlistProvider.h"
 #import "KBFacebookUser.h"
 #import "RTCustom.h"
 
@@ -125,6 +127,10 @@
         KBFacebookProvider *facebookProvider = [KBFacebookProvider shared];
         facebookProvider.delegate = self;
         [facebookProvider find:findType model:[[self class] description] withParams:params];
+    } else if ([[self class] dataProvider] == KBDataProviderJSON) {
+        results = [[KBJSONProvider shared] find:findType model:[[self class] description] withParams:params];
+    } else if ([[self class] dataProvider] == KBDataProviderPlist) {
+        results = [[KBPlistProvider shared] find:findType model:[[self class] description] withParams:params];
     }
     return results;
 }

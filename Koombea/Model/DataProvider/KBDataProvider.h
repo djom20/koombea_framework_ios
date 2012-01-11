@@ -26,7 +26,7 @@
 - (void)deleteError:(NSString *)className withData:(id)data;
 @end
 
-@interface KBDataProvider : KBObject {
+@interface KBDataProvider : KBObject<KBDataProvider> {
     NSString *modelName;
     __weak id<KBDataProviderDelegate> _delegate;
 }

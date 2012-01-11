@@ -40,6 +40,7 @@
         } else if ([className isEqualToString:[[NSDictionary class] description]]) {
             // TODO ?
         } else if (![prop.name isEqualToString:@"delegate"] && ![prop.name isEqualToString:@"id"]) {
+            // if ([RTCustom rt_propertyForName:prop.name fromClass:[model class]]) {
             @try {
                 id value = [object valueForKey:prop.name];
                 [model setValue:value forKey:prop.name];
@@ -74,6 +75,7 @@
             } else if ([value isKindOfClass:[NSDictionary class]]) {
                 // TODO ?
             } else {
+                // if ([RTCustom rt_propertyForName:prop.name fromClass:[model class]]) {
                 @try {
                     [object setValue:value forKey:prop.name];
                 }
@@ -115,7 +117,7 @@
         // Retrieve children data
         recursive = [NSNumber numberWithInt:([recursive intValue]-1)];
         NSDictionary *hasMany = [settings objectForKey:MODEL_HAS_MANY];
-        NSString *foreignKeyName = [NSString stringWithFormat:@"%@_id", [className lowercaseString]];
+        NSString *foreignKeyName = [className foreignKeyString];
         NSMutableDictionary *allSubModels = [NSMutableDictionary dictionary];
         for (NSString *subClassName in [hasMany allKeys]) {
             // TODO: read foreign key name from plist
@@ -131,12 +133,12 @@
                 NSArray *subModels = [allSubModels objectForKey:subClassName];
                 NSMutableArray *subModelsFiltered = [NSMutableArray array];
                 for (KBModel *subModel in subModels) {
-                    NSString *foreignKeyName = [NSString stringWithFormat:@"%@_id", [className lowercaseString]];
+                    NSString *foreignKeyName = [className foreignKeyString];
                     if ([subModel valueForKey:foreignKeyName] == model.id) {
                         [subModelsFiltered addObject:subModel];
                     }
                 }
-                [model setValue:subModelsFiltered forKey:[subClassName propertyCase]];
+                [model setValue:subModelsFiltered forKey:[subClassName propertyPluralizedString]];
             }
         }
     }

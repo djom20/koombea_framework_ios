@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */; };
+		3F39EF5F14B63CF30009B77E /* KBJSONProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F39EF5D14B63CF30009B77E /* KBJSONProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F39EF6014B63CF30009B77E /* KBJSONProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F39EF5E14B63CF30009B77E /* KBJSONProvider.m */; };
+		3F67F00E14BDF6E100DCB627 /* QPickerEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F67F00C14BDF6E100DCB627 /* QPickerEntryTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F67F00F14BDF6E100DCB627 /* QPickerEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67F00D14BDF6E100DCB627 /* QPickerEntryTableViewCell.m */; };
+		3F67F01314BDF76100DCB627 /* QPickerInlineElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F67F01114BDF76100DCB627 /* QPickerInlineElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F67F01414BDF76100DCB627 /* QPickerInlineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67F01214BDF76100DCB627 /* QPickerInlineElement.m */; };
 		3F71CF1614A236BD00F20805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F71CF1514A236BD00F20805 /* Foundation.framework */; };
 		3F71CF1C14A236BD00F20805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F71CF1A14A236BD00F20805 /* InfoPlist.strings */; };
 		3F71CFC214A2373800F20805 /* KBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F71CF2414A2373800F20805 /* KBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -154,6 +162,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBPlistProvider.h; path = Plist/KBPlistProvider.h; sourceTree = "<group>"; };
+		3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBPlistProvider.m; path = Plist/KBPlistProvider.m; sourceTree = "<group>"; };
+		3F39EF5D14B63CF30009B77E /* KBJSONProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBJSONProvider.h; path = JSON/KBJSONProvider.h; sourceTree = "<group>"; };
+		3F39EF5E14B63CF30009B77E /* KBJSONProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBJSONProvider.m; path = JSON/KBJSONProvider.m; sourceTree = "<group>"; };
+		3F67F00C14BDF6E100DCB627 /* QPickerEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerEntryTableViewCell.h; sourceTree = "<group>"; };
+		3F67F00D14BDF6E100DCB627 /* QPickerEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPickerEntryTableViewCell.m; sourceTree = "<group>"; };
+		3F67F01114BDF76100DCB627 /* QPickerInlineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerInlineElement.h; sourceTree = "<group>"; };
+		3F67F01214BDF76100DCB627 /* QPickerInlineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPickerInlineElement.m; sourceTree = "<group>"; };
 		3F71CF1214A236BD00F20805 /* Koombea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = Koombea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F71CF1514A236BD00F20805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F71CF1914A236BD00F20805 /* Koombea-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Koombea-Info.plist"; sourceTree = "<group>"; };
@@ -315,6 +331,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0B654A14B5F88900EB4D1A /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */,
+				3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */,
+			);
+			name = Plist;
+			sourceTree = "<group>";
+		};
+		3F15E3BF14B6324800367AEE /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3F39EF5D14B63CF30009B77E /* KBJSONProvider.h */,
+				3F39EF5E14B63CF30009B77E /* KBJSONProvider.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		3F71CF0414A236BC00F20805 = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +452,8 @@
 			children = (
 				3F71CF3414A2373800F20805 /* Database */,
 				3F71CF3714A2373800F20805 /* Facebook */,
+				3F15E3BF14B6324800367AEE /* JSON */,
+				3F0B654A14B5F88900EB4D1A /* Plist */,
 				3F71CF3F14A2373800F20805 /* KBDataProvider.h */,
 				3F71CF4014A2373800F20805 /* KBDataProvider.m */,
 			);
@@ -583,6 +619,10 @@
 				3F71CF9314A2373800F20805 /* QMapElement.m */,
 				3F71CF9414A2373800F20805 /* QMapViewController.h */,
 				3F71CF9514A2373800F20805 /* QMapViewController.m */,
+				3F67F01114BDF76100DCB627 /* QPickerInlineElement.h */,
+				3F67F01214BDF76100DCB627 /* QPickerInlineElement.m */,
+				3F67F00C14BDF6E100DCB627 /* QPickerEntryTableViewCell.h */,
+				3F67F00D14BDF6E100DCB627 /* QPickerEntryTableViewCell.m */,
 				3F71CF9614A2373800F20805 /* QRadioElement.h */,
 				3F71CF9714A2373800F20805 /* QRadioElement.m */,
 				3F71CF9814A2373800F20805 /* QRadioItemElement.h */,
@@ -659,6 +699,8 @@
 				3F71D03514A2373800F20805 /* QuickDialog.h in Headers */,
 				3F71CFCD14A2373800F20805 /* KBDatabaseProvider.h in Headers */,
 				3F71CFCF14A2373800F20805 /* KBFacebookProvider.h in Headers */,
+				3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */,
+				3F39EF5F14B63CF30009B77E /* KBJSONProvider.h in Headers */,
 				3F71CFD114A2373800F20805 /* KBFacebookModels.h in Headers */,
 				3F71CFD214A2373800F20805 /* KBFacebookUser.h in Headers */,
 				3F71CFD414A2373800F20805 /* KBDataProvider.h in Headers */,
@@ -693,6 +735,8 @@
 				3F71D00914A2373800F20805 /* QDateEntryTableViewCell.h in Headers */,
 				3F71D00B14A2373800F20805 /* QDateTimeElement.h in Headers */,
 				3F71D00D14A2373800F20805 /* QDateTimeInlineElement.h in Headers */,
+				3F67F00E14BDF6E100DCB627 /* QPickerEntryTableViewCell.h in Headers */,
+				3F67F01314BDF76100DCB627 /* QPickerInlineElement.h in Headers */,
 				3F71D00F14A2373800F20805 /* QDecimalElement.h in Headers */,
 				3F71D01114A2373800F20805 /* QDecimalTableViewCell.h in Headers */,
 				3F71D01314A2373800F20805 /* QElement.h in Headers */,
@@ -883,6 +927,10 @@
 				3F71D04D14A2373800F20805 /* KBTemplate.m in Sources */,
 				3F71D04F14A2373800F20805 /* KBView.m in Sources */,
 				3FAA03B214A26A8C00917C34 /* RTCustom.m in Sources */,
+				3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */,
+				3F39EF6014B63CF30009B77E /* KBJSONProvider.m in Sources */,
+				3F67F00F14BDF6E100DCB627 /* QPickerEntryTableViewCell.m in Sources */,
+				3F67F01414BDF76100DCB627 /* QPickerInlineElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

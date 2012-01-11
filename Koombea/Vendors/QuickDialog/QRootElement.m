@@ -85,7 +85,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
             if ([QRootElementJSONBuilderConversionDict objectForKey:key]!=nil) {
                 [obj setValue:[[QRootElementJSONBuilderConversionDict objectForKey:key] objectForKey:value] forKey:key];
             }
-        } else if ([value isKindOfClass:[NSNumber class]]) {
+        } else if ([value isKindOfClass:[NSNumber class]] || [key isEqualToString:@"values"]) {
             [obj setValue:value forKey:key];
         }
     }
@@ -136,6 +136,23 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
     return self;
 }
 
+- (id)initWithJSONString:(NSString *)jsonString {
+    self = [super init];
+    
+    Class JSONSerialization = objc_getClass("NSJSONSerialization");
+    
+    NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
+    
+    if (self!=nil) {
+        if (QRootElementJSONBuilderConversionDict==nil)
+            [self initializeMappings];
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *jsonRoot = [JSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&jsonParsingError];
+        [self buildRootWithJSON:jsonRoot];
+    }
+    return self;
+}
 
 - (void)initializeMappings {
     
@@ -144,6 +161,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
     [QBooleanElement load];
     [QButtonElement load];
     [QDateTimeInlineElement load];
+    [QPickerInlineElement load];
     [QFloatElement load];
     [QMapElement load];
     [QRadioElement load];

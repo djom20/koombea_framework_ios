@@ -38,6 +38,10 @@
 #define TABBAR_BG @"TabBar.background"
 #define TABBAR_HEIGHT @"TabBar.height"
 
+/* Model Attributes */
+#define MODEL_KEY @"key"
+#define MODEL_VALUE @"value"
+
 /* Model Relationships */
 #define MODEL_HAS_ONE @"hasOne"
 #define MODEL_HAS_MANY @"hasMany"
@@ -86,6 +90,8 @@ typedef enum {
 #define DATA_PROVIDER_VIDEO_LOCAL @"DATA_PROVIDER_VIDEO_LOCAL"
 #define DATA_PROVIDER_VIDEO_STREAM @"DATA_PROVIDER_VIDEO_STREAM"
 #define DATA_PROVIDER_PARSE @"DATA_PROVIDER_PARSE"
+#define DATA_PROVIDER_JSON @"DATA_PROVIDER_JSON"
+#define DATA_PROVIDER_PLIST @"DATA_PROVIDER_PLIST"
 
 typedef enum {
     KBDataProviderNone          = 0,
@@ -101,7 +107,9 @@ typedef enum {
     KBDataProviderAudioStream   = 10,
     KBDataProviderVideoLocal    = 11,
     KBDataProviderVideoStream   = 12,
-    KBDataProviderParse         = 13
+    KBDataProviderParse         = 13,
+    KBDataProviderJSON          = 14,
+    KBDataProviderPlist         = 15
 } KBDataProviderType;
 
 /* Facebook */
