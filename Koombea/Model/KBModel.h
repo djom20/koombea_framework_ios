@@ -52,7 +52,7 @@
 + (KBModel *)fillModel:(KBModel *)model withDictionary:(NSDictionary *)dict;
 + (NSDictionary *)modelSettings;
 + (KBDataProviderType)dataProvider;
-- (KBDataProviderType)dataProviderType;
+- (KBDataProvider *)prepareOperation:(KBFindType)findType withParams:(id)params;
 - (NSArray *)validate;
 - (BOOL)isNew;
 + (BOOL)hasProperty:(NSString *)key;

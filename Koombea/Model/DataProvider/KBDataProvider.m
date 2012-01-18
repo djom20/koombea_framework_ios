@@ -8,11 +8,29 @@
 
 #import "KBDataProvider.h"
 #import "KBCore.h"
+#import "KBDatabaseProvider.h"
+#import "KBApiProvider.h"
+#import "KBFacebookProvider.h"
+#import "KBJSONProvider.h"
+#import "KBParseProvider.h"
+#import "KBPlistProvider.h"
 
 @implementation KBDataProvider
 
-@synthesize modelName;
+@synthesize modelName = _modelName;
+@synthesize findType = _findType;
 @synthesize delegate = _delegate;
+
++ (KBDataProvider *)sharedDataProvider
+{
+    static KBDataProvider *instance = nil;
+    if (nil == instance) {
+        instance = [[[self class] alloc] init];
+    } else if (![instance isKindOfClass:[self class]]) {
+        instance = [[[self class] alloc] init];
+    }
+    return instance;
+}
 
 + (KBDataProviderType)dataProviderType:(NSString *)string
 {
@@ -44,6 +62,28 @@
                          ];
     }
     return dataProviders;
+}
+
++ (Class)dataProviderClass:(KBDataProviderType)dataProviderType {
+    switch (dataProviderType) {
+        case KBDataProviderNone: return nil;
+        case KBDataProviderAPI: return [KBApiProvider class];
+        //case KBDataProviderRegistry: return [KBRegistryProvider class];
+        case KBDataProviderDatabase: return [KBDatabaseProvider class];
+        //case KBDataProviderFile: return [KBFileProvider class];
+        //case KBDataProviderTwitter: return [KBTwitterProvider class];
+        case KBDataProviderFacebook: return [KBFacebookProvider class];
+        //case KBDataProviderAmazonS3: return [KBAmazonS3Provider class];
+        //case KBDataProviderFTP: return [KBJFTPProvider class];
+        //case KBDataProviderAudioLocal: return [KBAudioLocalProvider class];
+        //case KBDataProviderAudioStream: return [KBAudioStreamProvider class];
+        //case KBDataProviderVideoLocal: return [KBVideoLocalProvider class];
+        //case KBDataProviderVideoStream: return [KBVideoStreamProvider class];
+        case KBDataProviderParse: return [KBParseProvider class];
+        case KBDataProviderJSON: return [KBJSONProvider class];
+        case KBDataProviderPlist: return [KBPlistProvider class];
+        default: return nil;
+    }
 }
 
 @end

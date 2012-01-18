@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */; };
+		3F1832D014C61421002F2DB2 /* KBApiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CC14C61421002F2DB2 /* KBApiClient.h */; };
+		3F1832D114C61421002F2DB2 /* KBApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832CD14C61421002F2DB2 /* KBApiClient.m */; };
+		3F1832D214C61421002F2DB2 /* KBApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CE14C61421002F2DB2 /* KBApiResponse.h */; };
+		3F1832D314C61421002F2DB2 /* KBApiResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832CF14C61421002F2DB2 /* KBApiResponse.m */; };
+		3F1832D614C6145C002F2DB2 /* KBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832D414C6145C002F2DB2 /* KBRequest.h */; };
+		3F1832D714C6145C002F2DB2 /* KBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832D514C6145C002F2DB2 /* KBRequest.m */; };
+		3F1832DB14C6149D002F2DB2 /* KBApiProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832D914C6149D002F2DB2 /* KBApiProvider.h */; };
+		3F1832DC14C6149D002F2DB2 /* KBApiProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832DA14C6149D002F2DB2 /* KBApiProvider.m */; };
 		3F39EF5F14B63CF30009B77E /* KBJSONProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F39EF5D14B63CF30009B77E /* KBJSONProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F39EF6014B63CF30009B77E /* KBJSONProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F39EF5E14B63CF30009B77E /* KBJSONProvider.m */; };
 		3F67F00E14BDF6E100DCB627 /* QPickerEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F67F00C14BDF6E100DCB627 /* QPickerEntryTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -159,11 +167,22 @@
 		3F71D04F14A2373800F20805 /* KBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F71CFC114A2373800F20805 /* KBView.m */; };
 		3FAA03B114A26A8C00917C34 /* RTCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAA03AF14A26A8C00917C34 /* RTCustom.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FAA03B214A26A8C00917C34 /* RTCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA03B014A26A8C00917C34 /* RTCustom.m */; };
+		3FAD67B714BF3D5200CB51F2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD67B614BF3D5200CB51F2 /* Parse.framework */; };
+		3FAD67BE14BF3FC500CB51F2 /* KBParseProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FAD67BF14BF3FC500CB51F2 /* KBParseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBPlistProvider.h; path = Plist/KBPlistProvider.h; sourceTree = "<group>"; };
 		3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBPlistProvider.m; path = Plist/KBPlistProvider.m; sourceTree = "<group>"; };
+		3F1832CC14C61421002F2DB2 /* KBApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBApiClient.h; sourceTree = "<group>"; };
+		3F1832CD14C61421002F2DB2 /* KBApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBApiClient.m; sourceTree = "<group>"; };
+		3F1832CE14C61421002F2DB2 /* KBApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBApiResponse.h; sourceTree = "<group>"; };
+		3F1832CF14C61421002F2DB2 /* KBApiResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBApiResponse.m; sourceTree = "<group>"; };
+		3F1832D414C6145C002F2DB2 /* KBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRequest.h; sourceTree = "<group>"; };
+		3F1832D514C6145C002F2DB2 /* KBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRequest.m; sourceTree = "<group>"; };
+		3F1832D914C6149D002F2DB2 /* KBApiProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBApiProvider.h; sourceTree = "<group>"; };
+		3F1832DA14C6149D002F2DB2 /* KBApiProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBApiProvider.m; sourceTree = "<group>"; };
 		3F39EF5D14B63CF30009B77E /* KBJSONProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBJSONProvider.h; path = JSON/KBJSONProvider.h; sourceTree = "<group>"; };
 		3F39EF5E14B63CF30009B77E /* KBJSONProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBJSONProvider.m; path = JSON/KBJSONProvider.m; sourceTree = "<group>"; };
 		3F67F00C14BDF6E100DCB627 /* QPickerEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerEntryTableViewCell.h; sourceTree = "<group>"; };
@@ -317,6 +336,9 @@
 		3F71CFC114A2373800F20805 /* KBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBView.m; sourceTree = "<group>"; };
 		3FAA03AF14A26A8C00917C34 /* RTCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCustom.h; sourceTree = "<group>"; };
 		3FAA03B014A26A8C00917C34 /* RTCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCustom.m; sourceTree = "<group>"; };
+		3FAD67B614BF3D5200CB51F2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Koombea/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBParseProvider.h; path = Parse/KBParseProvider.h; sourceTree = "<group>"; };
+		3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBParseProvider.m; path = Parse/KBParseProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F71CF1614A236BD00F20805 /* Foundation.framework in Frameworks */,
+				3FAD67B714BF3D5200CB51F2 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,10 +372,33 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
+		3F1832CB14C61421002F2DB2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3F1832CC14C61421002F2DB2 /* KBApiClient.h */,
+				3F1832CD14C61421002F2DB2 /* KBApiClient.m */,
+				3F1832CE14C61421002F2DB2 /* KBApiResponse.h */,
+				3F1832CF14C61421002F2DB2 /* KBApiResponse.m */,
+				3F1832D414C6145C002F2DB2 /* KBRequest.h */,
+				3F1832D514C6145C002F2DB2 /* KBRequest.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3F1832D814C61478002F2DB2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3F1832D914C6149D002F2DB2 /* KBApiProvider.h */,
+				3F1832DA14C6149D002F2DB2 /* KBApiProvider.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		3F71CF0414A236BC00F20805 = {
 			isa = PBXGroup;
 			children = (
-				3F71CF1714A236BD00F20805 /* Koombea */,
+				3F71CF1714A236BD00F20805 /* App */,
+				3F71CF2D14A2373800F20805 /* Config */,
 				3F71CF4314A2373800F20805 /* Vendors */,
 				3F71CF1414A236BD00F20805 /* Frameworks */,
 				3F71CF1314A236BD00F20805 /* Products */,
@@ -370,22 +416,23 @@
 		3F71CF1414A236BD00F20805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FAD67B614BF3D5200CB51F2 /* Parse.framework */,
 				3F71CF1514A236BD00F20805 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3F71CF1714A236BD00F20805 /* Koombea */ = {
+		3F71CF1714A236BD00F20805 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				3F71CF2314A2373800F20805 /* Base */,
 				3F71CF2A14A2373800F20805 /* Categories */,
-				3F71CF2D14A2373800F20805 /* Config */,
 				3F71CF3114A2373800F20805 /* Controller */,
 				3F71CF3214A2373800F20805 /* Model */,
 				3F71CFB714A2373800F20805 /* View */,
 				3F71CF1814A236BD00F20805 /* Supporting Files */,
 			);
+			name = App;
 			path = Koombea;
 			sourceTree = "<group>";
 		};
@@ -402,6 +449,7 @@
 		3F71CF2314A2373800F20805 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3F1832CB14C61421002F2DB2 /* Networking */,
 				3F71CF2414A2373800F20805 /* KBCore.h */,
 				3F71CF2514A2373800F20805 /* KBCore.m */,
 				3F71CF2614A2373800F20805 /* KBObject.h */,
@@ -427,7 +475,8 @@
 				3F71CF2F14A2373800F20805 /* KBCoreConstants.h */,
 				3F71CF3014A2373800F20805 /* KBErrorMessages.h */,
 			);
-			path = Config;
+			name = Config;
+			path = Koombea/Config;
 			sourceTree = "<group>";
 		};
 		3F71CF3114A2373800F20805 /* Controller */ = {
@@ -450,9 +499,11 @@
 		3F71CF3314A2373800F20805 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				3F1832D814C61478002F2DB2 /* API */,
 				3F71CF3414A2373800F20805 /* Database */,
 				3F71CF3714A2373800F20805 /* Facebook */,
 				3F15E3BF14B6324800367AEE /* JSON */,
+				3FAD67BB14BF3F8E00CB51F2 /* Parse */,
 				3F0B654A14B5F88900EB4D1A /* Plist */,
 				3F71CF3F14A2373800F20805 /* KBDataProvider.h */,
 				3F71CF4014A2373800F20805 /* KBDataProvider.m */,
@@ -677,6 +728,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3FAD67BB14BF3F8E00CB51F2 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */,
+				3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -699,6 +759,7 @@
 				3F71D03514A2373800F20805 /* QuickDialog.h in Headers */,
 				3F71CFCD14A2373800F20805 /* KBDatabaseProvider.h in Headers */,
 				3F71CFCF14A2373800F20805 /* KBFacebookProvider.h in Headers */,
+				3FAD67BE14BF3FC500CB51F2 /* KBParseProvider.h in Headers */,
 				3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */,
 				3F39EF5F14B63CF30009B77E /* KBJSONProvider.h in Headers */,
 				3F71CFD114A2373800F20805 /* KBFacebookModels.h in Headers */,
@@ -762,6 +823,10 @@
 				3F71D04214A2373800F20805 /* QWebElement.h in Headers */,
 				3F71D04414A2373800F20805 /* QWebViewController.h in Headers */,
 				3F71D04C14A2373800F20805 /* KBTemplate.h in Headers */,
+				3F1832D014C61421002F2DB2 /* KBApiClient.h in Headers */,
+				3F1832D214C61421002F2DB2 /* KBApiResponse.h in Headers */,
+				3F1832D614C6145C002F2DB2 /* KBRequest.h in Headers */,
+				3F1832DB14C6149D002F2DB2 /* KBApiProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +996,11 @@
 				3F39EF6014B63CF30009B77E /* KBJSONProvider.m in Sources */,
 				3F67F00F14BDF6E100DCB627 /* QPickerEntryTableViewCell.m in Sources */,
 				3F67F01414BDF76100DCB627 /* QPickerInlineElement.m in Sources */,
+				3FAD67BF14BF3FC500CB51F2 /* KBParseProvider.m in Sources */,
+				3F1832D114C61421002F2DB2 /* KBApiClient.m in Sources */,
+				3F1832D314C61421002F2DB2 /* KBApiResponse.m in Sources */,
+				3F1832D714C6145C002F2DB2 /* KBRequest.m in Sources */,
+				3F1832DC14C6149D002F2DB2 /* KBApiProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +1067,10 @@
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Koombea/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Koombea/Koombea-Prefix.pch";
@@ -1015,6 +1089,10 @@
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Koombea/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Koombea/Koombea-Prefix.pch";

@@ -1,6 +1,6 @@
 //
 //  AppTableView.h
-//  Rallyhood
+//  Koombea
 //
 //  Created by Oscar De Moya on 6/26/11.
 //  Copyright 2011 Koombea Inc. All rights reserved.

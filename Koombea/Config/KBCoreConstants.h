@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/* Networking Params */
+#define REQUEST_TIMEOUT_INTERVAL 30
+
 /* Config File Names */
 #define APP_SETTINGS @"settings"
 #define APP_STYLES @"styles"
@@ -29,6 +32,10 @@
 #define S3_SECRET_ACCESS_KEY @"SecretAccessKey"
 #define S3_BUCKET @"Bucket"
 #define S3_FILE_PREFIX @"FilePrefix"
+#define PARSE_SETTINGS @"Parse"
+#define PARSE_APP_ID @"AppID"
+#define PARSE_CLIENT_KEY @"ClientKey"
+#define PARSE_MASTER_KEY @"MasterKey"
 
 /* Styles Plist Keys */
 #define COLOR_PALETTE @"ColorPalette"
@@ -55,8 +62,9 @@ typedef enum {
     KBDelete
 } KBPersistenceOperation;
 
-/* Read Types */
+/* Quantity Types */
 typedef enum {
+    KBFindNone,
     KBFindAll,
     KBFindFirst,
     KBFindCount
@@ -119,3 +127,13 @@ typedef enum {
 /* Twitter */
 #define TWITTER @"twitter"
 
+/* API Config */
+#define API_CONFIG @"Config"
+#define API_HOST @"Host"
+#define API_PROTOCOL @"Protocol"
+#define API_RESPONSE_FORMAT @"ResponseFormat"
+#define API_KEY @"Key"
+#define API_BASIC_AUTH @"BasicAuth"
+#define API_VALIDATE_PARAMS @"ValidateParams"
+#define API_METHODS @"Methods"
+#define API_ERRORS @"Errors"

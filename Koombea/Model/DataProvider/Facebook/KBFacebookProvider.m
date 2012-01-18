@@ -83,7 +83,7 @@
 
 - (id)find:(KBFindType)findType model:(NSString *)className withParams:(id)params
 {
-    modelName = className;
+    _modelName = className;
     if ([className isEqualToString:[[KBFacebookUser class] description]]) {
         [self login];
     }
@@ -99,13 +99,13 @@
         NSDictionary *result = [defaults objectForKey:@"FBUserData"];
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
-        [_delegate findSuccess:KBFindFirst model:modelName withData:result];
+        [_delegate findSuccess:KBFindFirst model:_modelName withData:result];
     }
     if (![facebook isSessionValid]) {
         facebook.sessionDelegate = self;
         [facebook authorize:permissions];
     } else {
-        [_delegate findError:KBFindFirst model:modelName withData:nil];
+        [_delegate findError:KBFindFirst model:_modelName withData:nil];
     }
 }
 
@@ -120,7 +120,7 @@
 }
 
 - (void)fbDidNotLogin:(BOOL)cancelled {
-    [_delegate findError:KBFindFirst model:modelName withData:nil];
+    [_delegate findError:KBFindFirst model:_modelName withData:nil];
 }
 
 - (void)fbDidLogout {
@@ -135,7 +135,7 @@
 }
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
-    [_delegate findError:KBFindFirst model:modelName withData:nil];
+    [_delegate findError:KBFindFirst model:_modelName withData:nil];
 }
 
 - (void)request:(FBRequest *)request didLoad:(id)result {
@@ -149,7 +149,7 @@
         [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
         [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
         [defaults synchronize];
-        [_delegate findSuccess:KBFindFirst model:modelName withData:result];
+        [_delegate findSuccess:KBFindFirst model:_modelName withData:result];
     }
 }
 

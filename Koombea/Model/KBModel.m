@@ -8,12 +8,14 @@
 
 #import "KBModel.h"
 #import "KBCore.h"
-#import "KBDatabaseProvider.h"
-#import "KBFacebookProvider.h"
-#import "KBJSONProvider.h"
-#import "KBPlistProvider.h"
 #import "KBFacebookUser.h"
 #import "RTCustom.h"
+#import "KBDatabaseProvider.h"
+#import "KBApiProvider.h"
+#import "KBFacebookProvider.h"
+#import "KBJSONProvider.h"
+#import "KBParseProvider.h"
+#import "KBPlistProvider.h"
 
 @implementation KBModel
 
@@ -100,48 +102,38 @@
     return [KBDataProvider dataProviderType:[settings objectForKey:DATA_PROVIDER]];
 }
 
-- (KBDataProviderType)dataProviderType
-{
-    NSDictionary *settings = [[self class] modelSettings];
-    return [KBDataProvider dataProviderType:[settings objectForKey:DATA_PROVIDER]];
-}
-
 #pragma mark - KBModel protocol methods
 
 - (id)save:(id)params
 {
-    id results = nil;
-    if ([[self class] dataProvider] == KBDataProviderDatabase) {
-        results = [[KBDatabaseProvider shared] save:self withParams:params];
-    }
-    return results;
+    KBDataProvider *dataProvider = [self prepareOperation:KBFindNone withParams:params];
+    return [dataProvider save:self withParams:params];
 }
 
-- (id)find:(KBFindType)findType withParams:(id)params;
+- (id)find:(KBFindType)findType withParams:(id)params
 {
-    id results = nil;
-    if ([[self class] dataProvider] == KBDataProviderDatabase) {
-        results = [[KBDatabaseProvider shared] find:findType model:[[self class] description] withParams:params];
-    } else if ([[self class] dataProvider] == KBDataProviderFacebook) {
-        self.delegate = params;
-        KBFacebookProvider *facebookProvider = [KBFacebookProvider shared];
-        facebookProvider.delegate = self;
-        [facebookProvider find:findType model:[[self class] description] withParams:params];
-    } else if ([[self class] dataProvider] == KBDataProviderJSON) {
-        results = [[KBJSONProvider shared] find:findType model:[[self class] description] withParams:params];
-    } else if ([[self class] dataProvider] == KBDataProviderPlist) {
-        results = [[KBPlistProvider shared] find:findType model:[[self class] description] withParams:params];
-    }
-    return results;
+    KBDataProvider *dataProvider = [self prepareOperation:findType withParams:params];
+    NSString *className = [[self class] description];
+    return [dataProvider find:findType model:className withParams:params];
 }
 
 - (id)del:(id)params
 {
-    id results = nil;
-    if ([[self class] dataProvider] == KBDataProviderDatabase) {
-        results = [[KBDatabaseProvider shared] del:[[self class] description] withParams:params];
+    KBDataProvider *dataProvider = [self prepareOperation:KBFindNone withParams:params];
+    NSString *className = [[self class] description];
+    return [dataProvider del:className withParams:params];
+}
+
+- (KBDataProvider *)prepareOperation:(KBFindType)findType withParams:(id)params
+{
+    KBDataProviderType dataProviderType = [[self class] dataProvider];
+    id DataProviderClass = [KBDataProvider dataProviderClass:dataProviderType];
+    KBDataProvider *dataProvider = [DataProviderClass sharedDataProvider];
+    if ([params isKindOfClass:[NSDictionary class]]) {
+        self.delegate = [params objectForKey:@"delegate"];
     }
-    return results;
+    dataProvider.delegate = self;
+    return dataProvider;
 }
 
 - (NSArray *)validate

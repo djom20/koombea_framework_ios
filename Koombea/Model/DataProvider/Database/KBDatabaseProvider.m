@@ -162,9 +162,9 @@
     
     if ([model isNew]) {
         // Insert a new object
-        modelName = [[model class] description];
+        _modelName = [[model class] description];
         model.created_at = [NSDate date];
-        NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:modelName inManagedObjectContext:moc];
+        NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:_modelName inManagedObjectContext:moc];
         objects = [NSArray arrayWithObject:object];
         
     } else {
@@ -181,7 +181,7 @@
         model.updated_at = [NSDate date];
         /* NSArray *subModels = */[KBDatabaseProvider fillManagedObject:object withModel:model];
         if (![moc save:&error]) {
-            NSLog(ERROR_DATABASE_PROVIDER_CREATE, error, [error userInfo]);
+            NSLog(ERROR_DATABASE_PROVIDER, error, [error userInfo]);
             return error;
         }
         
@@ -208,7 +208,7 @@
     }
     NSError *error = nil;
     if (![moc save:&error]) {
-        NSLog(ERROR_DATABASE_PROVIDER_CREATE, error, [error userInfo]);
+        NSLog(ERROR_DATABASE_PROVIDER, error, [error userInfo]);
         return @"NO";
     } else {
         return @"YES";
@@ -257,7 +257,7 @@
         }
     }
     NSArray *fetchedObjects = [moc executeFetchRequest:request error:&error];
-    if(error) NSLog(ERROR_DATABASE_PROVIDER_READ, error, [error userInfo]);
+    if(error) NSLog(ERROR_DATABASE_PROVIDER, error, [error userInfo]);
     return fetchedObjects;
 }
 
