@@ -22,6 +22,7 @@
 @interface KBRequest : KBObject {
     id<KBRequestDelegate> _delegate;
 	id parsedData;
+    NSString *responseFormat;
     int sequence;
     NSString *identifier;
     NSDictionary *_params;
@@ -33,15 +34,16 @@
     NSMutableArray *trustedHosts;
 }
 
-@property (nonatomic, retain) id<KBRequestDelegate> delegate;
+@property (nonatomic, strong) id<KBRequestDelegate> delegate;
+@property (nonatomic, strong) NSString *responseFormat;
 @property (nonatomic, assign) int sequence;
-@property (nonatomic, retain) NSString *identifier;
-@property (nonatomic, retain) NSURL *url;
-@property (nonatomic, retain) NSURLRequest *request;
-@property (nonatomic, retain) NSDictionary *_params;
-@property (nonatomic, retain) NSURLConnection *connection;
-@property (nonatomic, retain) NSMutableData *receivedData;
-@property (nonatomic, retain) NSMutableArray *trustedHosts;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSURLRequest *request;
+@property (nonatomic, strong) NSDictionary *_params;
+@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic, strong) NSMutableData *receivedData;
+@property (nonatomic, strong) NSMutableArray *trustedHosts;
 
 + (KBRequest *) request;
 + (KBRequest *) shared;

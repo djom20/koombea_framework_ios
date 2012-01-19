@@ -37,6 +37,7 @@
 #define PARSE_APP_ID @"AppID"
 #define PARSE_CLIENT_KEY @"ClientKey"
 #define PARSE_MASTER_KEY @"MasterKey"
+#define PARSE_REST_API_KEY @"RestApiKey"
 
 /* Styles Plist Keys */
 #define COLOR_PALETTE @"ColorPalette"
@@ -144,6 +145,8 @@ typedef enum {
 #define API_HOST @"Host"
 #define API_PROTOCOL @"Protocol"
 #define API_RESPONSE_FORMAT @"ResponseFormat"
+#define API_RESPONSE_FORMAT_JSON @"JSON"
+#define API_RESPONSE_FORMAT_XML @"XML"
 #define API_KEY @"Key"
 #define API_BASIC_AUTH @"BasicAuth"
 #define API_VALIDATE_PARAMS @"ValidateParams"

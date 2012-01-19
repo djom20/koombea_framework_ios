@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0321C414C8C84F00939F49 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0321C214C8C84F00939F49 /* XMLReader.h */; };
+		3F0321C514C8C84F00939F49 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0321C314C8C84F00939F49 /* XMLReader.m */; };
 		3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */; };
 		3F1832D014C61421002F2DB2 /* KBApiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CC14C61421002F2DB2 /* KBApiClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -177,6 +179,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0321C214C8C84F00939F49 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		3F0321C314C8C84F00939F49 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBPlistProvider.h; path = Plist/KBPlistProvider.h; sourceTree = "<group>"; };
 		3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBPlistProvider.m; path = Plist/KBPlistProvider.m; sourceTree = "<group>"; };
 		3F1832CC14C61421002F2DB2 /* KBApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBApiClient.h; sourceTree = "<group>"; };
@@ -362,6 +366,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0321C114C8C84F00939F49 /* XMLReader */ = {
+			isa = PBXGroup;
+			children = (
+				3F0321C214C8C84F00939F49 /* XMLReader.h */,
+				3F0321C314C8C84F00939F49 /* XMLReader.m */,
+			);
+			path = XMLReader;
+			sourceTree = "<group>";
+		};
 		3F0B654A14B5F88900EB4D1A /* Plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +578,7 @@
 				3F71CF6414A2373800F20805 /* MAObjCRuntime */,
 				9169175E14C87D4D00831132 /* MBProgressHUD */,
 				3F71CF7114A2373800F20805 /* QuickDialog */,
+				3F0321C114C8C84F00939F49 /* XMLReader */,
 			);
 			name = Vendors;
 			path = Koombea/Vendors;
@@ -857,6 +871,7 @@
 				3F1832DB14C6149D002F2DB2 /* KBApiProvider.h in Headers */,
 				9169175C14C87D2500831132 /* KBHelper.h in Headers */,
 				912B665E14C87F6600CAE407 /* MBProgressHUD.h in Headers */,
+				3F0321C414C8C84F00939F49 /* XMLReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1048,7 @@
 				3F1832DC14C6149D002F2DB2 /* KBApiProvider.m in Sources */,
 				9169175D14C87D2500831132 /* KBHelper.m in Sources */,
 				912B665F14C87F6600CAE407 /* MBProgressHUD.m in Sources */,
+				3F0321C514C8C84F00939F49 /* XMLReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,5 +11,7 @@
 @interface NSString (String)
 
 - (int)indexOf:(NSString *)text;
+- (NSString *)md5;
+- (id)JSONValue;
 
 @end

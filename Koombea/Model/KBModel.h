@@ -36,6 +36,7 @@
     NSDate *created_at;
     NSDate *updated_at;
     NSDictionary *_settings;
+    NSString *_dataProvider;
     __weak id<KBModelDelegate> _delegate;
 }
 
@@ -43,6 +44,7 @@
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
 @property (nonatomic, strong) NSDictionary *_settings;
+@property (nonatomic, strong) NSString *dataProvider;
 @property (nonatomic, weak) id<KBModelDelegate> delegate;
 
 - (KBModel *)init;
@@ -51,7 +53,7 @@
 + (id)modelWithDictionary:(NSDictionary *)dict;
 + (KBModel *)fillModel:(KBModel *)model withDictionary:(NSDictionary *)dict;
 + (NSDictionary *)modelSettings;
-+ (KBDataProviderType)dataProvider;
+- (KBDataProviderType)currentDataProvider;
 - (KBDataProvider *)prepareOperation:(KBFindType)findType withParams:(id)params;
 - (NSArray *)validate;
 - (BOOL)isNew;

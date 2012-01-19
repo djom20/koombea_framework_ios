@@ -8,11 +8,12 @@
 
 #import "KBRequest.h"
 #import "JSON.h"
+#import "XMLReader.h"
 
 @implementation KBRequest
 
 @synthesize delegate = _delegate;
-@synthesize sequence, identifier, url, request, _params, connection, receivedData, trustedHosts;
+@synthesize sequence, identifier, url, request, _params, connection, receivedData, responseFormat, trustedHosts;
 
 + (KBRequest *) request {
 	KBRequest *instance = [[KBRequest alloc] init];
@@ -21,7 +22,7 @@
 	return instance;
 }
 
-+ (KBRequest *) shared {
++ (KBRequest *)shared {
     static KBRequest *instance = nil;
     if (nil == instance) {
         instance = [[KBRequest alloc] init];
@@ -30,16 +31,16 @@
     return instance;
 }
 
-+ (int) nextSequence {
++ (int)nextSequence {
     ([KBRequest shared]).sequence = ([KBRequest shared]).sequence + 1;
     return ([KBRequest shared]).sequence;
 }
 
-- (void) addTrustedHost:(NSString *)host {
+- (void)addTrustedHost:(NSString *)host {
     [trustedHosts addObject:host];
 }
 
-- (int) get:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
+- (int)get:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
 	NSLog(@"GET %@", toURL);
     _delegate = delegate;
     _params = data;
@@ -47,7 +48,7 @@
 	return [self createRequest:@"GET" withParms:nil];
 }
 
-- (int) post:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
+- (int)post:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
 	NSLog(@"POST %@", toURL);
     _delegate = delegate;
     _params = data;
@@ -56,7 +57,7 @@
 	return [self createRequest:@"POST" withParms:postString];
 }
 
-- (int) put:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
+- (int)put:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
 	NSLog(@"PUT %@", toURL);
     _delegate = delegate;
     _params = data;
@@ -65,7 +66,7 @@
 	return [self createRequest:@"PUT" withParms:postString];
 }
 
-- (int) del:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {	
+- (int)del:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {	
 	NSLog(@"DELETE %@", toURL);
     _delegate = delegate;
     _params = data;
@@ -125,24 +126,34 @@
 	[receivedData appendData:data];
 }
 
-- (void) connectionDidFinishLoading: (NSURLConnection*) connection {
+- (void)connectionDidFinishLoading:(NSURLConnection*) connection {
 	NSString *response = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     NSLog(@"Response received: %@", response);
-	@try {
-        parsedData = [response JSONValue];
-        [_delegate requestDone:self withData:parsedData];
-    } @catch (NSException *exception) {
-        NSLog(@"Error Parsing JSON Response: %@", response);
-        NSLog(@"Exception: %@", exception);
-        [_delegate requestFailed:self];
+    NSError *error;
+    if([responseFormat isEqualToString:API_RESPONSE_FORMAT_JSON]) {
+        @try {
+            parsedData = [response JSONValue];
+            [_delegate requestDone:self withData:parsedData];
+        } @catch (NSException *exception) {
+            NSLog(@"Error Parsing JSON Response: %@", response);
+            NSLog(@"Exception: %@", exception);
+            [_delegate requestFailed:self];
+        }
+    } else if([responseFormat isEqualToString:API_RESPONSE_FORMAT_XML]) {
+        parsedData = [XMLReader dictionaryForXMLString:response error:error];
+        if (error) {
+            NSLog(@"Error Parsing XML Response: %@", response);
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            [_delegate requestFailed:self];
+        }
     }
 }
 
-- (id) data {
+- (id)data {
 	return parsedData;
 }
 
-+ (NSString *) paramsToString:(NSDictionary *)data {
++ (NSString *)paramsToString:(NSDictionary *)data {
 	NSMutableString *paramStr = [NSMutableString stringWithFormat:@""];
 	BOOL first = YES;
 	for(NSString *key in data) {
@@ -157,7 +168,7 @@
 	return paramStr;
 }
 
-+ (NSString *) extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey {
++ (NSString *)extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey {
 	if (!strParams) return nil;
 	NSArray	*tuples = [strParams componentsSeparatedByString: @"&"];
 	if (tuples.count < 1) return nil;

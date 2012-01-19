@@ -23,6 +23,7 @@
 @synthesize created_at;
 @synthesize updated_at;
 @synthesize _settings;
+@synthesize dataProvider = _dataProvider;
 @synthesize delegate = _delegate;
 
 + (KBModel *)shared
@@ -96,10 +97,14 @@
     return [_settings objectForKey:[[self class] description]];
 }
 
-+ (KBDataProviderType)dataProvider
+- (KBDataProviderType)currentDataProvider
 {
-    NSDictionary *settings = [self modelSettings];
-    return [KBDataProvider dataProviderType:[settings objectForKey:DATA_PROVIDER]];
+    NSDictionary *settings = [[self class] modelSettings];
+    if (_dataProvider) {
+        return [KBDataProvider dataProviderType:_dataProvider];
+    } else {
+        return [KBDataProvider dataProviderType:[settings objectForKey:DATA_PROVIDER]];
+    }
 }
 
 #pragma mark - KBModel protocol methods
@@ -112,7 +117,6 @@
 
 - (id)find:(KBFindType)findType withParams:(id)params
 {
-    
     KBDataProvider *dataProvider = [self prepareOperation:findType withParams:params];
     NSString *className = [[self class] description];
     return [dataProvider find:findType model:className withParams:params];
@@ -127,7 +131,7 @@
 
 - (KBDataProvider *)prepareOperation:(KBFindType)findType withParams:(id)params
 {
-    KBDataProviderType dataProviderType = [[self class] dataProvider];
+    KBDataProviderType dataProviderType = [self currentDataProvider];
     id DataProviderClass = [KBDataProvider dataProviderClass:dataProviderType];
     KBDataProvider *dataProvider = [DataProviderClass sharedDataProvider];
     if ([params isKindOfClass:[NSDictionary class]]) {

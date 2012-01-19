@@ -31,7 +31,6 @@
 	KBApiClient *instance = [[KBApiClient alloc] init];
 	instance.request = [KBRequest request];
     instance.host = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_HOST];
-    NSLog(@"host %@", instance.host);
     instance.httpProtocol = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_PROTOCOL];
     NSDictionary *basicAuth = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_BASIC_AUTH];
     instance.useBasicAuth = [[basicAuth objectForKey:@"Enabled"] boolValue];
@@ -99,13 +98,12 @@
 
 - (NSString *)createUrl:(NSString *)method withData:(NSDictionary *)data ids:(NSArray *)ids
 {
-    NSMutableDictionary *auxData = [NSMutableDictionary dictionary];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:data];
     NSString *strURL = @"";
     _request.identifier = method;
     if (useApiKey) {
-        [auxData addEntriesFromDictionary:[NSDictionary dictionaryWithObject:apiKeyValue forKey:apiKeyName]];
+        [params addEntriesFromDictionary:[NSDictionary dictionaryWithObject:apiKeyValue forKey:apiKeyName]];
     }
-    data = auxData;
     
 	NSString *basicAuth;
 	if (useBasicAuth) {
@@ -120,7 +118,7 @@
     }
     method = [method stringByReplacingOccurrencesOfString:@"/:id" withString:strIds];
     if(httpMethod == GET || httpMethod == DELETE) {
-        NSMutableString *paramString = (NSMutableString *)[KBRequest paramsToString:data];
+        NSMutableString *paramString = (NSMutableString *)[KBRequest paramsToString:params];
         if ([paramString length] > 0) {
             [paramString insertString:@"?" atIndex:0];
         }

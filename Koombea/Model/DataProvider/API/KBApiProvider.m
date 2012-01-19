@@ -43,13 +43,19 @@
     apiClient.delegate = self;
     
     _delegate = [params objectForKey:@"delegate"];
+
+    NSDictionary *config = [KBCore settingForKey:API_CONFIG withFile:API_SETTINGS];
+    apiClient.request.responseFormat = [config objectForKey:API_RESPONSE_FORMAT];
     
-    NSDictionary *methods = [KBCore settingForKey:@"Methods" withFile:API_SETTINGS];
+    NSDictionary *methods = [KBCore settingForKey:API_METHODS withFile:API_SETTINGS];
     NSDictionary *method = [methods objectForKey:[params objectForKey:@"method"]];
     NSString *path = [method objectForKey:@"Path"];
     NSString *httpMethod = [method objectForKey:@"HttpMethod"];
     NSDictionary *data = [params objectForKey:@"data"];
     NSArray *ids = [params objectForKey:@"ids"];
+    
+    NSLog(@"config %@", config);
+    NSLog(@"method %@", method);
     
     if ([KBRequest httpMethod:httpMethod] == POST) {
         [apiClient post:path withData:data ids:ids];
@@ -61,13 +67,13 @@
 
 - (void)requestDone:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    NSLog(@"done %@", response);
+    NSLog(@"Request Done: %@", response);
     [_delegate findSuccess:_findType model:_modelName withData:response];
 }
 
 - (void)requestFailed:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    NSLog(@"failed %@", response);
+    NSLog(@"Request Failed: %@", response);
     [_delegate findError:_findType model:_modelName withData:response];
 }
 
