@@ -21,6 +21,7 @@
 
 @interface KBCore : KBObject
 
++ (id)settingForKey:(NSString *)key withFile:(NSString *)fileName;
 + (id)settingForKey:(NSString *)key;
 + (id)styleForKey:(NSString *)key;
 + (id)styleForKeyPath:(NSString *)keyPath;

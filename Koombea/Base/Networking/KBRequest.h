@@ -10,13 +10,6 @@
 
 @class KBRequest;
 
-typedef enum {
-    GET,
-    POST,
-	PUT,
-    DELETE
-} HttpMethod;
-
 @protocol KBRequestDelegate <NSObject>
 @required
 - (void) requestDone:(KBRequest *)request withData:(id)data;
@@ -62,5 +55,6 @@ typedef enum {
 - (id) data;
 + (NSString *) paramsToString:(NSDictionary *)data;
 + (NSString *) extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey;
++ (HttpMethod)httpMethod:(NSString *)methodName;
 
 @end

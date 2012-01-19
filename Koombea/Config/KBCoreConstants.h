@@ -15,6 +15,7 @@
 #define APP_SETTINGS @"settings"
 #define APP_STYLES @"styles"
 #define MODEL_SETTINGS @"models"
+#define API_SETTINGS @"api"
 #define DEFAULT_MODEL_SETTINGS @"default_models"
 
 /* Settings Plist Keys */
@@ -128,6 +129,17 @@ typedef enum {
 #define TWITTER @"twitter"
 
 /* API Config */
+
+#define OP_METHOD @"method"
+#define OP_MESSAGE @"message"
+#define OP_ERRORS @"errors"
+#define OP_STATUS @"status"
+#define OP_CODE @"code"
+#define OP_DATA @"data"
+#define OP_SUCCESS @"success"
+#define OP_FAILURE @"failure"
+
+
 #define API_CONFIG @"Config"
 #define API_HOST @"Host"
 #define API_PROTOCOL @"Protocol"
@@ -137,3 +149,15 @@ typedef enum {
 #define API_VALIDATE_PARAMS @"ValidateParams"
 #define API_METHODS @"Methods"
 #define API_ERRORS @"Errors"
+
+typedef enum {
+    NO_HTTP_METHOD,
+    GET,
+    POST,
+	PUT,
+    DELETE
+} HttpMethod;
+
+/* Tags */
+
+#define TAG_LOADING_INDICATOR 10000001

@@ -9,11 +9,7 @@
 #import "KBDataProvider.h"
 #import "KBApiClient.h"
 
-@interface KBApiProvider : KBDataProvider<KBApiClientDelegate> {
-    KBApiClient *api;
-}
-
-@property (nonatomic, strong) KBApiClient *api;
+@interface KBApiProvider : KBDataProvider<KBApiClientDelegate>
 
 + (KBApiProvider *)shared;
 

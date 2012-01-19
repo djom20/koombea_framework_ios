@@ -12,11 +12,29 @@
 @implementation KBView
 
 @synthesize backgroundView;
+@synthesize loadingIndicator = _loadingIndicator;
 
-- (void)viewDidLoad
+- (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle
 {
-    [super viewDidLoad];
-    [self setDefaultStyles];
+    [self showAlert:title message:message cancelTitle:okTitle okTitle:nil];
+}
+
+- (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle okTitle:(NSString *)okTitle
+{
+	UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:okTitle, nil];
+	[alertView show];
+}
+
+- (void)showLoading:(UIViewController *)viewCtrl withText:(NSString *)text
+{
+    [self.navigationController.view addSubview:_loadingIndicator];
+    _loadingIndicator.labelText = text;
+    [_loadingIndicator show:YES];
+}
+
+- (void)hideLoading:(UIViewController *)viewCtrl
+{
+    [_loadingIndicator removeFromSuperview];
 }
 
 - (void)setDefaultStyles
@@ -59,6 +77,13 @@
  {
  }
  */
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self setDefaultStyles];
+}
 
 - (void)viewDidUnload
 {

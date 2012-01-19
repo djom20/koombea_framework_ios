@@ -112,6 +112,7 @@
 
 - (id)find:(KBFindType)findType withParams:(id)params
 {
+    
     KBDataProvider *dataProvider = [self prepareOperation:findType withParams:params];
     NSString *className = [[self class] description];
     return [dataProvider find:findType model:className withParams:params];

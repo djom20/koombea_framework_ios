@@ -172,4 +172,19 @@
 	return nil;
 }
 
+
++ (HttpMethod)httpMethod:(NSString *)methodName {
+    if ([methodName isEqualToString:@"POST"]) {
+        return POST;
+    } else if ([methodName isEqualToString:@"GET"]) {
+        return GET;
+    } else if ([methodName isEqualToString:@"DELETE"]) {
+        return DELETE;
+    } else if ([methodName isEqualToString:@"PUT"]) {
+        return PUT;
+    } else {
+        return NO_HTTP_METHOD;
+    }
+}
+
 @end

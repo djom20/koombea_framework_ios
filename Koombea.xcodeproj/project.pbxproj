@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */; };
-		3F1832D014C61421002F2DB2 /* KBApiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CC14C61421002F2DB2 /* KBApiClient.h */; };
+		3F1832D014C61421002F2DB2 /* KBApiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CC14C61421002F2DB2 /* KBApiClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F1832D114C61421002F2DB2 /* KBApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832CD14C61421002F2DB2 /* KBApiClient.m */; };
-		3F1832D214C61421002F2DB2 /* KBApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CE14C61421002F2DB2 /* KBApiResponse.h */; };
+		3F1832D214C61421002F2DB2 /* KBApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CE14C61421002F2DB2 /* KBApiResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F1832D314C61421002F2DB2 /* KBApiResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832CF14C61421002F2DB2 /* KBApiResponse.m */; };
-		3F1832D614C6145C002F2DB2 /* KBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832D414C6145C002F2DB2 /* KBRequest.h */; };
+		3F1832D614C6145C002F2DB2 /* KBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832D414C6145C002F2DB2 /* KBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F1832D714C6145C002F2DB2 /* KBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832D514C6145C002F2DB2 /* KBRequest.m */; };
-		3F1832DB14C6149D002F2DB2 /* KBApiProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832D914C6149D002F2DB2 /* KBApiProvider.h */; };
+		3F1832DB14C6149D002F2DB2 /* KBApiProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832D914C6149D002F2DB2 /* KBApiProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F1832DC14C6149D002F2DB2 /* KBApiProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1832DA14C6149D002F2DB2 /* KBApiProvider.m */; };
 		3F39EF5F14B63CF30009B77E /* KBJSONProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F39EF5D14B63CF30009B77E /* KBJSONProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F39EF6014B63CF30009B77E /* KBJSONProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F39EF5E14B63CF30009B77E /* KBJSONProvider.m */; };
@@ -170,6 +170,10 @@
 		3FAD67B714BF3D5200CB51F2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD67B614BF3D5200CB51F2 /* Parse.framework */; };
 		3FAD67BE14BF3FC500CB51F2 /* KBParseProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FAD67BF14BF3FC500CB51F2 /* KBParseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */; };
+		912B665E14C87F6600CAE407 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 912B665C14C87F6600CAE407 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		912B665F14C87F6600CAE407 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 912B665D14C87F6600CAE407 /* MBProgressHUD.m */; };
+		9169175C14C87D2500831132 /* KBHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9169175A14C87D2500831132 /* KBHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9169175D14C87D2500831132 /* KBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9169175B14C87D2500831132 /* KBHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -339,6 +343,10 @@
 		3FAD67B614BF3D5200CB51F2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Koombea/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBParseProvider.h; path = Parse/KBParseProvider.h; sourceTree = "<group>"; };
 		3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBParseProvider.m; path = Parse/KBParseProvider.m; sourceTree = "<group>"; };
+		912B665C14C87F6600CAE407 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		912B665D14C87F6600CAE407 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9169175A14C87D2500831132 /* KBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBHelper.h; path = Helper/KBHelper.h; sourceTree = "<group>"; };
+		9169175B14C87D2500831132 /* KBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBHelper.m; path = Helper/KBHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,6 +563,7 @@
 				3F71CF4A14A2373800F20805 /* FBConnect */,
 				3F71CF5614A2373800F20805 /* JSON */,
 				3F71CF6414A2373800F20805 /* MAObjCRuntime */,
+				9169175E14C87D4D00831132 /* MBProgressHUD */,
 				3F71CF7114A2373800F20805 /* QuickDialog */,
 			);
 			name = Vendors;
@@ -714,6 +723,7 @@
 		3F71CFB714A2373800F20805 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9169175414C8770800831132 /* Helper */,
 				3F71CFB814A2373800F20805 /* KBAutoForm.h */,
 				3F71CFB914A2373800F20805 /* KBAutoForm.m */,
 				3F71CFBA14A2373800F20805 /* KBTabBarCtrl.h */,
@@ -735,6 +745,24 @@
 				3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */,
 			);
 			name = Parse;
+			sourceTree = "<group>";
+		};
+		9169175414C8770800831132 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9169175A14C87D2500831132 /* KBHelper.h */,
+				9169175B14C87D2500831132 /* KBHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		9169175E14C87D4D00831132 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				912B665C14C87F6600CAE407 /* MBProgressHUD.h */,
+				912B665D14C87F6600CAE407 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -827,6 +855,8 @@
 				3F1832D214C61421002F2DB2 /* KBApiResponse.h in Headers */,
 				3F1832D614C6145C002F2DB2 /* KBRequest.h in Headers */,
 				3F1832DB14C6149D002F2DB2 /* KBApiProvider.h in Headers */,
+				9169175C14C87D2500831132 /* KBHelper.h in Headers */,
+				912B665E14C87F6600CAE407 /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,6 +1031,8 @@
 				3F1832D314C61421002F2DB2 /* KBApiResponse.m in Sources */,
 				3F1832D714C6145C002F2DB2 /* KBRequest.m in Sources */,
 				3F1832DC14C6149D002F2DB2 /* KBApiProvider.m in Sources */,
+				9169175D14C87D2500831132 /* KBHelper.m in Sources */,
+				912B665F14C87F6600CAE407 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

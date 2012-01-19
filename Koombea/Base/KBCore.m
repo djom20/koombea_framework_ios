@@ -9,24 +9,21 @@
 
 @implementation KBCore
 
++ (id)settingForKey:(NSString *)key withFile:(NSString *)fileName
+{
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+    id settings = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    return [settings objectForKey:key];
+}
+
 + (id)settingForKey:(NSString *)key
 {
-    static id settings = nil;
-    if (settings == nil) {
-        NSString* plistPath = [[NSBundle mainBundle] pathForResource:APP_SETTINGS ofType:@"plist"];
-        settings = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-    }
-    return [settings objectForKey:key];
+    return [KBCore settingForKey:key withFile:APP_SETTINGS];
 }
 
 + (id)styleForKey:(NSString *)key
 {
-    static id settings = nil;
-    if (settings == nil) {
-        NSString* plistPath = [[NSBundle mainBundle] pathForResource:APP_STYLES ofType:@"plist"];
-        settings = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-    }
-    return [settings objectForKey:key];
+    return [KBCore settingForKey:key withFile:APP_STYLES];
 }
 
 + (id)styleForKeyPath:(NSString *)keyPath

@@ -10,14 +10,11 @@
 
 @implementation KBApiProvider
 
-@synthesize api;
-
 + (KBApiProvider *)shared
 {
     static KBApiProvider *instance = nil;
     if (nil == instance) {
         instance = [[KBApiProvider alloc] init];
-        instance.api = [KBApiClient apiClient];
     }
     return instance;
 }
@@ -42,12 +39,23 @@
 {
     _modelName = className;
     _findType = findType;
-    KBApiClient *apiClient = [[KBApiProvider shared] api];
+    KBApiClient *apiClient = [KBApiClient apiClient];
     apiClient.delegate = self;
-    NSString *path = [params objectForKey:@"path"];
+    
+    _delegate = [params objectForKey:@"delegate"];
+    
+    NSDictionary *methods = [KBCore settingForKey:@"Methods" withFile:API_SETTINGS];
+    NSDictionary *method = [methods objectForKey:[params objectForKey:@"method"]];
+    NSString *path = [method objectForKey:@"Path"];
+    NSString *httpMethod = [method objectForKey:@"HttpMethod"];
     NSDictionary *data = [params objectForKey:@"data"];
     NSArray *ids = [params objectForKey:@"ids"];
-    [apiClient get:path withData:data ids:ids];
+    
+    if ([KBRequest httpMethod:httpMethod] == POST) {
+        [apiClient post:path withData:data ids:ids];
+    } else if ([KBRequest httpMethod:httpMethod] == GET) {
+        [apiClient get:path withData:data ids:ids];
+    }
     return nil;
 }
 

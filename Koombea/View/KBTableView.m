@@ -14,6 +14,17 @@
 @synthesize backgroundView;
 @synthesize tableData;
 
+- (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle
+{
+    [self showAlert:title message:message cancelTitle:okTitle okTitle:nil];
+}
+
+- (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelButtonTitle okTitle:(NSString *)okTitle
+{
+	UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:okTitle otherButtonTitles:okTitle, nil];
+	[alertView show];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

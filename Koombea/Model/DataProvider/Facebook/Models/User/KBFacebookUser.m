@@ -11,7 +11,9 @@
 
 @implementation KBFacebookUser
 
+@synthesize token;
 @synthesize email;
+@synthesize username;
 @synthesize first_name;
 @synthesize last_name;
 

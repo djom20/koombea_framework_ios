@@ -30,15 +30,16 @@
 {
 	KBApiClient *instance = [[KBApiClient alloc] init];
 	instance.request = [KBRequest request];
-    instance.host = [[KBCore settingForKey:API_CONFIG] objectForKey:API_HOST];
-    instance.httpProtocol = [[KBCore settingForKey:API_CONFIG] objectForKey:API_PROTOCOL];
-    NSDictionary *basicAuth = [[KBCore settingForKey:API_CONFIG] objectForKey:API_BASIC_AUTH];
+    instance.host = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_HOST];
+    NSLog(@"host %@", instance.host);
+    instance.httpProtocol = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_PROTOCOL];
+    NSDictionary *basicAuth = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_BASIC_AUTH];
     instance.useBasicAuth = [[basicAuth objectForKey:@"Enabled"] boolValue];
     if (instance.useBasicAuth) {
         instance.basicAuthUsername = [basicAuth objectForKey:@"Username"];
         instance.basicAuthPassword = [basicAuth objectForKey:@"Password"];
     }
-    NSDictionary *apiKey = [[KBCore settingForKey:API_CONFIG] objectForKey:API_KEY];
+    NSDictionary *apiKey = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:API_KEY];
     instance.useApiKey = [[apiKey objectForKey:@"Enabled"] boolValue];
     if (instance.useApiKey) {
         instance.apiKeyName = [apiKey objectForKey:@"Name"];
