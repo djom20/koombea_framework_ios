@@ -54,9 +54,6 @@
     NSDictionary *data = [params objectForKey:@"data"];
     NSArray *ids = [params objectForKey:@"ids"];
     
-    NSLog(@"config %@", config);
-    NSLog(@"method %@", method);
-    
     if ([KBRequest httpMethod:httpMethod] == POST) {
         [apiClient post:path withData:data ids:ids];
     } else if ([KBRequest httpMethod:httpMethod] == GET) {
@@ -67,13 +64,11 @@
 
 - (void)requestDone:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    NSLog(@"Request Done: %@", response);
     [_delegate findSuccess:_findType model:_modelName withData:response];
 }
 
 - (void)requestFailed:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    NSLog(@"Request Failed: %@", response);
     [_delegate findError:_findType model:_modelName withData:response];
 }
 

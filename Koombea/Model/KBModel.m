@@ -195,6 +195,7 @@
 
 - (void)findSuccess:(KBFindType)findType model:(NSString *)className withData:(id)data
 {
+    NSLog(@"model findSuccess %@", data);
     id ModelClass = NSClassFromString(className);
     id instance = [[ModelClass alloc] init];
     instance = [KBModel fillModel:instance withDictionary:data];

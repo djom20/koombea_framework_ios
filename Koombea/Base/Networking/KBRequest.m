@@ -141,7 +141,9 @@
         }
     } else if([responseFormat isEqualToString:API_RESPONSE_FORMAT_XML]) {
         parsedData = [XMLReader dictionaryForXMLString:response error:error];
-        if (error) {
+        if (!error) {
+            [_delegate requestDone:self withData:parsedData];
+        } else {
             NSLog(@"Error Parsing XML Response: %@", response);
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             [_delegate requestFailed:self];
