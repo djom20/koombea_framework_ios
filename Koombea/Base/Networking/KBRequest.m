@@ -128,7 +128,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection*) connection {
 	NSString *response = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    //NSLog(@"Response received: %@", response);
+    if(DEBUG_NETWORKING) NSLog(@"Response received: %@", response);
     NSError *error;
     if([responseFormat isEqualToString:API_RESPONSE_FORMAT_JSON]) {
         @try {

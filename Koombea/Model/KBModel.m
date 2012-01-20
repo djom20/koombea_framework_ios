@@ -60,8 +60,10 @@
 
 + (KBModel *)fillModel:(KBModel *)model withDictionary:(NSDictionary *)dict
 {
+    NSLog(@"source dict: %@", dict);
     NSArray *keys = [dict allKeys];
     for (NSString *key in keys) {
+        NSLog(@"key: %@", key);
         @try {
             id value = [dict objectForKey:key];
             if ([value isKindOfClass:[NSArray class]]) {
@@ -75,6 +77,7 @@
                 // TODO
             } else {
                 if ([[model class] hasProperty:key]) {
+                    NSLog(@"set key: %@ = %@", key, value);
                     [model setValue:value forKey:key];
                 }
             }
@@ -185,12 +188,18 @@
 
 + (BOOL)hasProperty:(NSString *)key
 {
+    BOOL exists = NO;
     for (RTProperty *prop in [RTCustom rt_properties:[self class]]) {
         if ([key isEqualToString:prop.name]) {
-            return YES;
+            exists = YES;
         }
     }
-    return NO;
+    for (RTProperty *prop in [RTCustom rt_properties:[self superclass]]) {
+        if ([key isEqualToString:prop.name]) {
+            exists = YES;
+        }
+    }
+    return exists;
 }
 
 #pragma mark - KBModelDelegate methods

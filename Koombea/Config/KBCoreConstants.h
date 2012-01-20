@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/* Debug */
+#define DEBUG_NETWORKING YES
+
 /* Networking Params */
 #define REQUEST_TIMEOUT_INTERVAL 30
 
@@ -129,8 +132,6 @@ typedef enum {
 /* Twitter */
 #define TWITTER @"twitter"
 
-/* API Config */
-
 #define OP_METHOD @"method"
 #define OP_MESSAGE @"message"
 #define OP_ERRORS @"errors"
@@ -140,7 +141,7 @@ typedef enum {
 #define OP_SUCCESS @"success"
 #define OP_FAILURE @"failure"
 
-
+/* API Config */
 #define API_CONFIG @"Config"
 #define API_HOST @"Host"
 #define API_PROTOCOL @"Protocol"

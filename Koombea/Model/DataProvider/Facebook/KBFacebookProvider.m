@@ -95,12 +95,17 @@
 - (void)login {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
+        
         NSDictionary *result = [defaults objectForKey:@"FBUserData"];
+        NSLog(@"Facebook result: %@", result);
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
         
+        
         NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:result];
         [data setObject:[facebook accessToken] forKey:@"token"];
+        [data setObject:[result objectForKey:@"id"] forKey:@"id"];
+        
         [_delegate findSuccess:KBFindFirst model:_modelName withData:data];
     }
     if (![facebook isSessionValid]) {
@@ -144,7 +149,7 @@
     NSString* fullURL = [[request url] description];
     NSString *graphPath = [fullURL stringByReplacingOccurrencesOfString:[Facebook graphBaseURL] withString:@""];
     if ([graphPath isEqualToString:FB_GRAPH_PATH_ME]) {
-        //NSLog(@"Facebook result: %@", result);
+        NSLog(@"Facebook result: %@", result);
         //NSLog(@"Facebook authToken: %@", [facebook accessToken]);
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:result forKey:@"FBUserData"];

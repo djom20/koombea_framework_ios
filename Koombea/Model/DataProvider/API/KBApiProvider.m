@@ -67,7 +67,18 @@
 
 - (void)requestDone:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    if (!response.data) response.data = response.sourceData;
+    if (response.data) {
+        NSString *key;
+        if (_findType == KBFindAll) {
+            key = [_modelName propertyPluralizedString];
+        } else {
+            key = [_modelName propertyString];
+        }
+        NSLog(@"THE KEY: %@", key);
+        response.data = [response.data objectForKey:key];
+    } else {
+        response.data = response.sourceData;
+    }
     [_delegate findSuccess:_findType model:_modelName withData:response.data];
 }
 
