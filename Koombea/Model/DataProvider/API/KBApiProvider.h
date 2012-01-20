@@ -9,8 +9,11 @@
 #import "KBDataProvider.h"
 #import "KBApiClient.h"
 
-@interface KBApiProvider : KBDataProvider<KBApiClientDelegate>
+@interface KBApiProvider : KBDataProvider<KBApiClientDelegate> {
+    KBApiClient *_apiClient;
+}
 
+- (KBApiProvider *)init;
 + (KBApiProvider *)shared;
 
 @end

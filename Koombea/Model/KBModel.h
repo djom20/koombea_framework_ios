@@ -35,6 +35,7 @@
     NSNumber *id;
     NSDate *created_at;
     NSDate *updated_at;
+    NSDictionary *_sourceData;
     NSDictionary *_settings;
     NSString *_dataProvider;
     __weak id<KBModelDelegate> _delegate;
@@ -43,7 +44,8 @@
 @property (nonatomic, strong) NSNumber *id;
 @property (nonatomic, strong) NSDate *created_at;
 @property (nonatomic, strong) NSDate *updated_at;
-@property (nonatomic, strong) NSDictionary *_settings;
+@property (nonatomic, strong) NSDictionary *sourceData;
+@property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) NSString *dataProvider;
 @property (nonatomic, weak) id<KBModelDelegate> delegate;
 

@@ -11,9 +11,10 @@
 
 @implementation KBApiResponse
 
-@synthesize method, message, status, code, data, previousPage, actualPage, nextPage;
+@synthesize sourceData, method, message, status, code, data, previousPage, actualPage, nextPage;
 
 - (void) fill:(NSDictionary *)response {
+    self.sourceData = response;
     self.message = [response objectForKey:@"message"];
     self.status = [response objectForKey:@"status"];
     self.code = [response objectForKey:@"code"];

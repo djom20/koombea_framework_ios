@@ -29,12 +29,12 @@
 @interface KBDataProvider : KBObject<KBDataProvider> {
     NSString *_modelName;
     KBFindType _findType;
-    __weak id<KBDataProviderDelegate> _delegate;
+    id<KBDataProviderDelegate> _delegate;
 }
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic) KBFindType findType;
-@property (nonatomic, weak) id<KBDataProviderDelegate> delegate;
+@property (nonatomic, strong) id<KBDataProviderDelegate> delegate;
 
 + (KBDataProvider *)sharedDataProvider;
 + (NSDictionary *)dataProviders;

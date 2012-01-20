@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F0321C414C8C84F00939F49 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0321C214C8C84F00939F49 /* XMLReader.h */; };
+		3F0321C414C8C84F00939F49 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0321C214C8C84F00939F49 /* XMLReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0321C514C8C84F00939F49 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0321C314C8C84F00939F49 /* XMLReader.m */; };
 		3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */; };
@@ -520,14 +520,14 @@
 		3F71CF3314A2373800F20805 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				3F71CF3F14A2373800F20805 /* KBDataProvider.h */,
+				3F71CF4014A2373800F20805 /* KBDataProvider.m */,
 				3F1832D814C61478002F2DB2 /* API */,
 				3F71CF3414A2373800F20805 /* Database */,
 				3F71CF3714A2373800F20805 /* Facebook */,
 				3F15E3BF14B6324800367AEE /* JSON */,
 				3FAD67BB14BF3F8E00CB51F2 /* Parse */,
 				3F0B654A14B5F88900EB4D1A /* Plist */,
-				3F71CF3F14A2373800F20805 /* KBDataProvider.h */,
-				3F71CF4014A2373800F20805 /* KBDataProvider.m */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";

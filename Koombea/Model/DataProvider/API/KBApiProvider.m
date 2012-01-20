@@ -7,6 +7,7 @@
 //
 
 #import "KBApiProvider.h"
+#import "KBApiResponse.h"
 
 @implementation KBApiProvider
 
@@ -17,6 +18,13 @@
         instance = [[KBApiProvider alloc] init];
     }
     return instance;
+}
+
+- (KBApiProvider *)init
+{
+    _apiClient = [KBApiClient apiClient];
+    _apiClient.delegate = self;
+    return self;
 }
 
 - (void)fillModel:(KBModel *)model withObject:(id)object
@@ -39,13 +47,8 @@
 {
     _modelName = className;
     _findType = findType;
-    KBApiClient *apiClient = [KBApiClient apiClient];
-    apiClient.delegate = self;
-    
-    _delegate = [params objectForKey:@"delegate"];
-
     NSDictionary *config = [KBCore settingForKey:API_CONFIG withFile:API_SETTINGS];
-    apiClient.request.responseFormat = [config objectForKey:API_RESPONSE_FORMAT];
+    _apiClient.request.responseFormat = [config objectForKey:API_RESPONSE_FORMAT];
     
     NSDictionary *methods = [KBCore settingForKey:API_METHODS withFile:API_SETTINGS];
     NSDictionary *method = [methods objectForKey:[params objectForKey:@"method"]];
@@ -55,21 +58,22 @@
     NSArray *ids = [params objectForKey:@"ids"];
     
     if ([KBRequest httpMethod:httpMethod] == POST) {
-        [apiClient post:path withData:data ids:ids];
+        [_apiClient post:path withData:data ids:ids];
     } else if ([KBRequest httpMethod:httpMethod] == GET) {
-        [apiClient get:path withData:data ids:ids];
+        [_apiClient get:path withData:data ids:ids];
     }
     return nil;
 }
 
 - (void)requestDone:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    [_delegate findSuccess:_findType model:_modelName withData:response];
+    if (!response.data) response.data = response.sourceData;
+    [_delegate findSuccess:_findType model:_modelName withData:response.data];
 }
 
 - (void)requestFailed:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    [_delegate findError:_findType model:_modelName withData:response];
+    [_delegate findError:_findType model:_modelName withData:response.data];
 }
 
 - (void)requestStart:(KBApiClient *)apiClient

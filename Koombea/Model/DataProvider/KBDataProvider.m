@@ -38,7 +38,8 @@
     return (KBDataProviderType)[[dataProviders objectForKey:string] intValue];
 }
 
-+ (NSDictionary *)dataProviders {
++ (NSDictionary *)dataProviders
+{
     static NSDictionary *dataProviders = nil;
     if (dataProviders == nil) {
         dataProviders = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -64,7 +65,8 @@
     return dataProviders;
 }
 
-+ (Class)dataProviderClass:(KBDataProviderType)dataProviderType {
++ (Class)dataProviderClass:(KBDataProviderType)dataProviderType
+{
     switch (dataProviderType) {
         case KBDataProviderNone: return nil;
         case KBDataProviderAPI: return [KBApiProvider class];

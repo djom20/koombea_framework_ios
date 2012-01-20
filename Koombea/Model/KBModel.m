@@ -22,7 +22,8 @@
 @synthesize id;
 @synthesize created_at;
 @synthesize updated_at;
-@synthesize _settings;
+@synthesize sourceData = _sourceData;
+@synthesize settings = _settings;
 @synthesize dataProvider = _dataProvider;
 @synthesize delegate = _delegate;
 
@@ -82,6 +83,7 @@
             NSLog(EXCEPTION_MESSAGE, exception);
         }
     }
+    model.sourceData = dict;
     return model;
 }
 
@@ -195,7 +197,6 @@
 
 - (void)findSuccess:(KBFindType)findType model:(NSString *)className withData:(id)data
 {
-    NSLog(@"model findSuccess %@", data);
     id ModelClass = NSClassFromString(className);
     id instance = [[ModelClass alloc] init];
     instance = [KBModel fillModel:instance withDictionary:data];

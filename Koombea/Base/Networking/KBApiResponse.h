@@ -10,6 +10,7 @@
 
 
 @interface KBApiResponse : NSObject {
+    id sourceData;
     NSString *method;
 	NSString *message;
 	NSString *status;
@@ -20,11 +21,12 @@
 	NSInteger nextPage;
 }
 
-@property (nonatomic, retain) NSString *method;
-@property (nonatomic, retain) NSString *message;
-@property (nonatomic, retain) NSString *status;
-@property (nonatomic, retain) NSString *code;
-@property (nonatomic, retain) id data;
+@property (nonatomic, strong) id sourceData;
+@property (nonatomic, strong) NSString *method;
+@property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *code;
+@property (nonatomic, strong) id data;
 @property (nonatomic) NSInteger previousPage;
 @property (nonatomic) NSInteger actualPage;
 @property (nonatomic) NSInteger nextPage;
