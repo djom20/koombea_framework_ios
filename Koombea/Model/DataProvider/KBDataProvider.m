@@ -14,6 +14,7 @@
 #import "KBJSONProvider.h"
 #import "KBParseProvider.h"
 #import "KBPlistProvider.h"
+#import "KBXMLProvider.h"
 
 @implementation KBDataProvider
 
@@ -59,6 +60,7 @@
                          [NSNumber numberWithInteger:KBDataProviderParse], DATA_PROVIDER_PARSE,
                          [NSNumber numberWithInteger:KBDataProviderJSON], DATA_PROVIDER_JSON,
                          [NSNumber numberWithInteger:KBDataProviderPlist], DATA_PROVIDER_PLIST,
+                         [NSNumber numberWithInteger:KBDataProviderXML], DATA_PROVIDER_XML,
                          nil
                          ];
     }
@@ -84,6 +86,7 @@
         case KBDataProviderParse: return [KBParseProvider class];
         case KBDataProviderJSON: return [KBJSONProvider class];
         case KBDataProviderPlist: return [KBPlistProvider class];
+        case KBDataProviderXML: return [KBXMLProvider class];
         default: return nil;
     }
 }

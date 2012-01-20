@@ -17,7 +17,8 @@
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 - (void)setDefaultStyles;
-- (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle;
 - (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelButtonTitle okTitle:(NSString *)okTitle;
+- (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle;
+- (void)showErrorAlert:(NSString *)message;
 
 @end

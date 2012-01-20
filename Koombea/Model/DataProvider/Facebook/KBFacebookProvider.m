@@ -84,6 +84,7 @@
 - (id)find:(KBFindType)findType model:(NSString *)className withParams:(id)params
 {
     _modelName = className;
+    NSLog(@"del class %@", [_delegate class]);
     if ([className isEqualToString:[[KBFacebookUser class] description]]) {
         [self login];
     }
@@ -95,12 +96,9 @@
 - (void)login {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
-        
         NSDictionary *result = [defaults objectForKey:@"FBUserData"];
-        NSLog(@"Facebook result: %@", result);
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
-        
         
         NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:result];
         [data setObject:[facebook accessToken] forKey:@"token"];
@@ -111,6 +109,9 @@
     if (![facebook isSessionValid]) {
         facebook.sessionDelegate = self;
         [facebook authorize:permissions];
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(facebookInfoReady:) name:NOTE_FB_INFO_READY object:nil];
+
     } else {
         [_delegate findError:KBFindFirst model:_modelName withData:nil];
     }
@@ -118,6 +119,13 @@
 
 - (void)logout {
     [facebook logout:self];
+}
+
+- (void)facebookInfoReady:(NSNotification *)notification
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self];
+    [_delegate findSuccess:KBFindFirst model:_modelName withData:[notification userInfo]];
 }
 
 #pragma mark - Facebook delegate methods <FBSessionDelegate>
@@ -149,7 +157,6 @@
     NSString* fullURL = [[request url] description];
     NSString *graphPath = [fullURL stringByReplacingOccurrencesOfString:[Facebook graphBaseURL] withString:@""];
     if ([graphPath isEqualToString:FB_GRAPH_PATH_ME]) {
-        NSLog(@"Facebook result: %@", result);
         //NSLog(@"Facebook authToken: %@", [facebook accessToken]);
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:result forKey:@"FBUserData"];
@@ -159,7 +166,9 @@
         
         NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:result];
         [data setObject:[facebook accessToken] forKey:@"token"];
-        [_delegate findSuccess:KBFindFirst model:_modelName withData:data];
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center postNotificationName:NOTE_FB_INFO_READY object:nil userInfo:data];
     }
 }
 

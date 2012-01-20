@@ -16,6 +16,7 @@
 #import "KBJSONProvider.h"
 #import "KBParseProvider.h"
 #import "KBPlistProvider.h"
+#import "KBXMLProvider.h"
 
 @implementation KBModel
 
@@ -60,10 +61,8 @@
 
 + (KBModel *)fillModel:(KBModel *)model withDictionary:(NSDictionary *)dict
 {
-    NSLog(@"source dict: %@", dict);
     NSArray *keys = [dict allKeys];
     for (NSString *key in keys) {
-        NSLog(@"key: %@", key);
         @try {
             id value = [dict objectForKey:key];
             if ([value isKindOfClass:[NSArray class]]) {
@@ -77,7 +76,6 @@
                 // TODO
             } else {
                 if ([[model class] hasProperty:key]) {
-                    NSLog(@"set key: %@ = %@", key, value);
                     [model setValue:value forKey:key];
                 }
             }

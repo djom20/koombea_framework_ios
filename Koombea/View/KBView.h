@@ -19,8 +19,9 @@
 @property (nonatomic, strong) MBProgressHUD *loadingIndicator;
 
 - (void)setDefaultStyles;
-- (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle;
 - (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelButtonTitle okTitle:(NSString *)okTitle;
+- (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle;
+- (void)showErrorAlert:(NSString *)message;
 - (void)showLoading:(UIViewController *)viewCtrl withText:(NSString *)text;
 - (void)hideLoading:(UIViewController *)viewCtrl;
 

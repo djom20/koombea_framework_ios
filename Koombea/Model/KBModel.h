@@ -38,7 +38,7 @@
     NSDictionary *_sourceData;
     NSDictionary *_settings;
     NSString *_dataProvider;
-    __weak id<KBModelDelegate> _delegate;
+    id<KBModelDelegate> _delegate;
 }
 
 @property (nonatomic, strong) NSNumber *id;
@@ -47,7 +47,7 @@
 @property (nonatomic, strong) NSDictionary *sourceData;
 @property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) NSString *dataProvider;
-@property (nonatomic, weak) id<KBModelDelegate> delegate;
+@property (nonatomic, strong) id<KBModelDelegate> delegate;
 
 - (KBModel *)init;
 + (KBModel *)shared;

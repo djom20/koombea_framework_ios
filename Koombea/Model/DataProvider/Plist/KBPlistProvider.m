@@ -37,25 +37,22 @@
 
 - (id)find:(KBFindType)findType model:(NSString *)className withParams:(id)params
 {
-    NSString *fileName = [className propertyPluralizedString];
+    NSString *fileName = (findType == KBFindFirst ? [className propertyString] : [className propertyPluralizedString]);
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
     NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:filePath];
-    NSMutableArray *modelList = [[NSMutableArray alloc] init];
-    for (NSString *key in [data allKeys]) {
-        id object = [data objectForKey:key];
-        id ModelClass = NSClassFromString(className);
-        KBModel *model = [[ModelClass alloc] init];
-        [self fillModel:model withObject:object];
-        model.id = [NSNumber numberWithInt:[key intValue]];
-        [modelList addObject:model];     
-    }
+    
+    id ModelClass = NSClassFromString(className);
     if (findType == KBFindFirst) {
-        if ([modelList count] > 0) {
-            return [modelList objectAtIndex:0];
-        } else {
-            return nil;
-        }
+        KBModel *model = [[ModelClass alloc] init];
+        return [KBModel fillModel:model withDictionary:data];
     } else {
+        NSMutableArray *modelList = [[NSMutableArray alloc] init];
+        for (NSString *key in [data allKeys]) {
+            id object = [data objectForKey:key];
+            KBModel *model = [[ModelClass alloc] init];
+            [KBModel fillModel:model withDictionary:object];
+            [modelList addObject:model];     
+        }
         return modelList;
     }
 }

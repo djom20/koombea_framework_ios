@@ -14,15 +14,20 @@
 @synthesize backgroundView;
 @synthesize tableData;
 
+- (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle okTitle:(NSString *)okTitle
+{
+	UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelTitle otherButtonTitles:okTitle, nil];
+	[alertView show];
+}
+
 - (void)showAlert:(NSString *)title message:(NSString *)message okTitle:(NSString *)okTitle
 {
     [self showAlert:title message:message cancelTitle:okTitle okTitle:nil];
 }
 
-- (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelButtonTitle okTitle:(NSString *)okTitle
+- (void)showErrorAlert:(NSString *)message
 {
-	UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:okTitle otherButtonTitles:okTitle, nil];
-	[alertView show];
+    [self showAlert:@"Error" message:message cancelTitle:@"OK" okTitle:nil];
 }
 
 - (void)viewDidLoad

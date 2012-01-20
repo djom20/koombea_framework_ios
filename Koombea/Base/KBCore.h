@@ -13,6 +13,7 @@
 #import "QuickDialog.h"
 #import "KBAutoForm.h"
 #import "KBObject.h"
+#import "KBResponse.h"
 #import "KBModel.h"
 #import "KBOperation.h"
 #import "KBTableView.h"

@@ -46,7 +46,8 @@
                 [model setValue:value forKey:prop.name];
             }
             @catch (NSException *exception) {
-                NSLog(EXCEPTION_MESSAGE, exception);
+                // TODO Enable when check if it's not a superclass property
+                //NSLog(EXCEPTION_MESSAGE, exception);
             }
         }
     }
@@ -80,7 +81,8 @@
                     [object setValue:value forKey:prop.name];
                 }
                 @catch (NSException *exception) {
-                    NSLog(EXCEPTION_MESSAGE, exception);
+                    // TODO Enable when check if it's not a superclass property
+                    //NSLog(EXCEPTION_MESSAGE, exception);
                 }
             }
         }
@@ -156,6 +158,7 @@
 
 - (id)save:(KBModel *)model withParams:(id)params
 {
+    NSString *modelId;
     NSError *error = nil;
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSArray *objects;
@@ -170,7 +173,7 @@
     } else {
         // Update existing objects
         if ([params isKindOfClass:[NSString class]]) {
-            NSString *modelId = [NSString stringWithFormat:@"%@", model.id];
+            modelId = [NSString stringWithFormat:@"%@", model.id];
             objects = [self fetchObjects:KBFindFirst model:[[model class] description] withParams:modelId];
         } else {
             objects = [self fetchObjects:KBFindAll model:[[model class] description] withParams:params];
@@ -182,7 +185,7 @@
         /* NSArray *subModels = */[KBDatabaseProvider fillManagedObject:object withModel:model];
         if (![moc save:&error]) {
             NSLog(ERROR_DATABASE_PROVIDER, error, [error userInfo]);
-            return error;
+            //return error;
         }
         
         /*
@@ -195,8 +198,8 @@
          }
         */
     }
-    
-    return error;
+    // TODO change for KBResponse
+    return modelId;
 }
 
 - (id)del:(NSString *)className withParams:(id)params

@@ -105,6 +105,7 @@ typedef enum {
 #define DATA_PROVIDER_PARSE @"DATA_PROVIDER_PARSE"
 #define DATA_PROVIDER_JSON @"DATA_PROVIDER_JSON"
 #define DATA_PROVIDER_PLIST @"DATA_PROVIDER_PLIST"
+#define DATA_PROVIDER_XML @"DATA_PROVIDER_XML"
 
 typedef enum {
     KBDataProviderNone          = 0,
@@ -122,7 +123,8 @@ typedef enum {
     KBDataProviderVideoStream   = 12,
     KBDataProviderParse         = 13,
     KBDataProviderJSON          = 14,
-    KBDataProviderPlist         = 15
+    KBDataProviderPlist         = 15,
+    KBDataProviderXML           = 16
 } KBDataProviderType;
 
 /* Facebook */
@@ -163,5 +165,8 @@ typedef enum {
 } HttpMethod;
 
 /* Tags */
-
 #define TAG_LOADING_INDICATOR 10000001
+
+/* Notifications */
+#define NOTE_FB_INFO_READY @"NOTE_FB_INFO_READY"
+

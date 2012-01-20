@@ -21,5 +21,6 @@
 - (KBFacebookProvider *)init;
 - (void)login;
 - (void)logout;
+- (void)facebookInfoReady:(NSNotification *)notification;
 
 @end
