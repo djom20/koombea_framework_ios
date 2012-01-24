@@ -84,7 +84,6 @@
 - (id)find:(KBFindType)findType model:(NSString *)className withParams:(id)params
 {
     _modelName = className;
-    NSLog(@"del class %@", [_delegate class]);
     if ([className isEqualToString:[[KBFacebookUser class] description]]) {
         [self login];
     }

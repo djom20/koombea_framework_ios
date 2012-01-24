@@ -158,10 +158,10 @@
 
 - (id)save:(KBModel *)model withParams:(id)params
 {
-    NSString *modelId;
     NSError *error = nil;
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSArray *objects;
+    NSNumber *primaryKey = nil;
     
     if ([model isNew]) {
         // Insert a new object
@@ -173,7 +173,7 @@
     } else {
         // Update existing objects
         if ([params isKindOfClass:[NSString class]]) {
-            modelId = [NSString stringWithFormat:@"%@", model.id];
+            NSString *modelId = [NSString stringWithFormat:@"%@", model.id];
             objects = [self fetchObjects:KBFindFirst model:[[model class] description] withParams:modelId];
         } else {
             objects = [self fetchObjects:KBFindAll model:[[model class] description] withParams:params];
@@ -185,7 +185,8 @@
         /* NSArray *subModels = */[KBDatabaseProvider fillManagedObject:object withModel:model];
         if (![moc save:&error]) {
             NSLog(ERROR_DATABASE_PROVIDER, error, [error userInfo]);
-            //return error;
+        } else {
+            primaryKey = [KBDatabaseProvider primaryKey:object];
         }
         
         /*
@@ -196,10 +197,10 @@
          [subModel setValue:primaryKey forKey:foreignKeyName];
          [self save:subModel withParams:params];
          }
-        */
+         */
     }
-    // TODO change for KBResponse
-    return modelId;
+    
+    return primaryKey;
 }
 
 - (id)del:(NSString *)className withParams:(id)params
