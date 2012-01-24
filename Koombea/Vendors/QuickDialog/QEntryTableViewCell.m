@@ -180,9 +180,9 @@
 		if (cell!=nil){
 			[cell becomeFirstResponder];
             NSIndexPath *indexPath = [_quickformTableView indexPathForCell: cell];
-            [_quickformTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            [_quickformTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 		}
-	}
+	} 
 }
 
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
@@ -204,11 +204,34 @@
     QEntryElement *previousElement = nil;
     for (QElement * e in _entryElement.parentSection.elements){
         if (e == _entryElement) {
-			return previousElement;
+			break;
         }
         else if ([e isKindOfClass:[QEntryElement class]]){
             previousElement = (QEntryElement *)e;
         }
+    }
+    if (!previousElement) {
+        
+        int i = 0;
+        for (QSection *section in [_quickformTableView.root sections]) {
+            if ([section isEqual:_entryElement.parentSection]) {
+                break;
+            }
+            i += 1;
+        }
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:i];
+        if (indexPath.section > 0) {
+            QSection *section = [[QSection alloc] init];
+            section = [_quickformTableView.root getSectionForIndex:indexPath.section-1];
+            for (QElement * e in section.elements){
+                if ([e isKindOfClass:[QEntryElement class]]) {
+                    return (QEntryElement *) e;
+                }
+            }
+        }
+        
+    } else {
+        return previousElement;
     }
     return nil;
 }
@@ -217,13 +240,34 @@
     BOOL foundSelf = NO;
     for (QElement * e in _entryElement.parentSection.elements){
         if (e == _entryElement) {
-           foundSelf = YES;
+            foundSelf = YES;
         }
         else if (foundSelf && [e isKindOfClass:[QEntryElement class]]){
             return (QEntryElement *) e;
         }
     }
-    return nil;
+
+    if (foundSelf == YES) {
+        
+        int i = 0;
+        for (QSection *section in [_quickformTableView.root sections]) {
+            if ([section isEqual:_entryElement.parentSection]) {
+                break;
+            }
+            i += 1;
+        }
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+        if (indexPath.section < [_quickformTableView numberOfSections]-1) {
+            QSection *section = [_quickformTableView.root getSectionForIndex:indexPath.section+1];
+            for (QElement * e in section.elements){
+                if ([e isKindOfClass:[QEntryElement class]]) {
+                    return (QEntryElement *) e;
+                }
+            }
+        }
+    
+    }
+        return nil;
 }
 
 
