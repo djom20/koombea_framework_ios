@@ -86,6 +86,13 @@ typedef enum {
 /* Validations */
 #define MODEL_VALIDATE_EMPTY @"Empty"
 #define MODEL_VALIDATE_LENGTH @"Length"
+#define MODEL_VALIDATE_PRICE_FORMAT @"PriceFormat"
+
+#define MODEL_VALIDATION_MIN_INTEGERS @"MinIntegers"
+#define MODEL_VALIDATION_MAX_INTEGERS @"MaxIntegers"
+#define MODEL_VALIDATION_MIN_DECIMALS @"MinDecimals"
+#define MODEL_VALIDATION_MAX_DECIMALS @"MaxDecimals"
+#define MODEL_VALIDATION_SEPARATOR @"Separator"
 
 /* Data Providers */
 #define DATA_PROVIDER @"dataProvider"
