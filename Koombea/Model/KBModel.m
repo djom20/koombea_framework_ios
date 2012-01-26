@@ -173,7 +173,10 @@
                 }
                 
             } else if ([type isEqualToString:MODEL_VALIDATE_PRICE_FORMAT]) {
-                if (value != nil) {
+                if (value != nil && ![[NSString stringWithFormat:@"%@",value] isEqualToString:@""]) {
+                    
+                    NSLog(@"value:%@",[NSString stringWithFormat:@"%@",value]);
+                    
                     NSDictionary *rule = [rules objectForKey:type];
                     NSString *minIntegers = [rule objectForKey:MODEL_VALIDATION_MIN_INTEGERS];
                     NSString *maxIntegers = [rule objectForKey:MODEL_VALIDATION_MAX_INTEGERS];
@@ -188,8 +191,6 @@
                     if (numberOfMatches != 1) {
                         invalid = YES;
                     }
-                } else {
-                    invalid = YES;
                 }
             }
             
