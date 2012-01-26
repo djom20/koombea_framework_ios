@@ -14,17 +14,24 @@
 @synthesize status;
 @synthesize code;
 @synthesize errors;
-@synthesize data;
 @synthesize sourceData;
+@synthesize data;
+@synthesize model;
+
++ (KBResponse *)response
+{
+    KBResponse *instance = [[KBResponse alloc] init];
+    return instance;
+}
 
 - (void)fill:(NSDictionary *)response
 {
+    self.sourceData = response;
     self.message = [response objectForKey:@"message"];
     self.status = [response objectForKey:@"status"];
     self.code = [response objectForKey:@"code"];
     self.errors = [response objectForKey:@"errors"];
     self.data = [response objectForKey:@"data"];
-    self.sourceData = response;
 }
 
 @end

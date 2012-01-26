@@ -18,8 +18,8 @@
 
 @protocol KBDataProviderDelegate<NSObject>
 @optional
-- (void)findSuccess:(KBFindType)findType model:(NSString *)className withData:(id)data;
-- (void)findError:(KBFindType)findType model:(NSString *)className withData:(id)data;
+- (void)findSuccess:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response;
+- (void)findError:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response;
 - (void)saveSuccess:(NSString *)className withData:(id)data;
 - (void)saveError:(NSString *)className withData:(id)data;
 - (void)deleteSuccess:(NSString *)className withData:(id)data;

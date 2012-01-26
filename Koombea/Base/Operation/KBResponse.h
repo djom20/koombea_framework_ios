@@ -13,8 +13,9 @@
 	NSString *status;
 	NSString *code;
     NSArray *errors;
-	id data;
     id sourceData;
+    id data;
+    id model;
 }
 
 
@@ -22,9 +23,11 @@
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *code;
 @property (nonatomic, strong) NSArray *errors;
-@property (nonatomic, strong) id data;
 @property (nonatomic, strong) id sourceData;
+@property (nonatomic, strong) id data;
+@property (nonatomic, strong) id model;
 
++ (KBResponse *)response;
 - (void)fill:(NSDictionary *)response;
 
 @end

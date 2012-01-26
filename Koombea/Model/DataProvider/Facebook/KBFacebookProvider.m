@@ -8,6 +8,7 @@
 
 #import "KBFacebookProvider.h"
 #import "KBFacebookModels.h"
+#import "NSDictionary+Dictionary.h"
 
 @implementation KBFacebookProvider
 
@@ -92,10 +93,12 @@
 
 #pragma mark - FacebookProvider methods
 
+
+
 - (void)login {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
-        NSDictionary *result = [defaults objectForKey:@"FBUserData"];
+        NSDictionary *result = [[defaults objectForKey:@"FBUserData"] dictionaryWithoutCollections];
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
         
@@ -103,7 +106,10 @@
         [data setObject:[facebook accessToken] forKey:@"token"];
         [data setObject:[result objectForKey:@"id"] forKey:@"id"];
         
-        [_delegate findSuccess:KBFindFirst model:_modelName withData:data];
+        NSLog(@"Model name: %@",_modelName);
+        KBResponse *response = [KBResponse response];
+        response.data = data;
+        [_delegate findSuccess:KBFindFirst model:_modelName withResponse:response];
     }
     if (![facebook isSessionValid]) {
         facebook.sessionDelegate = self;
@@ -112,7 +118,7 @@
         [center addObserver:self selector:@selector(facebookInfoReady:) name:NOTE_FB_INFO_READY object:nil];
 
     } else {
-        [_delegate findError:KBFindFirst model:_modelName withData:nil];
+        [_delegate findError:KBFindFirst model:_modelName withResponse:nil];
     }
 }
 
@@ -124,7 +130,9 @@
 {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self];
-    [_delegate findSuccess:KBFindFirst model:_modelName withData:[notification userInfo]];
+    KBResponse *response = [KBResponse response];
+    response.data = [notification userInfo];
+    [_delegate findSuccess:KBFindFirst model:_modelName withResponse:response];
 }
 
 #pragma mark - Facebook delegate methods <FBSessionDelegate>
@@ -134,7 +142,7 @@
 }
 
 - (void)fbDidNotLogin:(BOOL)cancelled {
-    [_delegate findError:KBFindFirst model:_modelName withData:nil];
+    [_delegate findError:KBFindFirst model:_modelName withResponse:nil];
 }
 
 - (void)fbDidLogout {
@@ -149,7 +157,7 @@
 }
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
-    [_delegate findError:KBFindFirst model:_modelName withData:nil];
+    [_delegate findError:KBFindFirst model:_modelName withResponse:nil];
 }
 
 - (void)request:(FBRequest *)request didLoad:(id)result {
@@ -158,12 +166,13 @@
     if ([graphPath isEqualToString:FB_GRAPH_PATH_ME]) {
         //NSLog(@"Facebook authToken: %@", [facebook accessToken]);
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:result forKey:@"FBUserData"];
+        NSDictionary *fbUserData = [result dictionaryWithoutCollections];
+        [defaults setObject:fbUserData forKey:@"FBUserData"];
         [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
         [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
         [defaults synchronize];
         
-        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:result];
+        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:fbUserData];
         [data setObject:[facebook accessToken] forKey:@"token"];
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];

@@ -34,10 +34,12 @@
 - (void)findCallback:(NSArray *)results error:(NSError *)error {
     if (!error) {
         NSLog(@"Results %@", results);
-        [_delegate findSuccess:KBFindFirst model:_modelName withData:results];
+        KBResponse *response = [KBResponse response];
+        response.data = results;
+        [_delegate findSuccess:KBFindFirst model:_modelName withResponse:response];
     } else {
         NSLog(ERROR_PARSE_PROVIDER, error, [error userInfo]);
-        [_delegate findError:KBFindFirst model:_modelName withData:nil];
+        [_delegate findError:KBFindFirst model:_modelName withResponse:nil];
     }
 }
 

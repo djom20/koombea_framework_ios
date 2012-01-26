@@ -23,8 +23,8 @@
 
 @protocol KBModelDelegate <NSObject>
 @optional
-- (void)findSuccess:(KBFindType)findType withData:(id)data;
-- (void)findError:(KBFindType)findType withData:(id)data;
+- (void)findSuccess:(KBFindType)findType withResponse:(KBResponse *)response;
+- (void)findError:(KBFindType)findType withResponse:(KBResponse *)response;
 - (void)saveSuccess:(id)data;
 - (void)saveError:(id)data;
 - (void)deleteSuccess:(id)data;

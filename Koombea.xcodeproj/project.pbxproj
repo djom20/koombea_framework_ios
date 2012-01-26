@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F0321C414C8C84F00939F49 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0321C214C8C84F00939F49 /* XMLReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0321C514C8C84F00939F49 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0321C314C8C84F00939F49 /* XMLReader.m */; };
-		3F03221814C9D66900939F49 /* KBXMLProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F03221614C9D66900939F49 /* KBXMLProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F03221914C9D66900939F49 /* KBXMLProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F03221714C9D66900939F49 /* KBXMLProvider.m */; };
 		3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0B654F14B5F92F00EB4D1A /* KBPlistProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */; };
 		3F1832D014C61421002F2DB2 /* KBApiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F1832CC14C61421002F2DB2 /* KBApiClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -180,13 +178,15 @@
 		912B665F14C87F6600CAE407 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 912B665D14C87F6600CAE407 /* MBProgressHUD.m */; };
 		9169175C14C87D2500831132 /* KBHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9169175A14C87D2500831132 /* KBHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9169175D14C87D2500831132 /* KBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9169175B14C87D2500831132 /* KBHelper.m */; };
+		91E6A5A414CF0DAC00BF761B /* KBXMLProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 91E6A5A214CF0DAC00BF761B /* KBXMLProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91E6A5A514CF0DAC00BF761B /* KBXMLProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E6A5A314CF0DAC00BF761B /* KBXMLProvider.m */; };
+		91E6A61314CF1AAB00BF761B /* NSDictionary+Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 91E6A61114CF1AAB00BF761B /* NSDictionary+Dictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91E6A61414CF1AAB00BF761B /* NSDictionary+Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E6A61214CF1AAB00BF761B /* NSDictionary+Dictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F0321C214C8C84F00939F49 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		3F0321C314C8C84F00939F49 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
-		3F03221614C9D66900939F49 /* KBXMLProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBXMLProvider.h; path = XML/KBXMLProvider.h; sourceTree = "<group>"; };
-		3F03221714C9D66900939F49 /* KBXMLProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBXMLProvider.m; path = XML/KBXMLProvider.m; sourceTree = "<group>"; };
 		3F0B654C14B5F92F00EB4D1A /* KBPlistProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBPlistProvider.h; path = Plist/KBPlistProvider.h; sourceTree = "<group>"; };
 		3F0B654D14B5F92F00EB4D1A /* KBPlistProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBPlistProvider.m; path = Plist/KBPlistProvider.m; sourceTree = "<group>"; };
 		3F1832CC14C61421002F2DB2 /* KBApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBApiClient.h; sourceTree = "<group>"; };
@@ -359,6 +359,10 @@
 		912B665D14C87F6600CAE407 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9169175A14C87D2500831132 /* KBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBHelper.h; path = Helper/KBHelper.h; sourceTree = "<group>"; };
 		9169175B14C87D2500831132 /* KBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBHelper.m; path = Helper/KBHelper.m; sourceTree = "<group>"; };
+		91E6A5A214CF0DAC00BF761B /* KBXMLProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBXMLProvider.h; path = XML/KBXMLProvider.h; sourceTree = "<group>"; };
+		91E6A5A314CF0DAC00BF761B /* KBXMLProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBXMLProvider.m; path = XML/KBXMLProvider.m; sourceTree = "<group>"; };
+		91E6A61114CF1AAB00BF761B /* NSDictionary+Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Dictionary.h"; sourceTree = "<group>"; };
+		91E6A61214CF1AAB00BF761B /* NSDictionary+Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Dictionary.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,8 +390,8 @@
 		3F03221414C9D5CF00939F49 /* XML */ = {
 			isa = PBXGroup;
 			children = (
-				3F03221614C9D66900939F49 /* KBXMLProvider.h */,
-				3F03221714C9D66900939F49 /* KBXMLProvider.m */,
+				91E6A5A214CF0DAC00BF761B /* KBXMLProvider.h */,
+				91E6A5A314CF0DAC00BF761B /* KBXMLProvider.m */,
 			);
 			name = XML;
 			sourceTree = "<group>";
@@ -514,6 +518,8 @@
 			children = (
 				3F71CF2B14A2373800F20805 /* NSString+String.h */,
 				3F71CF2C14A2373800F20805 /* NSString+String.m */,
+				91E6A61114CF1AAB00BF761B /* NSDictionary+Dictionary.h */,
+				91E6A61214CF1AAB00BF761B /* NSDictionary+Dictionary.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -821,6 +827,7 @@
 				3F71CFCC14A2373800F20805 /* KBErrorMessages.h in Headers */,
 				3F71CFC414A2373800F20805 /* KBObject.h in Headers */,
 				3F71CFC814A2373800F20805 /* NSString+String.h in Headers */,
+				91E6A61314CF1AAB00BF761B /* NSDictionary+Dictionary.h in Headers */,
 				3F71CFDB14A2373800F20805 /* NSString+ActiveSupportInflector.h in Headers */,
 				3F5BCD9714CA0F5300105509 /* KBOperation.h in Headers */,
 				3F5BCD9314CA0F0A00105509 /* KBResponse.h in Headers */,
@@ -835,7 +842,7 @@
 				3FAD67BE14BF3FC500CB51F2 /* KBParseProvider.h in Headers */,
 				3F0B654E14B5F92F00EB4D1A /* KBPlistProvider.h in Headers */,
 				3F39EF5F14B63CF30009B77E /* KBJSONProvider.h in Headers */,
-				3F03221814C9D66900939F49 /* KBXMLProvider.h in Headers */,
+				91E6A5A414CF0DAC00BF761B /* KBXMLProvider.h in Headers */,
 				3F71CFD114A2373800F20805 /* KBFacebookModels.h in Headers */,
 				3F71CFD214A2373800F20805 /* KBFacebookUser.h in Headers */,
 				3F71CFD414A2373800F20805 /* KBDataProvider.h in Headers */,
@@ -1080,9 +1087,10 @@
 				9169175D14C87D2500831132 /* KBHelper.m in Sources */,
 				912B665F14C87F6600CAE407 /* MBProgressHUD.m in Sources */,
 				3F0321C514C8C84F00939F49 /* XMLReader.m in Sources */,
-				3F03221914C9D66900939F49 /* KBXMLProvider.m in Sources */,
 				3F5BCD9414CA0F0A00105509 /* KBResponse.m in Sources */,
 				3F5BCD9814CA0F5300105509 /* KBOperation.m in Sources */,
+				91E6A5A514CF0DAC00BF761B /* KBXMLProvider.m in Sources */,
+				91E6A61414CF1AAB00BF761B /* NSDictionary+Dictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

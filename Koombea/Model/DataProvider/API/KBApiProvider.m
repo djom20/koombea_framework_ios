@@ -79,12 +79,12 @@
     } else {
         response.data = response.sourceData;
     }
-    [_delegate findSuccess:_findType model:_modelName withData:response.data];
+    [_delegate findSuccess:_findType model:_modelName withResponse:response];
 }
 
 - (void)requestFailed:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
 {
-    [_delegate findError:_findType model:_modelName withData:response.data];
+    [_delegate findError:_findType model:_modelName withResponse:response];
 }
 
 - (void)requestStart:(KBApiClient *)apiClient
