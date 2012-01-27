@@ -173,7 +173,7 @@
                 }
                 
             } else if ([type isEqualToString:MODEL_VALIDATE_PRICE_FORMAT]) {
-                if (value != nil || ![[NSString stringWithFormat:@"%@",value] isEqualToString:@""]) {
+                if (value != nil && ![[NSString stringWithFormat:@"%@",value] isEqualToString:@""]) {
                     
                     NSLog(@"value:%@",[NSString stringWithFormat:@"%@",value]);
                     
@@ -188,7 +188,7 @@
 //                    NSString *regexStr = [NSString stringWithFormat:@"^[0-9]{%@,%@}(\\.[0-9]{%@,%@})?$", minIntegers, maxIntegers, separator, minDecimals, maxDecimals];
                     NSString *regexStr = [NSString stringWithFormat:@"^[0-9]{%@,%@}(\\%@[0-9]{%@,%@})?$", minIntegers, maxIntegers, separator, minDecimals, maxDecimals];
                     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexStr options:NSRegularExpressionCaseInsensitive error:&error];
-                    NSUInteger numberOfMatches = [regex numberOfMatchesInString:value options:0 range:NSMakeRange(0, [value length])];
+                    NSUInteger numberOfMatches = [regex numberOfMatchesInString:[NSString stringWithFormat:@"%@",value] options:0 range:NSMakeRange(0, [value length])];
                     NSLog(@"numberOfMatches%d",numberOfMatches);
                     
                     if (numberOfMatches != 1) {
