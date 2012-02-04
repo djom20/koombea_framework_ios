@@ -25,6 +25,7 @@
     self = [self initWithTitle:title Value:nil];
     
     if (self) {
+        
         _textValue = value;
         _placeholder = placeholder;
         
@@ -35,8 +36,7 @@
         self.returnKeyType = UIReturnKeyDefault;
         self.enablesReturnKeyAutomatically = NO;
         self.secureTextEntry = NO;
-    }
-    
+    }    
     return self;
 }
 
@@ -46,7 +46,6 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
-    
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }

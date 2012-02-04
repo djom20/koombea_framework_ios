@@ -31,7 +31,6 @@
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
     cell.textLabel.text = _title;
     cell.detailTextLabel.text = _value;
     cell.imageView.image = _image;
