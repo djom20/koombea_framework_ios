@@ -44,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self setDefaultStyles];
     tableData = [NSMutableArray array];
 }
