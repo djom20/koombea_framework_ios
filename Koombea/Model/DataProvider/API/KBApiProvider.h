@@ -15,5 +15,6 @@
 
 - (KBApiProvider *)init;
 + (KBApiProvider *)shared;
+- (BOOL)hasMultiPartData:(KBModel *)model;
 
 @end

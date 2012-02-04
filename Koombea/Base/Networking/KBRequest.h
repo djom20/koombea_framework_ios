@@ -26,6 +26,7 @@
     int sequence;
     NSString *identifier;
     NSDictionary *_params;
+    KBContentType _contentType;
 @private
 	NSURL *url;
 	NSURLRequest *request;
@@ -36,11 +37,12 @@
 
 @property (nonatomic, strong) id<KBRequestDelegate> delegate;
 @property (nonatomic, strong) NSString *responseFormat;
-@property (nonatomic, assign) int sequence;
+@property (nonatomic) int sequence;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSURLRequest *request;
 @property (nonatomic, strong) NSDictionary *_params;
+@property (nonatomic) KBContentType contentType;
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) NSMutableData *receivedData;
 @property (nonatomic, strong) NSMutableArray *trustedHosts;

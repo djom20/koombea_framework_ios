@@ -14,6 +14,15 @@
 /* Networking Params */
 #define REQUEST_TIMEOUT_INTERVAL 30
 
+/* HTTP Request */
+#define HTTP_CONTENT_TYPE_FORM @"application/x-www-form-urlencoded"
+#define HTTP_CONTENT_TYPE_MULTIPART @"multipart/form-data"
+
+typedef enum {
+    KBContentTypeForm,
+    KBContentTypeMultipart
+} KBContentType;
+
 /* Config File Names */
 #define APP_SETTINGS @"settings"
 #define APP_STYLES @"styles"
@@ -149,6 +158,8 @@ typedef enum {
 #define OP_DATA @"data"
 #define OP_SUCCESS @"success"
 #define OP_FAILURE @"failure"
+
+
 
 /* API Config */
 #define API_CONFIG @"Config"
