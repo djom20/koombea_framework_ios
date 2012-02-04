@@ -156,20 +156,48 @@
     for (NSString *field in [validate allKeys]) {
         NSDictionary *rules = [validate objectForKey:field];
         id value = [self valueForKey:field];
-        for (NSString *type in rules) {
+        for (NSString *type in [rules allKeys]) {
+            
             BOOL invalid = NO;
             if ([type isEqualToString:MODEL_VALIDATE_EMPTY]) {
                 BOOL empty = [[rules objectForKey:type] intValue];
                 if ((value == nil || [[NSString stringWithFormat:@"%@", value] isEqualToString:@""]) != empty) {
                     invalid = YES;
                 }
+                
             } else if ([type isEqualToString:MODEL_VALIDATE_LENGTH]) {
                 int length = [[rules objectForKey:type] intValue];
                 if (value == nil || [[NSString stringWithFormat:@"%@", value] isEqualToString:@""] ||
                     [[NSString stringWithFormat:@"%@", value] length] != length) {
                     invalid = YES;
                 }
+                
+            } else if ([type isEqualToString:MODEL_VALIDATE_PRICE_FORMAT]) {
+                if (value != nil && ![[NSString stringWithFormat:@"%@",value] isEqualToString:@""]) {
+                    
+                    NSLog(@"value:%@",[NSString stringWithFormat:@"%@",value]);
+                    
+                    NSDictionary *rule = [rules objectForKey:type];
+                    NSString *minIntegers = [rule objectForKey:MODEL_VALIDATION_MIN_INTEGERS];
+                    NSString *maxIntegers = [rule objectForKey:MODEL_VALIDATION_MAX_INTEGERS];
+                    NSString *minDecimals = [rule objectForKey:MODEL_VALIDATION_MIN_DECIMALS];
+                    NSString *maxDecimals = [rule objectForKey:MODEL_VALIDATION_MAX_DECIMALS];
+                    NSString *separator = [rule objectForKey:MODEL_VALIDATION_SEPARATOR];
+                    
+                    NSError *error = NULL;
+//                    NSString *regexStr = [NSString stringWithFormat:@"^[0-9]{%@,%@}(\\.[0-9]{%@,%@})?$", minIntegers, maxIntegers, separator, minDecimals, maxDecimals];
+                    NSString *regexStr = [NSString stringWithFormat:@"^[0-9]{%@,%@}(\\%@[0-9]{%@,%@})?$", minIntegers, maxIntegers, separator, minDecimals, maxDecimals];
+                    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexStr options:NSRegularExpressionCaseInsensitive error:&error];
+                    NSUInteger numberOfMatches = [regex numberOfMatchesInString:[NSString stringWithFormat:@"%@",value] options:0 range:NSMakeRange(0, [value length])];
+                    NSLog(@"numberOfMatches%d",numberOfMatches);
+                    
+                    if (numberOfMatches != 1) {
+                        invalid = YES;
+                    }
+                    
+                }
             }
+            
             if (invalid) {
                 NSMutableDictionary *err = [NSMutableDictionary dictionary];
                 [err setObject:field forKey:@"key"];
