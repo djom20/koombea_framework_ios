@@ -15,13 +15,8 @@
 #define REQUEST_TIMEOUT_INTERVAL 30
 
 /* HTTP Request */
+#define HTTP_CONTENT_TYPE @"ContentType"
 #define HTTP_CONTENT_TYPE_FORM @"application/x-www-form-urlencoded"
-#define HTTP_CONTENT_TYPE_MULTIPART @"multipart/form-data"
-
-typedef enum {
-    KBContentTypeForm,
-    KBContentTypeMultipart
-} KBContentType;
 
 /* Config File Names */
 #define APP_SETTINGS @"settings"

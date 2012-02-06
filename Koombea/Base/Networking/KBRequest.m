@@ -13,14 +13,12 @@
 @implementation KBRequest
 
 @synthesize delegate = _delegate;
-@synthesize contentType = _contentType;
 @synthesize sequence, identifier, url, request, _params, connection, receivedData, responseFormat, trustedHosts;
 
 + (KBRequest *) request {
 	KBRequest *instance = [[KBRequest alloc] init];
 	instance.receivedData = [[NSMutableData alloc] init];
     instance.trustedHosts = [[NSMutableArray alloc] init];
-    instance.contentType = KBContentTypeForm;
 	return instance;
 }
 
@@ -80,11 +78,14 @@
 	NSMutableURLRequest *_request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:REQUEST_TIMEOUT_INTERVAL];
 	NSString *paramsLength = [NSString stringWithFormat:@"%d", [params length]];
 	[_request setHTTPMethod:type];
-    if (_contentType == KBContentTypeForm) {
+    
+    NSString *contentType = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:HTTP_CONTENT_TYPE];
+    if (contentType) {
+        [_request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+    } else {
         [_request setValue:HTTP_CONTENT_TYPE_FORM forHTTPHeaderField:@"Content-Type"];
-    } else if (_contentType == KBContentTypeMultipart) {
-        [_request setValue:HTTP_CONTENT_TYPE_MULTIPART forHTTPHeaderField:@"Content-Type"];
     }
+
 	if ([type isEqualToString:@"POST"] || [type isEqualToString:@"PUT"]) {
 		[_request setValue:paramsLength forHTTPHeaderField:@"Content-Length"];
 		[_request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];

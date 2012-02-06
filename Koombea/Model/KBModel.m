@@ -245,7 +245,17 @@
 
 - (void)findError:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response
 {
+    [_delegate findError:findType withResponse:response];
+}
 
+- (void)saveSuccess:(NSString *)className withResponse:(KBResponse *)response
+{
+    [_delegate saveSuccess:response];
+}
+
+- (void)saveError:(NSString *)className withResponse:(KBResponse *)response
+{
+    [_delegate saveSuccess:response];
 }
 
 @end

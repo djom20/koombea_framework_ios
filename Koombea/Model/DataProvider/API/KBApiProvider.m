@@ -70,11 +70,6 @@
     _modelName = [[model class] description];
     NSDictionary *config = [KBCore settingForKey:API_CONFIG withFile:API_SETTINGS];
     _apiClient.request.responseFormat = [config objectForKey:API_RESPONSE_FORMAT];
-    if ([self hasMultiPartData:model]) {
-        _apiClient.request.contentType = HTTP_CONTENT_TYPE_MULTIPART;
-    } else {
-        _apiClient.request.contentType = HTTP_CONTENT_TYPE_FORM;
-    }
     
     NSDictionary *methods = [KBCore settingForKey:API_METHODS withFile:API_SETTINGS];
     NSDictionary *method = [methods objectForKey:[params objectForKey:@"method"]];
@@ -121,21 +116,6 @@
 - (void)requestAlert:(KBApiClient *)apiClient
 {
     
-}
-
-- (BOOL)hasMultiPartData:(KBModel *)model
-{
-    NSMutableArray *properties = [NSMutableArray arrayWithArray:[RTCustom rt_properties:[model class]]];
-    [properties addObjectsFromArray:[RTCustom rt_properties:[model superclass]]];
-    BOOL multipart = NO;
-    for (RTProperty *prop in properties) {
-        if (![prop.name isEqualToString:@"delegate"] && ![prop.name isEqualToString:@"id"]) {
-            if ([[model valueForKey:prop.name] isKindOfClass:[UIImage class]]) {
-                multipart = YES;
-            }
-        }
-    }
-    return multipart;
 }
 
 @end

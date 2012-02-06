@@ -13,6 +13,17 @@
 
 @synthesize backgroundView;
 @synthesize loadingIndicator = _loadingIndicator;
+@synthesize alert = _alert;
+
++ (KBView *)shared
+{
+    KBView *instance;
+    if (instance == nil) {
+        instance = [[KBView alloc] init];
+        instance.alert = [[NSMutableDictionary alloc] init];
+    }
+    return instance;
+}
 
 - (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle okTitle:(NSString *)okTitle
 {
@@ -40,6 +51,18 @@
 - (void)hideLoading:(UIViewController *)viewCtrl
 {
     [_loadingIndicator removeFromSuperview];
+}
+
+
+- (void)setAlertMessage:(NSString *)message ofType:(NSString *)type {
+    NSMutableDictionary *alert = [[KBView shared] alert];
+    [alert setObject:message forKey:@"message"];
+    [alert setObject:type forKey:@"type"];
+}
+
+- (void)clearAlertMessage {
+    NSMutableDictionary *alert = [[KBView shared] alert];
+    [alert removeAllObjects];
 }
 
 - (void)setDefaultStyles

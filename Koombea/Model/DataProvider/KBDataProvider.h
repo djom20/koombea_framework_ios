@@ -20,8 +20,8 @@
 @optional
 - (void)findSuccess:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response;
 - (void)findError:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response;
-- (void)saveSuccess:(NSString *)className withData:(id)data;
-- (void)saveError:(NSString *)className withData:(id)data;
+- (void)saveSuccess:(NSString *)className withResponse:(KBResponse *)response;
+- (void)saveError:(NSString *)className withResponse:(KBResponse *)response;
 - (void)deleteSuccess:(NSString *)className withData:(id)data;
 - (void)deleteError:(NSString *)className withData:(id)data;
 @end
