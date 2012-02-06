@@ -65,8 +65,6 @@
     for (NSString *key in keys) {
         @try {
             id value = [dict objectForKey:key];
-            NSLog(@"The key: %@",key);
-            NSLog(@"The value: %@",value);
             if ([value isKindOfClass:[NSArray class]]) {
                 
                 NSLog(@"The key: %@",key);

@@ -162,6 +162,7 @@
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSArray *objects;
     NSNumber *primaryKey = nil;
+    //NSNumber *primaryKey;
     
     if ([model isNew]) {
         // Insert a new object
@@ -228,6 +229,7 @@
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:className inManagedObjectContext:moc];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
+
     if ([params isKindOfClass:[NSString class]]) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K == %d)", @"_pk", [params intValue]];
         [request setPredicate:predicate];
@@ -260,7 +262,16 @@
             [request setSortDescriptors:sortDescriptors];
         }
     }
-    NSArray *fetchedObjects = [moc executeFetchRequest:request error:&error];
+    //PPP
+    // Sortierung analog SQL "ORDER BY age ASC, name ASC"
+//    NSSortDescriptor* sortByAge =
+//    [[NSSortDescriptor alloc] initWithKey:@"age" ascending:YES];
+//    NSSortDescriptor* sortByName =
+//    [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+//    
+//    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortByAge, sortByName, nil]];
+    //PPP
+      NSArray *fetchedObjects = [moc executeFetchRequest:request error:&error];
     if(error) NSLog(ERROR_DATABASE_PROVIDER, error, [error userInfo]);
     return fetchedObjects;
 }
