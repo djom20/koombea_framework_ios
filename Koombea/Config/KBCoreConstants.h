@@ -15,8 +15,33 @@
 #define REQUEST_TIMEOUT_INTERVAL 30
 
 /* HTTP Request */
+#define HTTP_METHOD @"HttpMethod"
 #define HTTP_CONTENT_TYPE @"ContentType"
 #define HTTP_CONTENT_TYPE_FORM @"application/x-www-form-urlencoded"
+#define HTTP_CONTENT_TYPE_MULTIPART @"multipart/form-data"
+#define HTTP_DATA_BOUNDARY @"-----------------KoombeaFrameworkFormBoundary"
+
+typedef enum {
+    NO_HTTP_METHOD,
+    GET,
+    POST,
+	PUT,
+    DELETE
+} HttpMethod;
+
+/* API Config */
+#define API_CONFIG @"Config"
+#define API_HOST @"Host"
+#define API_PROTOCOL @"Protocol"
+#define API_RESPONSE_FORMAT @"ResponseFormat"
+#define API_RESPONSE_FORMAT_JSON @"JSON"
+#define API_RESPONSE_FORMAT_XML @"XML"
+#define API_KEY @"Key"
+#define API_BASIC_AUTH @"BasicAuth"
+#define API_VALIDATE_PARAMS @"ValidateParams"
+#define API_METHODS @"Methods"
+#define API_PATH @"Path"
+#define API_ERRORS @"Errors"
 
 /* Config File Names */
 #define APP_SETTINGS @"settings"
@@ -153,29 +178,6 @@ typedef enum {
 #define OP_DATA @"data"
 #define OP_SUCCESS @"success"
 #define OP_FAILURE @"failure"
-
-
-
-/* API Config */
-#define API_CONFIG @"Config"
-#define API_HOST @"Host"
-#define API_PROTOCOL @"Protocol"
-#define API_RESPONSE_FORMAT @"ResponseFormat"
-#define API_RESPONSE_FORMAT_JSON @"JSON"
-#define API_RESPONSE_FORMAT_XML @"XML"
-#define API_KEY @"Key"
-#define API_BASIC_AUTH @"BasicAuth"
-#define API_VALIDATE_PARAMS @"ValidateParams"
-#define API_METHODS @"Methods"
-#define API_ERRORS @"Errors"
-
-typedef enum {
-    NO_HTTP_METHOD,
-    GET,
-    POST,
-	PUT,
-    DELETE
-} HttpMethod;
 
 /* Tags */
 #define TAG_LOADING_INDICATOR 10000001

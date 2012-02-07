@@ -13,6 +13,7 @@
 @implementation KBRequest
 
 @synthesize delegate = _delegate;
+@synthesize contentType = _contentType;
 @synthesize sequence, identifier, url, request, _params, connection, receivedData, responseFormat, trustedHosts;
 
 + (KBRequest *) request {
@@ -53,7 +54,7 @@
     _delegate = delegate;
     _params = data;
 	url = [[NSURL alloc] initWithString:toURL];
-	NSString *postString = [KBRequest paramsToString:data];
+	NSString *postString = [KBRequest paramsToString:data withContentType:_contentType];
 	return [self createRequest:@"POST" withParms:postString];
 }
 
@@ -62,7 +63,7 @@
     _delegate = delegate;
     _params = data;
 	url = [[NSURL alloc] initWithString:toURL];
-	NSString *postString = [KBRequest paramsToString:data];
+	NSString *postString = [KBRequest paramsToString:data withContentType:_contentType];
 	return [self createRequest:@"PUT" withParms:postString];
 }
 
@@ -79,12 +80,13 @@
 	NSString *paramsLength = [NSString stringWithFormat:@"%d", [params length]];
 	[_request setHTTPMethod:type];
     
-    NSString *contentType = [[KBCore settingForKey:API_CONFIG withFile:API_SETTINGS] objectForKey:HTTP_CONTENT_TYPE];
-    if (contentType) {
-        [_request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+    if (_contentType) {
+        [_request setValue:[NSString stringWithFormat:@"%@; boundary=%@", _contentType, HTTP_DATA_BOUNDARY] forHTTPHeaderField:@"Content-Type"];
     } else {
+        _contentType = HTTP_CONTENT_TYPE_FORM;
         [_request setValue:HTTP_CONTENT_TYPE_FORM forHTTPHeaderField:@"Content-Type"];
     }
+    NSLog(@"Content-Type: %@", _contentType);
 
 	if ([type isEqualToString:@"POST"] || [type isEqualToString:@"PUT"]) {
 		[_request setValue:paramsLength forHTTPHeaderField:@"Content-Length"];
@@ -162,19 +164,50 @@
 	return parsedData;
 }
 
-+ (NSString *)paramsToString:(NSDictionary *)data {
++ (NSString *)paramsToString:(NSDictionary *)dict withContentType:(NSString *)contentType {
 	NSMutableString *paramStr = [NSMutableString stringWithFormat:@""];
 	BOOL first = YES;
-	for(NSString *key in data) {
-		if (first == YES) {
-			first = NO;
-			[paramStr appendFormat:@"%@=%@", key, [data objectForKey:key]];
-		} else {
-			[paramStr appendFormat:@"&%@=%@", key, [data objectForKey:key]];
-		}
+    NSLog(@"Content-Type 2: %@", contentType);
+	for(NSString *key in [dict allKeys]) {
+        id value = [dict objectForKey:key];
+        
+        
+        if (!contentType || [contentType isEqualToString:HTTP_CONTENT_TYPE_FORM]) {
+            if (first == YES) {
+                first = NO;
+                [paramStr appendFormat:@"%@=%@", key, value];
+            } else {
+                [paramStr appendFormat:@"&%@=%@", key, value];
+            }
+        } else {
+            if ([value isKindOfClass:[NSData class]]) {
+                //NSString *encodedData = [KBCore base64forData:value];
+                [paramStr appendString:[self fileParam:key withData:value fileName:@"temp.jpg"]];
+            } else {
+                [paramStr appendString:[self inputParam:key withValue:value]];
+            }
+        }
 	}
-	NSLog(@"Params: %@", paramStr);
+    if ([contentType isEqualToString:HTTP_CONTENT_TYPE_MULTIPART]) {
+        [paramStr appendFormat:@"\r\n--%@--\r\n", HTTP_DATA_BOUNDARY];
+    }
+	//NSLog(@"Params: %@", paramStr);
 	return paramStr;
+}
+
++ (NSString *)fileParam:(NSString *)key withData:(NSData *)data fileName:(NSString *)fileName {
+    NSMutableString *postString = [NSMutableString stringWithString:[NSString stringWithFormat:@"\r\n--%@\r\n", HTTP_DATA_BOUNDARY]];
+    [postString appendFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", key, fileName];
+    [postString appendString:@"Content-Type: application/octet-stream\r\n\r\n"];
+    [postString appendString:[KBCore base64forData:data]];    
+    return postString;
+}
+
++ (NSString *)inputParam:(NSString *)key withValue:(NSString *)value {
+    NSMutableString *postString = [NSMutableString stringWithString:[NSString stringWithFormat:@"\r\n--%@\r\n", HTTP_DATA_BOUNDARY]];
+    [postString appendFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key];
+    [postString appendString:value];
+    return postString;
 }
 
 + (NSString *)extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey {

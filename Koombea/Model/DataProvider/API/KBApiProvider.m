@@ -47,43 +47,36 @@
 {
     _modelName = className;
     _findType = findType;
-    NSDictionary *config = [KBCore settingForKey:API_CONFIG withFile:API_SETTINGS];
-    _apiClient.request.responseFormat = [config objectForKey:API_RESPONSE_FORMAT];
-    
-    NSDictionary *methods = [KBCore settingForKey:API_METHODS withFile:API_SETTINGS];
-    NSDictionary *method = [methods objectForKey:[params objectForKey:@"method"]];
-    NSString *path = [method objectForKey:@"Path"];
-    NSString *httpMethod = [method objectForKey:@"HttpMethod"];
-    NSDictionary *data = [params objectForKey:@"data"];
-    NSArray *ids = [params objectForKey:@"ids"];
-    
-    if ([KBRequest httpMethod:httpMethod] == POST) {
-        [_apiClient post:path withData:data ids:ids];
-    } else if ([KBRequest httpMethod:httpMethod] == GET) {
-        [_apiClient get:path withData:data ids:ids];
-    }
+    [self createRequestWithParams:params];
     return nil;
 }
 
 - (id)save:(KBModel *)model withParams:(id)params
 {
     _modelName = [[model class] description];
+    [self createRequestWithParams:params];
+    return nil;
+}
+
+- (void)createRequestWithParams:(id)params
+{
     NSDictionary *config = [KBCore settingForKey:API_CONFIG withFile:API_SETTINGS];
     _apiClient.request.responseFormat = [config objectForKey:API_RESPONSE_FORMAT];
     
     NSDictionary *methods = [KBCore settingForKey:API_METHODS withFile:API_SETTINGS];
     NSDictionary *method = [methods objectForKey:[params objectForKey:@"method"]];
-    NSString *path = [method objectForKey:@"Path"];
-    NSString *httpMethod = [method objectForKey:@"HttpMethod"];
+    NSString *path = [method objectForKey:API_PATH];
+    NSString *httpMethod = [method objectForKey:HTTP_METHOD];
+    NSString *contentType = [method objectForKey:HTTP_CONTENT_TYPE]; 
     NSDictionary *data = [params objectForKey:@"data"];
     NSArray *ids = [params objectForKey:@"ids"];
     
+    _apiClient.request.contentType = contentType;
     if ([KBRequest httpMethod:httpMethod] == POST) {
         [_apiClient post:path withData:data ids:ids];
     } else if ([KBRequest httpMethod:httpMethod] == GET) {
         [_apiClient get:path withData:data ids:ids];
     }
-    return nil;
 }
 
 - (void)requestDone:(KBApiClient *)apiClient withResponse:(KBApiResponse *)response
