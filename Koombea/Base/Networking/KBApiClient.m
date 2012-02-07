@@ -118,7 +118,7 @@
     }
     method = [method stringByReplacingOccurrencesOfString:@"/:id" withString:strIds];
     if(httpMethod == GET || httpMethod == DELETE) {
-        NSMutableString *paramString = (NSMutableString *)[KBRequest paramsToString:params withContentType:_request.contentType];
+        NSMutableString *paramString = [NSMutableString stringWithString:[KBRequest stringWithParams:params]];
         if ([paramString length] > 0) {
             [paramString insertString:@"?" atIndex:0];
         }
