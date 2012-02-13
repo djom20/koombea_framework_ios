@@ -13,6 +13,7 @@
 @implementation KBRequest
 
 @synthesize delegate = _delegate;
+@synthesize contentType = _contentType;
 @synthesize sequence, identifier, url, request, _params, connection, receivedData, responseFormat, trustedHosts;
 
 + (KBRequest *) request {
@@ -45,7 +46,7 @@
     _delegate = delegate;
     _params = data;
 	url = [[NSURL alloc] initWithString:toURL];	
-	return [self createRequest:@"GET" withParms:nil];
+	return [self createRequest:@"GET" withHttpBody:nil];
 }
 
 - (int)post:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
@@ -53,8 +54,8 @@
     _delegate = delegate;
     _params = data;
 	url = [[NSURL alloc] initWithString:toURL];
-	NSString *postString = [KBRequest paramsToString:data];
-	return [self createRequest:@"POST" withParms:postString];
+	NSData *body = [KBRequest httpBodyWithParams:data withContentType:_contentType];
+	return [self createRequest:@"POST" withHttpBody:body];
 }
 
 - (int)put:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {
@@ -62,8 +63,8 @@
     _delegate = delegate;
     _params = data;
 	url = [[NSURL alloc] initWithString:toURL];
-	NSString *postString = [KBRequest paramsToString:data];
-	return [self createRequest:@"PUT" withParms:postString];
+	NSData *body = [KBRequest httpBodyWithParams:data withContentType:_contentType];
+	return [self createRequest:@"PUT" withHttpBody:body];
 }
 
 - (int)del:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate {	
@@ -71,17 +72,25 @@
     _delegate = delegate;
     _params = data;
 	url = [[NSURL alloc] initWithString:toURL];	
-	return [self createRequest:@"DELETE" withParms:nil];
+	return [self createRequest:@"DELETE" withHttpBody:nil];
 }
 
-- (int) createRequest:(NSString *)type withParms:(NSString *)params {
+- (int)createRequest:(NSString *)type withHttpBody:(NSData *)httpBody {
 	NSMutableURLRequest *_request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:REQUEST_TIMEOUT_INTERVAL];
-	NSString *paramsLength = [NSString stringWithFormat:@"%d", [params length]];
+	NSString *contentLenght = [NSString stringWithFormat:@"%d", [httpBody length]];
 	[_request setHTTPMethod:type];
-	[_request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    if (_contentType) {
+        [_request setValue:[NSString stringWithFormat:@"%@; boundary=%@", _contentType, HTTP_DATA_BOUNDARY] forHTTPHeaderField:@"Content-Type"];
+    } else {
+        _contentType = HTTP_CONTENT_TYPE_FORM;
+        [_request setValue:HTTP_CONTENT_TYPE_FORM forHTTPHeaderField:@"Content-Type"];
+    }
+    NSLog(@"Content-Type: %@", _contentType);
+
 	if ([type isEqualToString:@"POST"] || [type isEqualToString:@"PUT"]) {
-		[_request setValue:paramsLength forHTTPHeaderField:@"Content-Length"];
-		[_request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+		[_request setValue:contentLenght forHTTPHeaderField:@"Content-Length"];
+		[_request setHTTPBody:httpBody];
 	} else if ([type isEqualToString:@"GET"] || [type isEqualToString:@"DELETE"]) {
 		// Do nothing
 	}
@@ -155,19 +164,57 @@
 	return parsedData;
 }
 
-+ (NSString *)paramsToString:(NSDictionary *)data {
++ (NSString *)stringWithParams:(NSDictionary *)params {
 	NSMutableString *paramStr = [NSMutableString stringWithFormat:@""];
 	BOOL first = YES;
-	for(NSString *key in data) {
-		if (first == YES) {
-			first = NO;
-			[paramStr appendFormat:@"%@=%@", key, [data objectForKey:key]];
-		} else {
-			[paramStr appendFormat:@"&%@=%@", key, [data objectForKey:key]];
-		}
+	for(NSString *key in [params allKeys]) {
+        id value = [params objectForKey:key];
+        if (first == YES) {
+            first = NO;
+            [paramStr appendFormat:@"%@=%@", key, value];
+        } else {
+            [paramStr appendFormat:@"&%@=%@", key, value];
+        }
 	}
-	NSLog(@"Params: %@", paramStr);
+	//NSLog(@"Params: %@", paramStr);
 	return paramStr;
+}
+
++ (NSData *)httpBodyWithParams:(NSDictionary *)params withContentType:(NSString *)contentType {
+    NSMutableData *body = [NSMutableData data];
+    if ([contentType isEqualToString:HTTP_CONTENT_TYPE_MULTIPART]) {
+        for(NSString *key in [params allKeys]) {
+            id value = [params objectForKey:key];
+            if ([value isKindOfClass:[NSData class]]) {
+                [body appendData:[self fileParam:key withData:value fileName:@"temp.jpg"]];
+            } else {
+                [body appendData:[self inputParam:key withValue:value]];
+            }
+        }
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", HTTP_DATA_BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+    } else {
+        [body appendData:[[self stringWithParams:params] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+	return body;
+}
+
++ (NSData *)fileParam:(NSString *)key withData:(NSData *)data fileName:(NSString *)fileName {
+    NSMutableData *param = [NSMutableData data];
+    [param appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", HTTP_DATA_BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    [param appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", key, fileName] dataUsingEncoding:NSUTF8StringEncoding]];
+    [param appendData:[[NSString stringWithFormat:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [param appendData:data];    
+    return param;
+}
+
++ (NSData *)inputParam:(NSString *)key withValue:(NSString *)value {
+    NSMutableData *param = [NSMutableData data];
+    [param appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", HTTP_DATA_BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    [param appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
+    [param appendData:[value dataUsingEncoding:NSUTF8StringEncoding]];
+    return param;
 }
 
 + (NSString *)extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey {

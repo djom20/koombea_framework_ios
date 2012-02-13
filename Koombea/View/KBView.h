@@ -13,10 +13,15 @@
 @interface KBView : UIViewController {
     UIImageView *backgroundView;
     MBProgressHUD *_loadingIndicator;
+    
+    NSMutableDictionary *_alert;
 }
 
+@property (nonatomic, strong) NSMutableDictionary *alert;
 @property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) MBProgressHUD *loadingIndicator;
+
++ (KBView *)shared;
 
 - (void)setDefaultStyles;
 - (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelButtonTitle okTitle:(NSString *)okTitle;

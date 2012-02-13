@@ -13,6 +13,7 @@
 
 @synthesize backgroundView;
 @synthesize tableData;
+@synthesize loadingIndicator = _loadingIndicator;
 
 - (void)showAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle okTitle:(NSString *)okTitle
 {
@@ -29,10 +30,21 @@
 {
     [self showAlert:@"Error" message:message cancelTitle:@"OK" okTitle:nil];
 }
+- (void)showLoading:(UIViewController *)viewCtrl withText:(NSString *)text
+{
+    [self.navigationController.view addSubview:_loadingIndicator];
+    _loadingIndicator.labelText = text;
+    [_loadingIndicator show:YES];
+}
 
+- (void)hideLoading:(UIViewController *)viewCtrl
+{
+    [_loadingIndicator removeFromSuperview];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self setDefaultStyles];
     tableData = [NSMutableArray array];
 }
@@ -93,7 +105,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return NO;
 }
 
 @end

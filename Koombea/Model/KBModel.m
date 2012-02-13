@@ -248,5 +248,6 @@
 }
 - (void)saveError:(NSString *)className withResponse:(KBResponse *)response {
     [_delegate saveError:response];
+
 }
 @end

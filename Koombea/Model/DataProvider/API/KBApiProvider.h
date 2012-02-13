@@ -15,5 +15,6 @@
 
 - (KBApiProvider *)init;
 + (KBApiProvider *)shared;
+- (void)createRequestWithParams:(id)params;
 
 @end

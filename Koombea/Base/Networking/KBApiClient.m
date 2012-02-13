@@ -118,14 +118,14 @@
     }
     method = [method stringByReplacingOccurrencesOfString:@"/:id" withString:strIds];
     if(httpMethod == GET || httpMethod == DELETE) {
-        NSMutableString *paramString = (NSMutableString *)[KBRequest paramsToString:params];
+        NSMutableString *paramString = [NSMutableString stringWithString:[KBRequest stringWithParams:params]];
         if ([paramString length] > 0) {
             [paramString insertString:@"?" atIndex:0];
         }
         strURL = [NSString stringWithFormat:@"%@://%@%@/%@%@", httpProtocol, basicAuth, host, method, paramString];
 
     } else if(httpMethod == POST || httpMethod == PUT) {
-        strURL = [NSString stringWithFormat:@"%@://%@%@/%@%@", httpProtocol, basicAuth, host, method, strIds];
+        strURL = [NSString stringWithFormat:@"%@://%@%@/%@", httpProtocol, basicAuth, host, method];
     }
     return strURL;
 }

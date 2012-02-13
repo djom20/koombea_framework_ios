@@ -23,6 +23,7 @@
     id<KBRequestDelegate> _delegate;
 	id parsedData;
     NSString *responseFormat;
+    NSString *_contentType;
     int sequence;
     NSString *identifier;
     NSDictionary *_params;
@@ -36,7 +37,8 @@
 
 @property (nonatomic, strong) id<KBRequestDelegate> delegate;
 @property (nonatomic, strong) NSString *responseFormat;
-@property (nonatomic, assign) int sequence;
+@property (nonatomic, strong) NSString *contentType;
+@property (nonatomic) int sequence;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSURLRequest *request;
@@ -47,16 +49,19 @@
 
 + (KBRequest *) request;
 + (KBRequest *) shared;
-+ (int) nextSequence;
-- (void) addTrustedHost:(NSString *)host;
-- (int) get:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
-- (int) post:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
-- (int) put:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
-- (int) del:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
-- (int) createRequest:(NSString *)type withParms:(NSString *)params;
-- (id) data;
-+ (NSString *) paramsToString:(NSDictionary *)data;
-+ (NSString *) extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey;
++ (int)nextSequence;
+- (void)addTrustedHost:(NSString *)host;
+- (int)get:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
+- (int)post:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
+- (int)put:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
+- (int)del:(NSString *)toURL withData:(NSDictionary *)data andDelegate:(id<KBRequestDelegate>)delegate;
+- (int)createRequest:(NSString *)type withHttpBody:(NSData *)httpBody;
+- (id)data;
++ (NSString *)stringWithParams:(NSDictionary *)params;
++ (NSData *)httpBodyWithParams:(NSDictionary *)params withContentType:(NSString *)contentType;
++ (NSData *)fileParam:(NSString *)key withData:(NSData *)data fileName:(NSString *)fileName;
++ (NSData *)inputParam:(NSString *)key withValue:(NSString *)value;
++ (NSString *)extractValueFromParamString:(NSString *)strParams withKey:(NSString *)strKey;
 + (HttpMethod)httpMethod:(NSString *)methodName;
 
 @end
