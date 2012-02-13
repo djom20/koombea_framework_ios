@@ -28,7 +28,7 @@
 {
     NSString* kAppId = [[KBCore settingForKey:FB_SETTINGS] objectForKey:FB_APP_ID];
     facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:self];
-    permissions = [NSArray arrayWithObjects:@"read_stream", @"publish_stream", @"email", @"offline_access", nil];
+    permissions = [NSArray arrayWithObjects:@"read_stream", @"publish_stream", @"email", @"offline_access", @"user_location", nil];
     
     // Check App ID:
     // This is really a warning for the developer, this should not
@@ -93,8 +93,6 @@
 
 #pragma mark - FacebookProvider methods
 
-
-
 - (void)login {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
@@ -106,7 +104,6 @@
         [data setObject:[facebook accessToken] forKey:@"token"];
         [data setObject:[result objectForKey:@"id"] forKey:@"id"];
         
-        NSLog(@"Model name: %@",_modelName);
         KBResponse *response = [KBResponse response];
         response.data = data;
         [_delegate findSuccess:KBFindFirst model:_modelName withResponse:response];
@@ -116,7 +113,7 @@
         [facebook authorize:permissions];
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self selector:@selector(facebookInfoReady:) name:NOTE_FB_INFO_READY object:nil];
-
+        
     } else {
         [_delegate findError:KBFindFirst model:_modelName withResponse:nil];
     }
@@ -146,6 +143,12 @@
 }
 
 - (void)fbDidLogout {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"app_auth_data"];
+    //[defaults removeObjectForKey:@"FBUserData"];
+    //[defaults removeObjectForKey:@"FBAccessTokenKey"];
+    //[defaults removeObjectForKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
 }
 
 #pragma mark - Facebook delegate methods <FBRequestDelegate>
@@ -161,18 +164,19 @@
 }
 
 - (void)request:(FBRequest *)request didLoad:(id)result {
+    NSLog(@"Facebook info: %@", result);
     NSString* fullURL = [[request url] description];
     NSString *graphPath = [fullURL stringByReplacingOccurrencesOfString:[Facebook graphBaseURL] withString:@""];
     if ([graphPath isEqualToString:FB_GRAPH_PATH_ME]) {
         //NSLog(@"Facebook authToken: %@", [facebook accessToken]);
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *fbUserData = [result dictionaryWithoutCollections];
-        [defaults setObject:fbUserData forKey:@"FBUserData"];
+        //NSDictionary *fbUserData = [result dictionaryWithoutCollections];
+        //NSLog(@"facebook data %@",fbUserData);
+        [defaults setObject:result forKey:@"FBUserData"];
         [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
         [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
         [defaults synchronize];
-        
-        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:fbUserData];
+        NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:result];
         [data setObject:[facebook accessToken] forKey:@"token"];
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];

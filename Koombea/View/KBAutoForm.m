@@ -78,12 +78,29 @@
         for (QElement *element in section.elements) { 
             if ([element.key isEqualToString:key]) {
                 if ([element isKindOfClass:[QEntryElement class]]) {
-                    ((QEntryElement *) element).textValue = value;
+                    if ([value isKindOfClass:[NSDate class]]) {
+                        ((QDateTimeInlineElement *) element).dateValue = value;
+                    } else {
+                        ((QEntryElement *) element).textValue = value;
+                    }
                     [self.tableView reloadData];
+                } else if ([element isKindOfClass:[QButtonElement class]]) {
+                    ((QButtonElement *) element).title = value;
                 }
             } 
         }
     }
+}
+
+- (id)elementWithKey:(NSString *)key {
+    for (QSection *section in root.sections) {
+        for (QElement *element in section.elements) { 
+            if ([element.key isEqualToString:key]) {
+                return element;
+            } 
+        }
+    }
+    return nil;
 }
 
 #pragma mark -

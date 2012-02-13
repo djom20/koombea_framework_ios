@@ -86,7 +86,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    //_loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self setDefaultStyles];
 }
 
@@ -102,5 +102,6 @@
     // Return YES for supported orientations
      return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 @end

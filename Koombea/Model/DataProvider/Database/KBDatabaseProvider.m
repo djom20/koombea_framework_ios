@@ -162,6 +162,7 @@
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSArray *objects;
     NSNumber *primaryKey = nil;
+    //NSNumber *primaryKey;
     
     if ([model isNew]) {
         // Insert a new object

@@ -174,6 +174,8 @@
 		3FAD67B714BF3D5200CB51F2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD67B614BF3D5200CB51F2 /* Parse.framework */; };
 		3FAD67BE14BF3FC500CB51F2 /* KBParseProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FAD67BF14BF3FC500CB51F2 /* KBParseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */; };
+		6FB099FF14E573D700C6161D /* CheckList.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FB099FD14E573D700C6161D /* CheckList.h */; };
+		6FB09A0014E573D700C6161D /* CheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB099FE14E573D700C6161D /* CheckList.m */; };
 		912B665E14C87F6600CAE407 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 912B665C14C87F6600CAE407 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		912B665F14C87F6600CAE407 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 912B665D14C87F6600CAE407 /* MBProgressHUD.m */; };
 		9169175C14C87D2500831132 /* KBHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9169175A14C87D2500831132 /* KBHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -355,6 +357,8 @@
 		3FAD67B614BF3D5200CB51F2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Koombea/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		3FAD67BC14BF3FC500CB51F2 /* KBParseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBParseProvider.h; path = Parse/KBParseProvider.h; sourceTree = "<group>"; };
 		3FAD67BD14BF3FC500CB51F2 /* KBParseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBParseProvider.m; path = Parse/KBParseProvider.m; sourceTree = "<group>"; };
+		6FB099FD14E573D700C6161D /* CheckList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckList.h; path = ../tracktopia_21/tracktopia_20/TrackTopia/App/Models/CheckList/CheckList.h; sourceTree = "<group>"; };
+		6FB099FE14E573D700C6161D /* CheckList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckList.m; path = ../tracktopia_21/tracktopia_20/TrackTopia/App/Models/CheckList/CheckList.m; sourceTree = "<group>"; };
 		912B665C14C87F6600CAE407 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		912B665D14C87F6600CAE407 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9169175A14C87D2500831132 /* KBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBHelper.h; path = Helper/KBHelper.h; sourceTree = "<group>"; };
@@ -451,6 +455,8 @@
 		3F71CF0414A236BC00F20805 = {
 			isa = PBXGroup;
 			children = (
+				6FB099FD14E573D700C6161D /* CheckList.h */,
+				6FB099FE14E573D700C6161D /* CheckList.m */,
 				3F71CF1714A236BD00F20805 /* App */,
 				3F71CF2D14A2373800F20805 /* Config */,
 				3F71CF4314A2373800F20805 /* Vendors */,
@@ -911,6 +917,7 @@
 				9169175C14C87D2500831132 /* KBHelper.h in Headers */,
 				912B665E14C87F6600CAE407 /* MBProgressHUD.h in Headers */,
 				3F0321C414C8C84F00939F49 /* XMLReader.h in Headers */,
+				6FB099FF14E573D700C6161D /* CheckList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,6 +1098,7 @@
 				3F5BCD9814CA0F5300105509 /* KBOperation.m in Sources */,
 				91E6A5A514CF0DAC00BF761B /* KBXMLProvider.m in Sources */,
 				91E6A61414CF1AAB00BF761B /* NSDictionary+Dictionary.m in Sources */,
+				6FB09A0014E573D700C6161D /* CheckList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1114,7 +1122,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jonathan Tarud";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jonathan Tarud (XRD97T8RNM)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1129,7 +1137,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "6E2557C6-1C50-4CF6-ACAE-30B7ADCCF093";
+				PROVISIONING_PROFILE = "B439EBEF-7FE6-44A0-B6A7-94EEB6D79825";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1140,7 +1148,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jonathan Tarud";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jonathan Tarud (XRD97T8RNM)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1148,7 +1156,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "6E2557C6-1C50-4CF6-ACAE-30B7ADCCF093";
+				PROVISIONING_PROFILE = "B439EBEF-7FE6-44A0-B6A7-94EEB6D79825";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

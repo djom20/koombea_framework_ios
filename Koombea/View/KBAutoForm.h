@@ -22,5 +22,6 @@
 - (NSArray *)validateForm;
 - (NSDictionary *)validateField:(QElement *)element;
 - (void)setValue:(id)value forElementWithKey:(NSString *)key;
+- (id)elementWithKey:(NSString *)key;
 
 @end

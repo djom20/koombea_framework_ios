@@ -65,11 +65,7 @@
     for (NSString *key in keys) {
         @try {
             id value = [dict objectForKey:key];
-            NSLog(@"The key: %@",key);
-            NSLog(@"The value: %@",value);
             if ([value isKindOfClass:[NSArray class]]) {
-                
-                NSLog(@"The key: %@",key);
                 id SubModelClass = NSClassFromString([[key singularizeString] capitalizedString]);
                 NSMutableArray *subArray = [[NSMutableArray alloc] init];
                 for (NSDictionary *subData in value) {
@@ -235,7 +231,7 @@
 #pragma mark - KBDataProviderDelegate methods
 
 - (void)findSuccess:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response
-{
+{   
     id ModelClass = NSClassFromString(className);
     id instance = [[ModelClass alloc] init];
     instance = [KBModel fillModel:instance withDictionary:response.data];
@@ -245,7 +241,12 @@
 
 - (void)findError:(KBFindType)findType model:(NSString *)className withResponse:(KBResponse *)response
 {
-
+    NSLog(@"error");
 }
-
+- (void)saveSuccess:(NSString *)className withResponse:(KBResponse *)response {
+    [_delegate saveSuccess:response];
+}
+- (void)saveError:(NSString *)className withResponse:(KBResponse *)response {
+    [_delegate saveError:response];
+}
 @end

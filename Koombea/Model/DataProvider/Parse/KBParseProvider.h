@@ -11,5 +11,6 @@
 @interface KBParseProvider : KBDataProvider
 
 + (KBParseProvider *)shared;
+- (PFObject *)fillObject:(KBModel *)model;
 
 @end
