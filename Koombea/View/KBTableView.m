@@ -33,8 +33,8 @@
 - (void)showLoading:(UIViewController *)viewCtrl withText:(NSString *)text
 {
     [self.navigationController.view addSubview:_loadingIndicator];
-    _loadingIndicator.labelText = text;
-    [_loadingIndicator show:YES];
+    _loadingIndicator.loadingText = text;
+    [_loadingIndicator showLoading:YES];
 }
 
 - (void)hideLoading:(UIViewController *)viewCtrl
@@ -44,7 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    //_loadingIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self setDefaultStyles];
     tableData = [NSMutableArray array];
 }
@@ -105,6 +105,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
+        if(interfaceOrientation == UIDeviceOrientationPortrait){
+//        NSLog(@"KBTableView-UIDeviceOrientationPortrait");    
+        return YES;
+    }
+    //if(interfaceOrientation == UIDeviceOrientationLandscapeRight) return YES;
     return NO;
 }
 

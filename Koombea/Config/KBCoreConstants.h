@@ -19,6 +19,7 @@
 #define HTTP_CONTENT_TYPE @"ContentType"
 #define HTTP_CONTENT_TYPE_FORM @"application/x-www-form-urlencoded"
 #define HTTP_CONTENT_TYPE_MULTIPART @"multipart/form-data"
+#define HTTP_CONTENT_TYPE_JSON @"application/json"
 #define HTTP_DATA_BOUNDARY @"-----------------KoombeaFrameworkFormBoundary"
 
 typedef enum {

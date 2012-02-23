@@ -81,7 +81,12 @@
 	[_request setHTTPMethod:type];
     
     if (_contentType) {
-        [_request setValue:[NSString stringWithFormat:@"%@; boundary=%@", _contentType, HTTP_DATA_BOUNDARY] forHTTPHeaderField:@"Content-Type"];
+        if ([_contentType isEqualToString:HTTP_CONTENT_TYPE_MULTIPART]) {
+            [_request setValue:[NSString stringWithFormat:@"%@; boundary=%@", _contentType, HTTP_DATA_BOUNDARY] forHTTPHeaderField:@"Content-Type"];
+        } else {
+            [_request setValue:_contentType forHTTPHeaderField:@"Content-Type"];
+        }
+        
     } else {
         _contentType = HTTP_CONTENT_TYPE_FORM;
         [_request setValue:HTTP_CONTENT_TYPE_FORM forHTTPHeaderField:@"Content-Type"];
@@ -137,7 +142,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection*) connection {
 	NSString *response = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    if(DEBUG_NETWORKING) NSLog(@"Response received: %@", response);
+    if(DEBUG_NETWORKING) NSLog(@"Response received12: %@", response);
     NSError *error;
     if([responseFormat isEqualToString:API_RESPONSE_FORMAT_JSON]) {
         @try {
@@ -193,7 +198,11 @@
         }
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", HTTP_DATA_BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
         
-    } else {
+    } else if ([contentType isEqualToString:HTTP_CONTENT_TYPE_JSON]) {
+        NSLog(@"Params: %@", [params JSONRepresentation]);
+        [body appendData:[[params JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+    } else { // DEFAULT: HTTP_CONTENT_TYPE_FORM
         [body appendData:[[self stringWithParams:params] dataUsingEncoding:NSUTF8StringEncoding]];
     }
     

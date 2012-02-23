@@ -109,7 +109,7 @@ typedef enum {
 #else
 	id<MBProgressHUDDelegate> delegate;
 #endif
-    NSString *labelText;
+    NSString *loadingText;
 	NSString *detailsLabelText;
 	float opacity;
 	UIFont *labelFont;
@@ -204,7 +204,7 @@ typedef enum {
  * the entire text. If the text is too long it will get clipped by displaying "..." at the end. If left unchanged or
  * set to @"", then no message is displayed.
  */
-@property (copy) NSString *labelText;
+@property (copy) NSString *loadingText;
 
 /** 
  * An optional details message displayed below the labelText message. This message is displayed only if the labelText
@@ -318,7 +318,7 @@ typedef enum {
  * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
  * animations while disappearing.
  */
-- (void)show:(BOOL)animated;
+- (void)showLoading:(BOOL)animated;
 
 /** 
  * Hide the HUD. This still calls the hudWasHidden delegate. This is the counterpart of the hide: method. Use it to
@@ -327,7 +327,7 @@ typedef enum {
  * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
  * animations while disappearing.
  */
-- (void)hide:(BOOL)animated;
+- (void)hideLoading:(BOOL)animated;
 
 /** 
  * Hide the HUD after a delay. This still calls the hudWasHidden delegate. This is the counterpart of the hide: method. Use it to
@@ -337,7 +337,7 @@ typedef enum {
  * animations while disappearing.
  * @param delay Delay in secons until the HUD is hidden.
  */
-- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay;
+- (void)hideLoading:(BOOL)animated afterDelay:(NSTimeInterval)delay;
 
 /** 
  * Shows the HUD while a background task is executing in a new thread, then hides the HUD.

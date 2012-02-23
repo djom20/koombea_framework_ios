@@ -100,7 +100,7 @@
 	return mode;
 }
 
-- (void)setLabelText:(NSString *)newText {
+- (void)setLoadingText:(NSString *)newText {
 	if ([NSThread isMainThread]) {
 		[self updateLabelText:newText];
 		[self setNeedsLayout];
@@ -112,8 +112,8 @@
 	}
 }
 
-- (NSString *)labelText {
-	return labelText;
+- (NSString *)loadingText {
+	return loadingText;
 }
 
 - (void)setDetailsLabelText:(NSString *)newText {
@@ -155,11 +155,11 @@
 #pragma mark Accessor helpers
 
 - (void)updateLabelText:(NSString *)newText {
-    if (labelText != newText) {
+    if (loadingText != newText) {
 #if !__has_feature(objc_arc)
-        [labelText release];
+        [loadingText release];
 #endif
-        labelText = [newText copy];
+        loadingText = [newText copy];
     }
 }
 
@@ -219,7 +219,7 @@
 + (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
 	MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
 	[view addSubview:hud];
-	[hud show:animated];
+	[hud showLoading:animated];
 #if __has_feature(objc_arc)
 	return hud;
 #else
@@ -237,7 +237,7 @@
 	if (viewToRemove != nil) {
 		MBProgressHUD *HUD = (MBProgressHUD *)viewToRemove;
 		HUD.removeFromSuperViewOnHide = YES;
-		[HUD hide:animated];
+		[HUD hideLoading:animated];
 		return YES;
 	} else {
 		return NO;
@@ -284,7 +284,7 @@
         // Set default values for properties
         self.animationType = MBProgressHUDAnimationFade;
         self.mode = MBProgressHUDModeIndeterminate;
-        self.labelText = nil;
+        self.loadingText = nil;
         self.detailsLabelText = nil;
         self.opacity = 0.8f;
         self.labelFont = [UIFont boldSystemFontOfSize:LABELFONTSIZE];
@@ -325,7 +325,7 @@
     [indicator release];
     [label release];
     [detailsLabel release];
-    [labelText release];
+    [loadingText release];
     [detailsLabelText release];
 	[graceTimer release];
 	[minShowTimer release];
@@ -352,9 +352,9 @@
     indicator.frame = indFrame;
 	
     // Add label if label text was set
-    if (nil != self.labelText) {
+    if (nil != self.loadingText) {
         // Get size of label text
-        CGSize dims = [self.labelText sizeWithFont:self.labelFont];
+        CGSize dims = [self.loadingText sizeWithFont:self.labelFont];
 		
         // Compute label dimensions based on font metrics if size is larger than max then clip the label width
         float lHeight = dims.height;
@@ -373,7 +373,7 @@
         label.opaque = NO;
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
-        label.text = self.labelText;
+        label.text = self.loadingText;
 		
         // Update HUD size
         if (self.width < (lWidth + 2 * margin)) {
@@ -455,7 +455,7 @@
 #pragma mark -
 #pragma mark Showing and execution
 
-- (void)show:(BOOL)animated {
+- (void)showLoading:(BOOL)animated {
 	useAnimation = animated;
 	
 	// If the grace time is set postpone the HUD display
@@ -473,7 +473,7 @@
 	}
 }
 
-- (void)hide:(BOOL)animated {
+- (void)hideLoading:(BOOL)animated {
 	useAnimation = animated;
 	
 	// If the minShow time is set, calculate how long the hud was shown,
@@ -494,12 +494,12 @@
     [self hideUsingAnimation:useAnimation];
 }
 
-- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay {
+- (void)hideLoading:(BOOL)animated afterDelay:(NSTimeInterval)delay {
 	[self performSelector:@selector(hideDelayed:) withObject:[NSNumber numberWithBool:animated] afterDelay:delay];
 }
 
 - (void)hideDelayed:(NSNumber *)animated {
-	[self hide:[animated boolValue]];
+	[self hideLoading:[animated boolValue]];
 }
 
 - (void)handleGraceTimer:(NSTimer *)theTimer {
@@ -530,7 +530,7 @@
     [NSThread detachNewThreadSelector:@selector(launchExecution) toTarget:self withObject:nil];
 	
 	// Show HUD view
-	[self show:animated];
+	[self showLoading:animated];
 }
 
 - (void)launchExecution {
@@ -584,7 +584,7 @@
     [objectForExecution release];
 #endif
 	
-    [self hide:useAnimation];
+    [self hideLoading:useAnimation];
 }
 
 #pragma mark -

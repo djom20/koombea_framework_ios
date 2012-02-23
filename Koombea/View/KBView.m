@@ -44,15 +44,14 @@
 - (void)showLoading:(UIViewController *)viewCtrl withText:(NSString *)text
 {
     [self.navigationController.view addSubview:_loadingIndicator];
-    _loadingIndicator.labelText = text;
-    [_loadingIndicator show:YES];
+    _loadingIndicator.loadingText = text;
+    [_loadingIndicator showLoading:YES];
 }
 
 - (void)hideLoading:(UIViewController *)viewCtrl
 {
     [_loadingIndicator removeFromSuperview];
 }
-
 
 - (void)setAlertMessage:(NSString *)message ofType:(NSString *)type {
     NSMutableDictionary *alert = [[KBView shared] alert];
@@ -92,8 +91,7 @@
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
+    [super didReceiveMemoryWarning];    
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -122,8 +120,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    // Return YES for supported orientations
+    if(interfaceOrientation == UIDeviceOrientationPortrait){
+        //        NSLog(@"KBTableView-UIDeviceOrientationPortrait");    
+        return YES;
+    }
+    //if(interfaceOrientation == UIDeviceOrientationLandscapeRight) return YES;
     return NO;
 }
-
 
 @end

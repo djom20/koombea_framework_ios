@@ -72,6 +72,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    // Return YES for supported orientations
+    if(interfaceOrientation == UIDeviceOrientationPortrait){
+        //        NSLog(@"KBTableView-UIDeviceOrientationPortrait");    
+        return YES;
+    }
+    //if(interfaceOrientation == UIDeviceOrientationLandscapeRight) return YES;
     return NO;
 }
 
